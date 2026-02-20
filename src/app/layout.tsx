@@ -40,21 +40,12 @@ export const metadata: Metadata = {
     description:
       "CS, JavaScript, React 등 프론트엔드 지식을 플래시카드로 학습하세요.",
     siteName: "Frontend Kit",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Frontend Kit - 프론트엔드 지식을 학습하는 플래시카드 앱",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Frontend Kit - 프론트엔드 플래시카드",
     description:
       "CS, JavaScript, React 등 프론트엔드 지식을 플래시카드로 학습하세요.",
-    images: ["/og-image.png"],
   },
   icons: {
     icon: [
