@@ -5,10 +5,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 ```bash
-npm run dev      # Start development server (PWA disabled in dev)
-npm run build    # Production build (Next.js + Serwist service worker)
-npm run lint     # Run ESLint
-npm start        # Start production server
+pnpm dev         # Start development server (PWA disabled in dev)
+pnpm build       # Production build (Next.js + Serwist service worker)
+pnpm lint        # Run ESLint
+pnpm start       # Start production server
 ```
 
 **Icon regeneration** (run after changing `public/favicon.svg`):
