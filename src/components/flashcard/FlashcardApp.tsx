@@ -32,6 +32,23 @@ export function FlashcardApp() {
         <CategoryFilter />
         <FlashcardDeck fontSize={fontSize} />
         <NavigationControls />
+        <footer className="flex items-center justify-center gap-3 border-t border-neutral-100 px-5 py-3 dark:border-neutral-800">
+          <a
+            href="https://github.com/umsungjun"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cursor-pointer text-xs text-neutral-400 transition-colors hover:text-neutral-600 dark:text-neutral-500 dark:hover:text-neutral-300"
+          >
+            GitHub
+          </a>
+          <span className="text-neutral-200 dark:text-neutral-700">·</span>
+          <a
+            href="mailto:umseongjun@naver.com"
+            className="cursor-pointer text-xs text-neutral-400 transition-colors hover:text-neutral-600 dark:text-neutral-500 dark:hover:text-neutral-300"
+          >
+            umseongjun@naver.com
+          </a>
+        </footer>
       </FlashcardProvider>
     </MobileContainer>
   );
