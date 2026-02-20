@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#ffffff"/>
+
+  <!-- Icon box: centered at (600, 230), 120x120 -->
+  <rect x="540" y="170" width="120" height="120" rx="28" fill="#f97316"/>
+  <!-- < left chevron -->
+  <polyline points="569,197 553,230 569,263" fill="none" stroke="white" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- > right chevron -->
+  <polyline points="631,197 647,230 631,263" fill="none" stroke="white" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- / slash -->
+  <line x1="623" y1="193" x2="577" y2="267" stroke="white" stroke-width="11" stroke-linecap="round"/>
+
+  <!-- Title: centered at x=600 -->
+  <text x="600" y="360" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="64" font-weight="800" fill="#171717" letter-spacing="-2" text-anchor="middle">Frontend Kit</text>
+
+  <!-- Subtitle: centered at x=600 -->
+  <text x="600" y="410" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="26" fill="#a3a3a3" text-anchor="middle">프론트엔드 개발자 면접 준비</text>
+</svg>
