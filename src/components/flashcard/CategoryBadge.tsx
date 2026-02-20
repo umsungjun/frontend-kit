@@ -11,7 +11,7 @@ export function CategoryBadge({ category }: CategoryBadgeProps) {
 
   return (
     <span
-      className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium ${config.bgColor} ${config.color}`}
+      className={`inline-flex self-start items-center gap-1.5 rounded-full px-3 py-1 text-sm font-medium ${config.bgColor} ${config.color}`}
     >
       <Icon size={14} />
       {config.label}
