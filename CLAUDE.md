@@ -11,12 +11,6 @@ pnpm lint        # Run ESLint
 pnpm start       # Start production server
 ```
 
-**Icon regeneration** (run after changing `public/favicon.svg`):
-```bash
-bash scripts/generate-icons.sh
-```
-This uses macOS `qlmanage` + `sips` to generate all PNG icons from the SVG source.
-
 ## Architecture
 
 ### Data Flow
@@ -67,5 +61,4 @@ IDs must be unique within the file. `questions.ts` auto-includes the new data vi
 ### Icons & OG Image
 
 - Source of truth: `public/favicon.svg` (orange `</>` icon)
-- All PNGs are generated from this SVG via `scripts/generate-icons.sh`
 - OG image source: `public/og-image.svg` → rendered to `public/og-image.png`
