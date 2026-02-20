@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Frontend Kit" }],
   creator: "Frontend Kit",
-  metadataBase: new URL("https://frontend-kit.vercel.app"),
+  metadataBase: new URL("https://kr-frontend-kit.vercel.app"),
   openGraph: {
     type: "website",
     locale: "ko_KR",
@@ -71,6 +71,9 @@ export const metadata: Metadata = {
     capable: true,
     statusBarStyle: "default",
     title: "프론트엔드 개발자 면접 준비 | Frontend Kit",
+  },
+  verification: {
+    google: "FkVxpqkKnBQlSm1tgTF-GyQP0GLfhX_z03E6h21lipo",
   },
   formatDetection: {
     telephone: false,
