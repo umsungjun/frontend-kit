@@ -16,18 +16,22 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Frontend Kit - 프론트엔드 플래시카드",
+  title: "프론트엔드 개발자 면접 준비 | Frontend Kit",
   description:
-    "CS, JavaScript, React, HTML/CSS, 자료구조, 알고리즘 등 프론트엔드 지식을 플래시카드로 학습하세요. 스와이프로 간편하게 넘기고, 오프라인에서도 사용할 수 있는 PWA 앱입니다.",
+    "JavaScript, React, CS, HTML/CSS, 자료구조, 알고리즘 등 프론트엔드 핵심 개념을 플래시카드로 빠르게 복습하세요. 취업 준비생·현직 개발자를 위한 무료 학습 앱.",
   keywords: [
+    "프론트엔드 면접",
+    "개발자 면접 준비",
     "프론트엔드",
     "플래시카드",
     "JavaScript",
+    "자바스크립트 개념",
     "React",
+    "리액트 면접",
     "CS",
-    "면접준비",
-    "개발자",
-    "학습",
+    "면접 질문",
+    "취업 준비",
+    "개념 정리",
     "PWA",
   ],
   authors: [{ name: "Frontend Kit" }],
@@ -36,16 +40,25 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "ko_KR",
-    title: "Frontend Kit - 프론트엔드 플래시카드",
+    title: "프론트엔드 개발자 면접 준비 | Frontend Kit",
     description:
-      "CS, JavaScript, React 등 프론트엔드 지식을 플래시카드로 학습하세요.",
+      "JavaScript, React, CS 등 프론트엔드 핵심 개념을 플래시카드로 빠르게 복습하세요. 취업 준비생·현직 개발자를 위한 무료 학습 앱.",
     siteName: "Frontend Kit",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "프론트엔드 개발자 면접 준비 | Frontend Kit",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Frontend Kit - 프론트엔드 플래시카드",
+    title: "프론트엔드 개발자 면접 준비 | Frontend Kit",
     description:
-      "CS, JavaScript, React 등 프론트엔드 지식을 플래시카드로 학습하세요.",
+      "JavaScript, React, CS 등 프론트엔드 핵심 개념을 플래시카드로 빠르게 복습하세요. 취업 준비생·현직 개발자를 위한 무료 학습 앱.",
+    images: ["/og-image.png"],
   },
   icons: {
     icon: [
@@ -57,7 +70,7 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "Frontend Kit",
+    title: "프론트엔드 개발자 면접 준비 | Frontend Kit",
   },
   formatDetection: {
     telephone: false,

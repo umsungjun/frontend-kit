@@ -2,13 +2,13 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Frontend Kit",
-    short_name: "FE Kit",
-    description: "프론트엔드 지식을 학습하는 플래시카드 앱",
+    name: "프론트엔드 개발자 면접 준비 | Frontend Kit",
+    short_name: "Frontend Kit",
+    description: "JavaScript, React, CS 등 프론트엔드 핵심 개념을 플래시카드로 빠르게 복습하세요. 취업 준비생·현직 개발자를 위한 무료 학습 앱.",
     start_url: "/",
     display: "standalone",
     background_color: "#ffffff",
-    theme_color: "#3b82f6",
+    theme_color: "#f97316",
     orientation: "portrait",
     icons: [
       {
