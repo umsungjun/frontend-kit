@@ -24,7 +24,7 @@ export function FlashcardCard({
   const preset = FONT_SIZE_PRESETS[fontSize];
 
   return (
-    <div className="flex flex-col gap-4 rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm dark:border-neutral-700 dark:bg-neutral-800 dark:shadow-none">
+    <div className="flex min-h-96 flex-col gap-4 rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm dark:border-neutral-700 dark:bg-neutral-800 dark:shadow-none">
       <CategoryBadge category={card.category} />
 
       <p className={`font-semibold leading-relaxed ${preset.questionClass}`}>
@@ -53,7 +53,7 @@ export function FlashcardCard({
 
       <button
         onClick={onToggleAnswer}
-        className="mt-auto w-full rounded-xl bg-neutral-100 py-3 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-200 active:bg-neutral-300 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-600 dark:active:bg-neutral-500"
+        className="mt-auto w-full cursor-pointer rounded-xl bg-neutral-100 py-3 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-200 active:bg-neutral-300 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-600 dark:active:bg-neutral-500"
       >
         {isAnswerRevealed ? "답변 숨기기" : "답변 보기"}
       </button>

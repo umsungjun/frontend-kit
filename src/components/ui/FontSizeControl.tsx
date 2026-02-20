@@ -21,7 +21,7 @@ export function FontSizeControl({ fontSize, onChange }: FontSizeControlProps) {
         <button
           key={key}
           onClick={() => onChange(key)}
-          className={`flex h-9 w-9 items-center justify-center rounded-xl font-medium transition-colors ${textClass} ${
+          className={`flex h-9 w-9 cursor-pointer items-center justify-center rounded-xl font-medium transition-colors ${textClass} ${
             fontSize === key
               ? "bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300"
               : "text-neutral-600 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-800"
