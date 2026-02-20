@@ -24,7 +24,7 @@ export function FlashcardCard({
   const preset = FONT_SIZE_PRESETS[fontSize];
 
   return (
-    <div className="flex flex-col gap-4 rounded-2xl bg-white p-6 shadow-md dark:bg-gray-800">
+    <div className="flex flex-col gap-4 rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm dark:border-neutral-700 dark:bg-neutral-800 dark:shadow-none">
       <CategoryBadge category={card.category} />
 
       <p className={`font-semibold leading-relaxed ${preset.questionClass}`}>
@@ -40,9 +40,9 @@ export function FlashcardCard({
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <div className="border-t border-gray-200 pt-4 dark:border-gray-700">
+            <div className="border-t border-neutral-200 pt-4 dark:border-neutral-700">
               <p
-                className={`whitespace-pre-line leading-relaxed text-gray-600 dark:text-gray-300 ${preset.answerClass}`}
+                className={`whitespace-pre-line leading-relaxed text-neutral-600 dark:text-neutral-300 ${preset.answerClass}`}
               >
                 {card.answer}
               </p>
@@ -53,7 +53,7 @@ export function FlashcardCard({
 
       <button
         onClick={onToggleAnswer}
-        className="mt-auto w-full rounded-xl bg-blue-50 py-3 text-sm font-medium text-blue-600 transition-colors hover:bg-blue-100 active:bg-blue-200 dark:bg-blue-900/30 dark:text-blue-400 dark:hover:bg-blue-900/50"
+        className="mt-auto w-full rounded-xl bg-neutral-100 py-3 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-200 active:bg-neutral-300 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-600 dark:active:bg-neutral-500"
       >
         {isAnswerRevealed ? "답변 숨기기" : "답변 보기"}
       </button>

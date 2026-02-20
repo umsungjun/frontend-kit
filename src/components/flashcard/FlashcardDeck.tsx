@@ -59,8 +59,8 @@ export function FlashcardDeck({ fontSize }: FlashcardDeckProps) {
 
   if (!currentCard) {
     return (
-      <div className="flex flex-1 items-center justify-center px-4">
-        <p className="text-gray-500 dark:text-gray-400">
+      <div className="flex flex-1 items-center justify-center px-5">
+        <p className="text-neutral-500 dark:text-neutral-400">
           해당 카테고리에 질문이 없습니다.
         </p>
       </div>
@@ -68,7 +68,7 @@ export function FlashcardDeck({ fontSize }: FlashcardDeckProps) {
   }
 
   return (
-    <div {...handlers} className="flex-1 overflow-hidden px-4">
+    <div {...handlers} className="flex-1 overflow-hidden px-5 pt-1 pb-4">
       <AnimatePresence mode="wait" custom={state.direction}>
         <motion.div
           key={currentCard.id}
