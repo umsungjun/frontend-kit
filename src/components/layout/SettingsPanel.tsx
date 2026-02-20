@@ -28,9 +28,9 @@ export function SettingsPanel({
           transition={{ duration: 0.2, ease: "easeInOut" }}
           className="overflow-hidden"
         >
-          <div className="flex items-center justify-between border-b border-gray-200 px-4 py-3 dark:border-gray-700">
+          <div className="flex items-center justify-between border-b border-neutral-200 px-5 py-3 dark:border-neutral-800">
             <div className="flex items-center gap-3">
-              <span className="text-sm text-gray-500 dark:text-gray-400">
+              <span className="text-sm text-neutral-500 dark:text-neutral-400">
                 글자 크기
               </span>
               <FontSizeControl
@@ -39,7 +39,7 @@ export function SettingsPanel({
               />
             </div>
             <div className="flex items-center gap-3">
-              <span className="text-sm text-gray-500 dark:text-gray-400">
+              <span className="text-sm text-neutral-500 dark:text-neutral-400">
                 테마
               </span>
               <ThemeToggle />

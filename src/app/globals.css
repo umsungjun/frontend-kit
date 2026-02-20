@@ -8,8 +8,27 @@
 }
 
 body {
-  @apply bg-gray-100 text-gray-900 dark:bg-gray-950 dark:text-gray-100;
+  @apply bg-neutral-100 text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100;
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+@media (min-width: 640px) {
+  body {
+    background-image: radial-gradient(
+      circle,
+      rgb(0 0 0 / 0.04) 1px,
+      transparent 1px
+    );
+    background-size: 24px 24px;
+  }
+
+  :is(.dark) body {
+    background-image: radial-gradient(
+      circle,
+      rgb(255 255 255 / 0.03) 1px,
+      transparent 1px
+    );
+  }
 }
 
 .scrollbar-hide {
