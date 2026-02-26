@@ -1,7 +1,6 @@
 import { GoogleGenAI } from "@google/genai";
 import { NextRequest, NextResponse } from "next/server";
 
-export const MODEL_DISPLAY = "Gemma 3 27B";
 const MODEL = "gemma-3-27b-it";
 
 const BASE_SYSTEM_PROMPT = `당신은 프론트엔드 개발자 면접 준비를 돕는 AI 튜터입니다.
