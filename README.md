@@ -10,6 +10,7 @@
 - 답변 슬라이드 애니메이션으로 공개
 - 6개 카테고리 필터 (CS, HTML/CSS, JavaScript, React, 자료구조, 알고리즘)
 - 랜덤 셔플 모드
+- AI 문답 기능 (Gemma 3 27B 기반, 현재 카드 컨텍스트 연동)
 - 다크모드 / 라이트모드
 - 글자 크기 조절 (소 / 중 / 대)
 - 키보드 단축키 (← →, Space / Enter)
@@ -17,22 +18,30 @@
 
 ## 기술 스택
 
-| 항목       | 기술                       |
-| ---------- | -------------------------- |
-| 프레임워크 | Next.js 16 (App Router)    |
-| 스타일링   | Tailwind CSS v4            |
-| 애니메이션 | motion                     |
-| 스와이프   | react-swipeable            |
-| 테마       | next-themes                |
-| PWA        | @serwist/next              |
-| 아이콘     | lucide-react               |
-| 상태관리   | React Context + useReducer |
+| 항목       | 기술                            |
+| ---------- | ------------------------------- |
+| 프레임워크 | Next.js 16 (App Router)         |
+| 스타일링   | Tailwind CSS v4                 |
+| 애니메이션 | motion                          |
+| 스와이프   | react-swipeable                 |
+| 테마       | next-themes                     |
+| PWA        | @serwist/next                   |
+| 아이콘     | lucide-react                    |
+| 상태관리   | React Context + useReducer      |
+| AI         | Google Gemini API (Gemma 3 27B) |
 
 ## 시작하기
 
 ```bash
 pnpm install
 pnpm dev
+```
+
+로컬 환경에서 AI 문답 기능을 사용하려면 루트에 `.env.local`을 생성하고 Gemini API 키를 설정하세요.
+API 키는 [Google AI Studio](https://aistudio.google.com/api-keys)에서 발급받을 수 있습니다.
+
+```env
+GEMINI_API_KEY=your_api_key_here
 ```
 
 [http://localhost:3000](http://localhost:3000)에서 확인할 수 있습니다.

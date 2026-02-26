@@ -62,3 +62,12 @@ IDs must be unique within the file. `questions.ts` auto-includes the new data vi
 
 - Source of truth: `public/favicon.svg` (orange `</>` icon)
 - OG image source: `public/og-image.svg` → rendered to `public/og-image.png`
+
+### AI Chat API
+
+- Route: `src/app/api/chat/route.ts`
+- Model: `gemma-3-27b-it` via `@google/genai` SDK (`GoogleGenAI`)
+- Requires env var: `GEMINI_API_KEY`
+- **주의:** Gemma 모델은 `systemInstruction` config 파라미터 미지원 → system prompt를 `contents` 배열 첫 번째 user/model turn으로 주입
+- Hook: `src/hooks/useAIChat.ts` — localStorage로 메시지 저장, 최대 50개 유지
+- 카드 컨텍스트(`cardContext`)가 전달되면 현재 플래시카드 내용을 system prompt에 포함
