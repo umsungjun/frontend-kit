@@ -5,6 +5,7 @@ import { useState } from "react";
 import { FlashcardProvider } from "@/context/FlashcardContext";
 import { flashcards } from "@/data/questions";
 import { useFontSize } from "@/hooks/useFontSize";
+import { AIChatPanel } from "../ai/AIChatPanel";
 
 import { Header } from "../layout/Header";
 import { MobileContainer } from "../layout/MobileContainer";
@@ -15,14 +16,23 @@ import { NavigationControls } from "./NavigationControls";
 
 export function FlashcardApp() {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [isChatOpen, setIsChatOpen] = useState(false);
   const { fontSize, setFontSize } = useFontSize();
 
   return (
     <MobileContainer>
       <FlashcardProvider cards={flashcards}>
         <Header
-          onSettingsToggle={() => setIsSettingsOpen((prev) => !prev)}
+          onSettingsToggle={() => {
+            setIsSettingsOpen((prev) => !prev);
+            setIsChatOpen(false);
+          }}
           isSettingsOpen={isSettingsOpen}
+          onChatToggle={() => {
+            setIsChatOpen((prev) => !prev);
+            setIsSettingsOpen(false);
+          }}
+          isChatOpen={isChatOpen}
         />
         <SettingsPanel
           isOpen={isSettingsOpen}
@@ -49,6 +59,8 @@ export function FlashcardApp() {
             umseongjun@naver.com
           </a>
         </footer>
+        {/* AI 채팅 패널 (FlashcardProvider 내부에서 useFlashcard 사용) */}
+        <AIChatPanel isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
       </FlashcardProvider>
     </MobileContainer>
   );
