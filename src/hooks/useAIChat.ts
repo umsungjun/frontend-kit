@@ -43,22 +43,19 @@ export function useAIChat() {
       timestamp: Date.now(),
     };
 
-    // 사용자 메시지 추가 (50개 초과 시 가장 오래된 2개 제거)
-    let currentMessages: ChatMessage[] = [];
-    setMessages((prev) => {
-      const updated = [...prev, userMsg];
-      const result = updated.length > MAX_MESSAGES ? updated.slice(2) : updated;
-      currentMessages = prev; // API 호출용 이전 메시지 저장
-      return result;
-    });
+    // 실패 시 완전 롤백을 위해 원본 스냅샷 확보
+    const snapshot = messages;
+
+    // 사용자 메시지를 낙관적으로 추가 (pruning은 성공 시에만)
+    setMessages([...snapshot, userMsg]);
+
+    // 최근 20개 메시지를 대화 기록으로 전달
+    const history = snapshot.slice(-20).map((m) => ({
+      role: m.role === "user" ? "user" : "model",
+      text: m.content,
+    }));
 
     try {
-      // 최근 20개 메시지를 대화 기록으로 전달 (새 메시지 제외)
-      const history = currentMessages.slice(-20).map((m) => ({
-        role: m.role === "user" ? "user" : "model",
-        text: m.content,
-      }));
-
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -69,8 +66,7 @@ export function useAIChat() {
         await res.json();
 
       if (!res.ok) {
-        // 오류 발생 시 사용자 메시지 롤백
-        setMessages((prev) => prev.filter((m) => m.id !== userMsg.id));
+        setMessages(snapshot);
 
         if (res.status === 429 || data.code === "QUOTA_EXCEEDED") {
           setError("요청이 너무 많습니다. 잠시 후 다시 시도해 주세요.");
@@ -87,13 +83,11 @@ export function useAIChat() {
         timestamp: Date.now(),
       };
 
-      // AI 메시지 추가 (50개 초과 시 가장 오래된 2개 제거)
-      setMessages((prev) => {
-        const updated = [...prev, aiMsg];
-        return updated.length > MAX_MESSAGES ? updated.slice(2) : updated;
-      });
+      // 성공 시에만 pruning 적용
+      const updated = [...snapshot, userMsg, aiMsg];
+      setMessages(updated.slice(-MAX_MESSAGES));
     } catch {
-      setMessages((prev) => prev.filter((m) => m.id !== userMsg.id));
+      setMessages(snapshot);
       setError("오류가 발생했습니다. 잠시 후 다시 시도해주세요.");
     } finally {
       setIsLoading(false);

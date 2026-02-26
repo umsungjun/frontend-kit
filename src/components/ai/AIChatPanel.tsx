@@ -42,12 +42,12 @@ export function AIChatPanel({ isOpen, onClose }: AIChatPanelProps) {
   }, [messages, isLoading]);
 
   useEffect(() => {
-    if (isOpen) {
-      setTimeout(() => {
-        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-        inputRef.current?.focus();
-      }, 300);
-    }
+    if (!isOpen) return;
+    const timer = setTimeout(() => {
+      messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+      inputRef.current?.focus();
+    }, 300);
+    return () => clearTimeout(timer);
   }, [isOpen]);
 
   useEffect(() => {

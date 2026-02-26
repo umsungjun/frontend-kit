@@ -43,6 +43,15 @@ export function FlashcardDeck({ fontSize }: FlashcardDeckProps) {
 
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
+      // input, textarea 등 입력 요소에 포커스 시 단축키 무시
+      const el = e.target as HTMLElement;
+      if (
+        el.tagName === "INPUT" ||
+        el.tagName === "TEXTAREA" ||
+        el.tagName === "SELECT" ||
+        el.isContentEditable
+      ) return;
+
       if (e.key === "ArrowLeft") {
         prevCard();
       } else if (e.key === "ArrowRight") {

@@ -27,12 +27,36 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const {
-    message,
-    history,
-    cardContext,
-  }: { message: string; history: HistoryItem[]; cardContext?: CardContext } =
-    await req.json();
+  const body = await req.json();
+  const message = typeof body.message === "string" ? body.message.slice(0, 500) : "";
+  const history: HistoryItem[] = Array.isArray(body.history)
+    ? body.history
+        .slice(-20)
+        .filter(
+          (h: unknown): h is HistoryItem =>
+            typeof h === "object" &&
+            h !== null &&
+            typeof (h as HistoryItem).role === "string" &&
+            typeof (h as HistoryItem).text === "string"
+        )
+        .map((h: HistoryItem) => ({ role: h.role, text: h.text.slice(0, 2000) }))
+    : [];
+  const cardContext: CardContext | undefined =
+    body.cardContext &&
+    typeof body.cardContext.question === "string" &&
+    typeof body.cardContext.answer === "string"
+      ? {
+          question: body.cardContext.question.slice(0, 500),
+          answer: body.cardContext.answer.slice(0, 2000),
+        }
+      : undefined;
+
+  if (!message.trim()) {
+    return NextResponse.json(
+      { error: "메시지를 입력해 주세요.", code: "INVALID_INPUT" },
+      { status: 400 }
+    );
+  }
 
   const systemPrompt = cardContext
     ? `${BASE_SYSTEM_PROMPT}\n\n현재 사용자가 학습 중인 플래시카드:\n질문: ${cardContext.question}\n답변: ${cardContext.answer}`
@@ -79,7 +103,7 @@ export async function POST(req: NextRequest) {
     }
 
     return NextResponse.json(
-      { error: errMessage, code: "API_ERROR" },
+      { error: "AI 응답 생성 중 오류가 발생했습니다.", code: "API_ERROR" },
       { status: 500 }
     );
   }

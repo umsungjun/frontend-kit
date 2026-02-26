@@ -36,6 +36,10 @@ export function ConfirmDialog({
           onClick={onCancel}
         >
           <motion.div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="confirm-dialog-title"
+            aria-describedby={description ? "confirm-dialog-desc" : undefined}
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 24 }}
@@ -69,11 +73,11 @@ export function ConfirmDialog({
             </div>
 
             {/* 텍스트 */}
-            <p className="text-center text-base font-semibold text-neutral-900 dark:text-neutral-100">
+            <p id="confirm-dialog-title" className="text-center text-base font-semibold text-neutral-900 dark:text-neutral-100">
               {title}
             </p>
             {description && (
-              <p className="mt-2 text-center text-sm leading-relaxed text-neutral-500 dark:text-neutral-400">
+              <p id="confirm-dialog-desc" className="mt-2 text-center text-sm leading-relaxed text-neutral-500 dark:text-neutral-400">
                 {description}
               </p>
             )}
@@ -81,6 +85,7 @@ export function ConfirmDialog({
             {/* 버튼 */}
             <div className="mt-6 flex flex-col gap-2.5">
               <button
+                type="button"
                 onClick={onConfirm}
                 className={`w-full cursor-pointer rounded-2xl py-3.5 text-sm font-semibold text-white transition-all active:scale-[0.98] ${
                   variant === "danger"
@@ -91,6 +96,7 @@ export function ConfirmDialog({
                 {confirmLabel}
               </button>
               <button
+                type="button"
                 onClick={onCancel}
                 className="w-full cursor-pointer rounded-2xl border border-neutral-200 py-3.5 text-sm font-medium text-neutral-600 transition-all hover:bg-neutral-50 active:scale-[0.98] dark:border-neutral-700 dark:text-neutral-400 dark:hover:bg-neutral-800"
               >
