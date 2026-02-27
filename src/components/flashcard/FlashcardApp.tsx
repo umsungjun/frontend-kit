@@ -53,6 +53,15 @@ export function FlashcardApp() {
           </a>
           <span className="text-neutral-200 dark:text-neutral-700">·</span>
           <a
+            href="https://www.linkedin.com/in/frontend-developer-umsungjun/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cursor-pointer text-xs text-neutral-400 transition-colors hover:text-neutral-600 dark:text-neutral-500 dark:hover:text-neutral-300"
+          >
+            LinkedIn
+          </a>
+          <span className="text-neutral-200 dark:text-neutral-700">·</span>
+          <a
             href="mailto:umseongjun@naver.com"
             className="cursor-pointer text-xs text-neutral-400 transition-colors hover:text-neutral-600 dark:text-neutral-500 dark:hover:text-neutral-300"
           >
