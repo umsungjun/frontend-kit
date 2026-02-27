@@ -4,6 +4,7 @@ import {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
   useReducer,
 } from "react";
@@ -143,6 +144,11 @@ export function FlashcardProvider({ cards, children }: FlashcardProviderProps) {
     isShuffled: false,
     shuffledCards: [],
   });
+
+  // SSR/클라이언트 Hydration 불일치 방지: 마운트 후 클라이언트에서만 셔플 적용
+  useEffect(() => {
+    dispatch({ type: "TOGGLE_SHUFFLE" });
+  }, []);
 
   const filteredCards = useMemo(
     () =>
