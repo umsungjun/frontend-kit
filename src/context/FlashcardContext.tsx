@@ -27,7 +27,8 @@ type FlashcardAction =
   | { type: "TOGGLE_ANSWER" }
   | { type: "HIDE_ANSWER" }
   | { type: "SET_CATEGORY"; category: Category | "all" }
-  | { type: "TOGGLE_SHUFFLE" };
+  | { type: "TOGGLE_SHUFFLE" }
+  | { type: "NAVIGATE_TO_CARD"; cardId: number; category: Category };
 
 interface FlashcardContextValue {
   state: FlashcardState;
@@ -40,6 +41,7 @@ interface FlashcardContextValue {
   toggleAnswer: () => void;
   setCategory: (category: Category | "all") => void;
   toggleShuffle: () => void;
+  navigateToCard: (cardId: number, category: Category) => void;
 }
 
 const FlashcardContext = createContext<FlashcardContextValue | null>(null);
@@ -106,6 +108,20 @@ function createReducer(allCards: Flashcard[]) {
           isAnswerRevealed: false,
         };
       }
+      case "NAVIGATE_TO_CARD": {
+        // category + id 복합 키로 카드 탐색 (셔플 해제 + "전체" 전환)
+        const targetIndex = allCards.findIndex(
+          (c) => c.id === action.cardId && c.category === action.category
+        );
+        return {
+          ...state,
+          selectedCategory: "all",
+          isShuffled: false,
+          shuffledCards: [],
+          currentIndex: targetIndex >= 0 ? targetIndex : 0,
+          isAnswerRevealed: false,
+        };
+      }
       default:
         return state;
     }
@@ -145,7 +161,7 @@ export function FlashcardProvider({ cards, children }: FlashcardProviderProps) {
     shuffledCards: [],
   });
 
-  // SSR/클라이언트 Hydration 불일치 방지: 마운트 후 클라이언트에서만 셔플 적용
+  // SSR hydration 이후 랜덤 모드 활성화 (Math.random은 서버/클라이언트 결과가 다름)
   useEffect(() => {
     dispatch({ type: "TOGGLE_SHUFFLE" });
   }, []);
@@ -178,6 +194,11 @@ export function FlashcardProvider({ cards, children }: FlashcardProviderProps) {
     () => dispatch({ type: "TOGGLE_SHUFFLE" }),
     []
   );
+  const navigateToCard = useCallback(
+    (cardId: number, category: Category) =>
+      dispatch({ type: "NAVIGATE_TO_CARD", cardId, category }),
+    []
+  );
 
   const value = useMemo(
     () => ({
@@ -191,6 +212,7 @@ export function FlashcardProvider({ cards, children }: FlashcardProviderProps) {
       toggleAnswer,
       setCategory,
       toggleShuffle,
+      navigateToCard,
     }),
     [
       state,
@@ -202,6 +224,7 @@ export function FlashcardProvider({ cards, children }: FlashcardProviderProps) {
       toggleAnswer,
       setCategory,
       toggleShuffle,
+      navigateToCard,
     ]
   );
 

@@ -10,6 +10,7 @@ import { AIChatPanel } from "../ai/AIChatPanel";
 import { Header } from "../layout/Header";
 import { MobileContainer } from "../layout/MobileContainer";
 import { SettingsPanel } from "../layout/SettingsPanel";
+import { SearchPanel } from "../search/SearchPanel";
 import { CategoryFilter } from "./CategoryFilter";
 import { FlashcardDeck } from "./FlashcardDeck";
 import { NavigationControls } from "./NavigationControls";
@@ -17,6 +18,7 @@ import { NavigationControls } from "./NavigationControls";
 export function FlashcardApp() {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isChatOpen, setIsChatOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const { fontSize, setFontSize } = useFontSize();
 
   return (
@@ -26,13 +28,21 @@ export function FlashcardApp() {
           onSettingsToggle={() => {
             setIsSettingsOpen((prev) => !prev);
             setIsChatOpen(false);
+            setIsSearchOpen(false);
           }}
           isSettingsOpen={isSettingsOpen}
           onChatToggle={() => {
             setIsChatOpen((prev) => !prev);
             setIsSettingsOpen(false);
+            setIsSearchOpen(false);
           }}
           isChatOpen={isChatOpen}
+          onSearchToggle={() => {
+            setIsSearchOpen((prev) => !prev);
+            setIsSettingsOpen(false);
+            setIsChatOpen(false);
+          }}
+          isSearchOpen={isSearchOpen}
         />
         <SettingsPanel
           isOpen={isSettingsOpen}
@@ -70,6 +80,12 @@ export function FlashcardApp() {
         </footer>
         {/* AI 채팅 패널 (FlashcardProvider 내부에서 useFlashcard 사용) */}
         <AIChatPanel isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
+        {/* 검색 패널 */}
+        <SearchPanel
+          isOpen={isSearchOpen}
+          onClose={() => setIsSearchOpen(false)}
+          cards={flashcards}
+        />
       </FlashcardProvider>
     </MobileContainer>
   );

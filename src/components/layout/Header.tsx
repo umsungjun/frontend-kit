@@ -1,12 +1,14 @@
 "use client";
 
-import { Code2, Settings, Sparkles } from "lucide-react";
+import { Code2, Search, Settings, Sparkles } from "lucide-react";
 
 interface HeaderProps {
   onSettingsToggle: () => void;
   isSettingsOpen: boolean;
   onChatToggle: () => void;
   isChatOpen: boolean;
+  onSearchToggle: () => void;
+  isSearchOpen: boolean;
 }
 
 export function Header({
@@ -14,6 +16,8 @@ export function Header({
   isSettingsOpen,
   onChatToggle,
   isChatOpen,
+  onSearchToggle,
+  isSearchOpen,
 }: HeaderProps) {
   return (
     <header className="flex items-center justify-between border-b border-neutral-100 px-5 py-4 dark:border-neutral-800">
@@ -39,6 +43,18 @@ export function Header({
         >
           <Sparkles size={15} strokeWidth={1.5} />
           <span className="text-xs font-bold tracking-wide">AI</span>
+        </button>
+        {/* 검색 버튼 */}
+        <button
+          onClick={onSearchToggle}
+          className={`flex h-9 w-9 cursor-pointer items-center justify-center rounded-xl transition-colors ${
+            isSearchOpen
+              ? "bg-neutral-200 text-neutral-900 dark:bg-neutral-700 dark:text-neutral-100"
+              : "text-neutral-500 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-800"
+          }`}
+          aria-label="질문 검색"
+        >
+          <Search size={18} />
         </button>
         <button
           onClick={onSettingsToggle}
