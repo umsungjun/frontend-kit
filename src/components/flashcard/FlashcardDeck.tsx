@@ -80,7 +80,7 @@ export function FlashcardDeck({ fontSize }: FlashcardDeckProps) {
     <div {...handlers} className="flex-1 overflow-hidden px-5 pt-1 pb-4">
       <AnimatePresence mode="wait" custom={state.direction}>
         <motion.div
-          key={currentCard.id}
+          key={`${currentCard.category}-${currentCard.id}`}
           custom={state.direction}
           variants={variants}
           initial="enter"
