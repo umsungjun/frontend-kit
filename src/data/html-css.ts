@@ -4,7 +4,7 @@ export const htmlCss: Flashcard[] = [
   {
     id: 1,
     category: "HTML/CSS",
-    question: "DOCTYPE에 대하여 설명하시오",
+    question: "DOCTYPE에 대해 설명해주세요",
     answer:
       "DOCTYPE은 문서 유형 선언(Document Type Declaration)으로, 브라우저에게 해당 문서가 어떤 HTML 버전으로 작성되었는지 알려주는 역할을 합니다. HTML5에서는 <!DOCTYPE html>로 간단하게 선언하며, 이를 생략하면 브라우저가 쿼크 모드(Quirks Mode)로 렌더링하여 예기치 않은 레이아웃 문제가 발생할 수 있습니다.",
   },
@@ -46,21 +46,21 @@ export const htmlCss: Flashcard[] = [
   {
     id: 7,
     category: "HTML/CSS",
-    question: "웹 접근성에 맞는 마크업 예시 몇가지 말해보시오",
+    question: "웹 접근성에 맞는 마크업 예시를 몇 가지 말해보세요",
     answer:
       "이미지에 alt 속성을 부여하여 대체 텍스트를 제공하고, form 요소에 label 태그를 연결하여 입력 필드의 용도를 명시합니다. 시멘틱 태그를 사용하여 문서 구조를 명확히 하고, aria 속성(aria-label, aria-hidden, role 등)을 활용하여 스크린 리더가 콘텐츠를 올바르게 해석할 수 있도록 합니다. 또한 키보드만으로도 모든 기능에 접근 가능하도록 tabindex와 focus 관리를 적절히 설정합니다.",
   },
   {
     id: 8,
     category: "HTML/CSS",
-    question: "시멘틱 태그란 무엇인가 왜 사용하는가",
+    question: "시멘틱 태그란 무엇이고, 왜 사용하나요?",
     answer:
       "시멘틱 태그는 태그 이름만으로 콘텐츠의 의미와 구조를 전달하는 HTML 태그입니다. header, nav, main, article, section, aside, footer 등이 대표적입니다. 검색 엔진이 페이지 구조를 더 잘 이해하여 SEO가 향상되고, 스크린 리더 등 보조 기술이 문서를 정확히 해석할 수 있어 접근성이 개선되며, 개발자 간 코드 가독성과 유지보수성도 높아집니다.",
   },
   {
     id: 9,
     category: "HTML/CSS",
-    question: "텍스트 관련 태그",
+    question: "텍스트 관련 태그에는 어떤 것들이 있나요?",
     answer:
       "제목을 나타내는 h1~h6, 문단을 나타내는 p, 줄바꿈 br, 수평선 hr이 기본 구조 태그입니다. 텍스트 강조에는 strong(중요, 굵게)과 em(강조, 기울임)이 있고, 단순 스타일링에는 b(굵게)와 i(기울임)가 있습니다. 그 외에 인용을 위한 blockquote, 코드 표시를 위한 code, 삭제선 표시를 위한 del, 밑줄을 위한 u 등이 있습니다.",
   },
@@ -81,7 +81,7 @@ export const htmlCss: Flashcard[] = [
   {
     id: 12,
     category: "HTML/CSS",
-    question: "Section 태그와 Article 태그의 차이점",
+    question: "Section 태그와 Article 태그의 차이점은 무엇인가요?",
     answer:
       "section 태그는 문서의 주제별 콘텐츠 영역을 그룹화할 때 사용하며, 일반적으로 제목(heading)을 포함합니다. article 태그는 독립적으로 배포하거나 재사용 가능한 콘텐츠(블로그 글, 뉴스 기사, 댓글 등)를 나타냅니다. 즉, article은 그 자체로 완결된 콘텐츠이고, section은 관련 콘텐츠를 논리적으로 묶는 영역입니다.",
   },
@@ -95,22 +95,21 @@ export const htmlCss: Flashcard[] = [
   {
     id: 14,
     category: "HTML/CSS",
-    question:
-      "이미지 크기가 클 경우 렌더링 속도가 느려질텐데 이를 개선하기 위한 방법",
+    question: "이미지 크기가 클 경우 렌더링 속도를 개선하는 방법은 무엇인가요?",
     answer:
       "이미지 압축과 최적화를 통해 파일 크기를 줄이고, WebP 등 차세대 포맷을 사용합니다. 반응형 이미지를 위해 srcset과 sizes 속성을 활용하여 디바이스에 맞는 크기의 이미지를 제공합니다. Lazy Loading(loading='lazy')으로 뷰포트에 보이는 이미지만 먼저 로드하고, CDN을 활용하여 이미지 전송 속도를 높이는 것도 효과적입니다.",
   },
   {
     id: 15,
     category: "HTML/CSS",
-    question: "UI란 무엇인지 설명하시오",
+    question: "UI란 무엇인가요?",
     answer:
       "UI(User Interface)는 사용자와 시스템 간의 상호작용을 위한 접점으로, 사용자가 제품이나 서비스를 이용할 때 접하는 화면, 버튼, 입력창 등 모든 시각적 요소를 의미합니다. 좋은 UI는 직관적이고 일관성 있으며 사용하기 쉬워야 합니다. UI와 함께 자주 언급되는 UX(User Experience)는 사용자가 제품을 통해 느끼는 전반적인 경험을 뜻합니다.",
   },
   {
     id: 16,
     category: "HTML/CSS",
-    question: "SVG 장점과 단점",
+    question: "SVG의 장점과 단점은 무엇인가요?",
     answer:
       "SVG(Scalable Vector Graphics)의 장점은 벡터 기반이라 확대/축소해도 화질이 저하되지 않고, 파일 크기가 작으며, CSS와 JavaScript로 스타일링 및 애니메이션이 가능하다는 것입니다. 또한 텍스트 기반이라 검색 엔진이 내용을 읽을 수 있습니다. 단점으로는 복잡한 이미지(사진 등)를 표현하기 어렵고, 도형이 복잡해지면 코드가 길어져 성능이 저하될 수 있습니다.",
   },
@@ -124,7 +123,7 @@ export const htmlCss: Flashcard[] = [
   {
     id: 18,
     category: "HTML/CSS",
-    question: "display 속성의 block, inline, inline-block, none 차이",
+    question: "display 속성의 block, inline, inline-block, none의 차이는 무엇인가요?",
     answer:
       "block은 한 줄 전체를 차지하며 width/height 설정이 가능합니다(div, p 등). inline은 콘텐츠 크기만큼만 차지하고 width/height 설정이 불가능합니다(span, a 등). inline-block은 inline처럼 한 줄에 나란히 배치되면서도 width/height 설정이 가능합니다. none은 요소를 화면에서 완전히 제거하여 공간도 차지하지 않습니다(visibility: hidden은 공간은 유지).",
   },
@@ -139,7 +138,7 @@ export const htmlCss: Flashcard[] = [
   {
     id: 20,
     category: "HTML/CSS",
-    question: "float가 어떻게 작동하는가",
+    question: "float는 어떻게 작동하나요?",
     answer:
       "float는 요소를 문서의 일반적인 흐름에서 벗어나게 하여 좌측이나 우측으로 띄워 배치하는 속성입니다. float된 요소 주변으로 텍스트나 인라인 요소가 감싸며 흐릅니다. 부모 요소가 float된 자식의 높이를 인식하지 못하는 문제가 발생하는데, 이를 해결하기 위해 clearfix 기법이나 overflow: hidden을 사용합니다. 현재는 Flexbox와 Grid 레이아웃이 등장하여 float를 레이아웃 용도로 사용하는 경우는 줄어들었습니다.",
   },
@@ -167,7 +166,7 @@ export const htmlCss: Flashcard[] = [
   {
     id: 24,
     category: "HTML/CSS",
-    question: "반응형 웹의 3요소",
+    question: "반응형 웹의 3요소는 무엇인가요?",
     answer:
       "반응형 웹의 3요소는 유연한 그리드 레이아웃(Flexible Grid), 유연한 이미지(Flexible Images), 미디어 쿼리(Media Queries)입니다. 유연한 그리드는 고정 px 대신 %, vw 등 상대 단위로 레이아웃을 구성하고, 유연한 이미지는 max-width: 100%로 컨테이너에 맞게 크기가 조절되도록 합니다. 미디어 쿼리는 화면 크기에 따라 다른 CSS 스타일을 적용하여 다양한 디바이스에 대응합니다.",
   },
@@ -195,7 +194,7 @@ export const htmlCss: Flashcard[] = [
   {
     id: 28,
     category: "HTML/CSS",
-    question: "PX, EM에 대해 설명하시오 (절대단위, 상대단위)",
+    question: "PX, EM에 대해 설명해주세요 (절대단위, 상대단위)",
     answer:
       "px은 절대 단위로 화면의 픽셀을 기준으로 하며 고정된 크기를 가집니다. em은 상대 단위로 부모 요소의 font-size를 기준으로 계산됩니다(예: 부모가 16px이면 1.5em = 24px). rem은 최상위 html 요소의 font-size를 기준으로 하여 em보다 일관된 크기 관리가 가능합니다. 반응형 디자인에서는 상대 단위를 사용하는 것이 다양한 화면 크기에 유연하게 대응할 수 있어 권장됩니다.",
   },
@@ -216,7 +215,7 @@ export const htmlCss: Flashcard[] = [
   {
     id: 31,
     category: "HTML/CSS",
-    question: "CSS 전처리기를 사용해봤다면 장점과 단점",
+    question: "CSS 전처리기를 사용해봤다면 장점과 단점은 무엇인가요?",
     answer:
       "CSS 전처리기(Sass, Less, Stylus 등)의 장점은 변수, 중첩, 믹스인, 함수 등의 프로그래밍적 기능을 사용하여 CSS를 효율적으로 작성하고 관리할 수 있다는 것입니다. 코드 재사용성이 높아지고 유지보수가 편리해집니다. 단점으로는 컴파일 과정이 필요하여 빌드 시간이 추가되고, 팀원 모두가 문법을 학습해야 하며, 과도한 중첩 사용 시 오히려 가독성과 성능이 저하될 수 있습니다.",
   },

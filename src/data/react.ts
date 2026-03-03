@@ -11,56 +11,56 @@ export const react: Flashcard[] = [
   {
     id: 2,
     category: "React",
-    question: "리액트를 사용하는 이유",
+    question: "리액트를 사용하는 이유는 무엇인가요?",
     answer:
       "컴포넌트 기반 아키텍처로 UI를 재사용 가능한 단위로 분리하여 개발 효율성과 유지보수성을 높일 수 있습니다. Virtual DOM을 통해 효율적인 렌더링을 수행하고, 단방향 데이터 흐름으로 상태 관리를 예측 가능하게 만듭니다. 또한 거대한 생태계와 커뮤니티 지원 덕분에 다양한 서드파티 라이브러리를 활용할 수 있습니다.",
   },
   {
     id: 3,
     category: "React",
-    question: "virtual DOM에 대해서 아나요?",
+    question: "virtual DOM에 대해 알고 있나요?",
     answer:
       "Virtual DOM은 실제 DOM의 가벼운 복사본으로, 메모리에 존재하는 자바스크립트 객체입니다. 상태가 변경되면 새로운 Virtual DOM 트리를 생성하고 이전 트리와 비교(diffing)하여 변경된 부분만 실제 DOM에 반영(reconciliation)합니다. 이를 통해 불필요한 DOM 조작을 최소화하여 렌더링 성능을 향상시킵니다.",
   },
   {
     id: 4,
     category: "React",
-    question: "리액트의 렌더링에 대해 아나요?",
+    question: "리액트의 렌더링에 대해 알고 있나요?",
     answer:
       "리액트의 렌더링은 컴포넌트가 현재 props와 state를 기반으로 UI를 어떻게 구성할지 계산하는 과정입니다. 최초 마운트 시 루트 컴포넌트부터 렌더링이 시작되며, 이후 state 변경, props 변경, 부모 컴포넌트 리렌더링 등의 조건에 의해 리렌더링이 발생합니다. 렌더링 결과물은 Virtual DOM으로 생성되며, 이전 결과와 비교하여 실제 DOM에 최소한의 변경만 적용됩니다.",
   },
   {
     id: 5,
     category: "React",
-    question: "리액트 파이버에 대해서 아나요?",
+    question: "리액트 파이버에 대해 알고 있나요?",
     answer:
       "리액트 파이버(Fiber)는 리액트 16에서 도입된 새로운 재조정(reconciliation) 엔진입니다. 기존의 스택 기반 재조정은 동기적으로 실행되어 한 번 시작하면 중단할 수 없었지만, 파이버는 작업을 작은 단위(fiber)로 쪼개어 비동기적으로 처리할 수 있습니다. 이를 통해 우선순위에 따라 작업을 중단, 재개, 폐기할 수 있어 애니메이션이나 사용자 인터랙션 같은 긴급한 작업을 우선 처리할 수 있습니다.",
   },
   {
     id: 6,
     category: "React",
-    question: "리액트 파이버 트리",
+    question: "리액트 파이버 트리란 무엇인가요?",
     answer:
       "리액트 파이버 트리는 current 트리와 workInProgress 트리, 두 개의 트리로 구성됩니다. current 트리는 현재 화면에 렌더링된 상태를 나타내고, workInProgress 트리는 다음 렌더링에 반영될 변경 사항을 작업하는 트리입니다. 작업이 완료되면 workInProgress 트리가 current 트리가 되는 더블 버퍼링 방식을 사용하여 사용자에게 불완전한 UI가 보이는 것을 방지합니다.",
   },
   {
     id: 7,
     category: "React",
-    question: "리액트 파이버와 DOM, Virtual DOM의 관계",
+    question: "리액트 파이버와 DOM, Virtual DOM의 관계는 어떻게 되나요?",
     answer:
       "파이버는 Virtual DOM을 구현하는 내부 아키텍처로, 각 리액트 엘리먼트에 대응하는 파이버 노드를 생성하여 트리 구조를 형성합니다. 파이버가 재조정 과정에서 변경 사항을 계산하면 그 결과가 Virtual DOM의 diff로 나타나고, 최종적으로 실제 DOM에 반영됩니다. 즉, 파이버는 Virtual DOM의 재조정을 효율적으로 수행하기 위한 내부 구현체이며, DOM은 최종 렌더링 대상입니다.",
   },
   {
     id: 8,
     category: "React",
-    question: "렌더 단계와 커밋 단계에 대해 아나요?",
+    question: "렌더 단계와 커밋 단계에 대해 알고 있나요?",
     answer:
       "렌더 단계(Render Phase)는 컴포넌트를 호출하여 Virtual DOM을 생성하고 이전 결과와 비교(diffing)하여 변경 사항을 계산하는 단계입니다. 이 단계는 비동기적으로 수행될 수 있으며 부수 효과가 없어야 합니다. 커밋 단계(Commit Phase)는 렌더 단계에서 계산된 변경 사항을 실제 DOM에 반영하는 단계로, 동기적으로 실행되며 useEffect 같은 부수 효과도 이 단계에서 처리됩니다.",
   },
   {
     id: 9,
     category: "React",
-    question: "React에서 함수 컴포넌트와 클래스 컴포넌트의 차이",
+    question: "React에서 함수 컴포넌트와 클래스 컴포넌트의 차이는 무엇인가요?",
     answer:
       "클래스 컴포넌트는 React.Component를 상속받아 render() 메서드로 UI를 반환하며, 라이프사이클 메서드와 this.state를 사용합니다. 함수 컴포넌트는 단순한 자바스크립트 함수로 props를 인자로 받아 JSX를 반환하며, Hooks를 통해 상태 관리와 부수 효과를 처리합니다. 함수 컴포넌트가 더 간결하고 Hooks와의 호환성이 좋아 현재 리액트에서 권장하는 방식입니다.",
   },
@@ -75,7 +75,7 @@ export const react: Flashcard[] = [
   {
     id: 11,
     category: "React",
-    question: "props와 state의 차이",
+    question: "props와 state의 차이는 무엇인가요?",
     answer:
       "props는 부모 컴포넌트로부터 전달받는 읽기 전용 데이터로, 자식 컴포넌트에서 직접 수정할 수 없습니다. state는 컴포넌트 내부에서 관리하는 변경 가능한 데이터로, setState나 useState를 통해 업데이트하면 리렌더링이 발생합니다. props는 외부에서 주입되는 데이터이고, state는 컴포넌트 자체가 소유하고 관리하는 데이터라는 점이 핵심적인 차이입니다.",
   },
@@ -90,14 +90,14 @@ export const react: Flashcard[] = [
   {
     id: 13,
     category: "React",
-    question: "FLUX에 대해서 아나요?",
+    question: "FLUX에 대해 알고 있나요?",
     answer:
       "Flux는 Facebook이 제안한 단방향 데이터 흐름 아키텍처 패턴입니다. Action이 발생하면 Dispatcher가 이를 Store에 전달하고, Store가 상태를 업데이트하면 View가 리렌더링되는 흐름으로 동작합니다. 기존 MVC 패턴에서 모델과 뷰 사이의 양방향 데이터 흐름이 복잡해지는 문제를 해결하기 위해 등장했으며, Redux 등 현대 상태 관리 라이브러리의 기반이 되었습니다.",
   },
   {
     id: 14,
     category: "React",
-    question: "리덕스에 대해서 아나요?",
+    question: "리덕스에 대해 알고 있나요?",
     answer:
       "리덕스(Redux)는 자바스크립트 애플리케이션의 전역 상태를 관리하기 위한 라이브러리입니다. 하나의 스토어(Store)에 애플리케이션의 전체 상태를 저장하고, 액션(Action)을 디스패치하여 리듀서(Reducer)를 통해 상태를 업데이트하는 방식으로 동작합니다. Flux 패턴을 기반으로 하며, 예측 가능한 상태 변화와 강력한 디버깅 도구(Redux DevTools)를 제공합니다.",
   },
@@ -127,7 +127,7 @@ export const react: Flashcard[] = [
   {
     id: 18,
     category: "React",
-    question: "리액트 사용시에 부수효과로 인해 생기는 문제점이 있다면",
+    question: "리액트 사용 시 부수효과로 인해 생기는 문제점은 무엇인가요?",
     answer:
       "부수효과(side effect)는 컴포넌트 렌더링 외에 발생하는 API 호출, DOM 직접 조작, 타이머 설정 등을 말합니다. 부수효과를 적절히 관리하지 않으면 메모리 누수(cleanup 미처리), 무한 루프(의존성 배열 설정 오류), 경쟁 조건(race condition) 등의 문제가 발생할 수 있습니다. 이를 방지하려면 useEffect의 클린업 함수를 활용하고, 의존성 배열을 정확히 설정하며, 비동기 작업의 취소 처리를 적절히 해야 합니다.",
   },
@@ -190,7 +190,7 @@ export const react: Flashcard[] = [
   {
     id: 27,
     category: "React",
-    question: "useMemo와 useCallback의 차이를 아나요",
+    question: "useMemo와 useCallback의 차이를 알고 있나요?",
     answer:
       "useMemo는 함수의 실행 결과값을 메모이제이션하고, useCallback은 함수 자체를 메모이제이션한다는 점이 핵심 차이입니다. useMemo(() => fn(a, b), [a, b])는 fn(a, b)의 반환값을 캐싱하고, useCallback(fn, [deps])는 fn 함수의 참조를 캐싱합니다. 실제로 useCallback(fn, deps)는 useMemo(() => fn, deps)와 동일하게 동작합니다.",
   },
@@ -261,14 +261,14 @@ export const react: Flashcard[] = [
   {
     id: 37,
     category: "React",
-    question: "하이드레이션에 대해 알고 있나요",
+    question: "하이드레이션에 대해 알고 있나요?",
     answer:
       "하이드레이션(Hydration)은 서버에서 렌더링된 정적 HTML에 자바스크립트 이벤트 핸들러와 상태를 연결하여 인터랙티브한 페이지로 만드는 과정입니다. SSR로 전달된 HTML은 화면에 바로 표시되지만 클릭 등의 상호작용은 불가능한 상태이며, 하이드레이션 과정을 거쳐야 리액트가 관리하는 동적 웹 애플리케이션으로 동작합니다. 리액트에서는 hydrateRoot 메서드를 사용하여 이 과정을 수행합니다.",
   },
   {
     id: 38,
     category: "React",
-    question: "Next의 렌더링 수행 방식",
+    question: "Next.js의 렌더링 수행 방식은 어떻게 되나요?",
     answer:
       "Next.js는 SSR(Server-Side Rendering), SSG(Static Site Generation), ISR(Incremental Static Regeneration), CSR(Client-Side Rendering) 등 다양한 렌더링 방식을 지원합니다. SSR은 매 요청마다 서버에서 HTML을 생성하고, SSG는 빌드 타임에 HTML을 미리 생성하며, ISR은 정적 페이지를 일정 주기로 재생성합니다. App Router에서는 기본적으로 서버 컴포넌트(RSC)를 사용하며, 'use client' 지시어로 클라이언트 컴포넌트를 명시적으로 선언합니다.",
   },
@@ -289,7 +289,7 @@ export const react: Flashcard[] = [
   {
     id: 41,
     category: "React",
-    question: "사전 렌더링을 위해 사용해 본 함수가 있나요",
+    question: "사전 렌더링을 위해 사용해 본 함수가 있나요?",
     answer:
       "Next.js의 Pages Router에서는 getStaticProps(SSG용), getStaticPaths(동적 경로 SSG용), getServerSideProps(SSR용)를 사용하여 사전 렌더링을 구현합니다. getStaticProps는 빌드 시 데이터를 가져와 정적 페이지를 생성하고, getServerSideProps는 매 요청마다 서버에서 데이터를 가져옵니다. App Router에서는 서버 컴포넌트에서 직접 async/await로 데이터를 가져오는 방식으로 사전 렌더링을 수행합니다.",
   },
@@ -324,14 +324,14 @@ export const react: Flashcard[] = [
   {
     id: 46,
     category: "React",
-    question: "controlled pattern에 대해서 아나요?",
+    question: "controlled pattern에 대해 알고 있나요?",
     answer:
       "Controlled 패턴은 폼 요소의 값을 리액트의 state로 관리하는 방식입니다. input의 value 속성에 state를 바인딩하고, onChange 핸들러에서 setState를 호출하여 값을 업데이트합니다. 리액트가 폼 데이터의 유일한 진실 공급원(single source of truth)이 되므로 입력값 검증, 조건부 제출, 실시간 포맷팅 등 세밀한 제어가 가능합니다.",
   },
   {
     id: 47,
     category: "React",
-    question: "uncontrolled pattern에 대해서 아나요?",
+    question: "uncontrolled pattern에 대해 알고 있나요?",
     answer:
       "Uncontrolled 패턴은 폼 요소의 값을 DOM 자체가 관리하는 방식으로, 리액트 state 대신 useRef를 사용하여 필요할 때 DOM에서 직접 값을 가져옵니다. state 업데이트가 발생하지 않으므로 입력마다 리렌더링이 발생하지 않아 성능상 이점이 있습니다. 단순한 폼이나 파일 입력처럼 리액트로 제어할 필요가 없는 경우에 적합하며, defaultValue 속성으로 초기값을 설정합니다.",
   },

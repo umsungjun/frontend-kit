@@ -413,7 +413,7 @@ export const cs: Flashcard[] = [
   {
     id: 57,
     category: "CS",
-    question: "JWT를 아나요?",
+    question: "JWT에 대해 알고 있나요?",
     answer:
       "JWT(JSON Web Token)는 당사자 간에 정보를 JSON 형태로 안전하게 전송하기 위한 토큰 기반 인증 방식입니다. Header(알고리즘, 토큰 타입), Payload(클레임 데이터), Signature(서명) 세 부분으로 구성됩니다. 서버가 상태를 저장할 필요 없는 Stateless 인증이 가능하며, 서명을 통해 토큰의 무결성을 검증할 수 있습니다.",
   },
@@ -438,7 +438,7 @@ export const cs: Flashcard[] = [
   {
     id: 60,
     category: "CS",
-    question: "소프트웨어 개발 주기(SDLC)에 대해 아나요?",
+    question: "소프트웨어 개발 주기(SDLC)에 대해 알고 있나요?",
     answer:
       "SDLC(Software Development Life Cycle)는 소프트웨어를 체계적으로 개발하기 위한 전체 과정입니다. 요구사항 분석, 설계, 구현, 테스트, 배포, 유지보수의 단계로 구성됩니다. 폭포수, 애자일, V 모델, 나선형 모델 등 다양한 방법론이 있으며, 프로젝트 특성에 따라 적합한 방법론을 선택하여 적용합니다.",
   },
@@ -572,7 +572,7 @@ export const cs: Flashcard[] = [
   {
     id: 78,
     category: "CS",
-    question: "타입과 인터페이스의 차이를 아나요?",
+    question: "타입과 인터페이스의 차이를 알고 있나요?",
     answer:
       "type은 유니온 타입, 인터섹션 타입, 튜플, 기본 타입 별칭 등 다양한 타입 조합을 표현할 수 있습니다. interface는 객체의 구조를 정의하는 데 특화되어 있으며, 선언 병합(Declaration Merging)이 가능합니다. interface는 extends로 확장하고, type은 & 연산자로 결합합니다. 일반적으로 객체 타입은 interface, 유니온이나 복합 타입은 type을 사용합니다.",
   },
