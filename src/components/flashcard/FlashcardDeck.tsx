@@ -33,9 +33,15 @@ export function FlashcardDeck({ fontSize }: FlashcardDeckProps) {
   const { state, currentCard, nextCard, prevCard, toggleAnswer } =
     useFlashcard();
 
+  // 텍스트 드래그 선택 중에는 스와이프 무시
+  const handleSwipe = (action: () => void) => () => {
+    if (window.getSelection()?.toString()) return;
+    action();
+  };
+
   const handlers = useSwipeable({
-    onSwipedLeft: nextCard,
-    onSwipedRight: prevCard,
+    onSwipedLeft: handleSwipe(nextCard),
+    onSwipedRight: handleSwipe(prevCard),
     trackMouse: true,
     delta: 50,
     preventScrollOnSwipe: true,
