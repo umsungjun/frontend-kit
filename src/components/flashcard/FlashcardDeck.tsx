@@ -12,6 +12,7 @@ import { FlashcardCard } from "./FlashcardCard";
 
 interface FlashcardDeckProps {
   fontSize: FontSizeKey;
+  isChatOpen: boolean;
 }
 
 const variants = {
@@ -29,7 +30,7 @@ const variants = {
   }),
 };
 
-export function FlashcardDeck({ fontSize }: FlashcardDeckProps) {
+export function FlashcardDeck({ fontSize, isChatOpen }: FlashcardDeckProps) {
   const { state, currentCard, nextCard, prevCard, toggleAnswer } =
     useFlashcard();
 
@@ -49,6 +50,9 @@ export function FlashcardDeck({ fontSize }: FlashcardDeckProps) {
 
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
+      // 채팅 패널이 열려 있으면 카드 네비게이션 무시
+      if (isChatOpen) return;
+
       // input, textarea 등 입력 요소에 포커스 시 단축키 무시
       const el = e.target as HTMLElement;
       if (
@@ -70,7 +74,7 @@ export function FlashcardDeck({ fontSize }: FlashcardDeckProps) {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [nextCard, prevCard, toggleAnswer]);
+  }, [nextCard, prevCard, toggleAnswer, isChatOpen]);
 
   if (!currentCard) {
     return (

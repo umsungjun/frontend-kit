@@ -1,8 +1,8 @@
 "use client";
 
-import { ChevronLeft, ChevronRight, Shuffle } from "lucide-react";
-
 import { useFlashcard } from "@/context/FlashcardContext";
+
+import { ChevronLeft, ChevronRight, Shuffle } from "lucide-react";
 
 export function NavigationControls() {
   const { state, totalCards, nextCard, prevCard, toggleShuffle } =
@@ -31,8 +31,10 @@ export function NavigationControls() {
           <Shuffle size={18} />
         </button>
 
-        <span className="min-w-[60px] text-center text-sm tabular-nums text-neutral-500 dark:text-neutral-400">
-          {totalCards > 0 ? `${state.currentIndex + 1} / ${totalCards}` : "0 / 0"}
+        <span className="min-w-15 text-center text-sm tabular-nums text-neutral-500 dark:text-neutral-400">
+          {totalCards > 0
+            ? `${state.currentIndex + 1} / ${totalCards}`
+            : "0 / 0"}
         </span>
       </div>
 

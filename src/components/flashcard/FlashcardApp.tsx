@@ -50,7 +50,7 @@ export function FlashcardApp() {
           onFontSizeChange={setFontSize}
         />
         <CategoryFilter />
-        <FlashcardDeck fontSize={fontSize} />
+        <FlashcardDeck fontSize={fontSize} isChatOpen={isChatOpen} />
         <NavigationControls />
         <footer className="flex items-center justify-center gap-3 border-t border-neutral-100 px-5 py-3 dark:border-neutral-800">
           <a
