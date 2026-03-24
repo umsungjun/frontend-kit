@@ -68,9 +68,6 @@ export const metadata: Metadata = {
     statusBarStyle: "default",
     title: "프론트엔드 개발자 면접 준비 | Frontend Kit",
   },
-  verification: {
-    google: "FkVxpqkKnBQlSm1tgTF-GyQP0GLfhX_z03E6h21lipo",
-  },
   formatDetection: {
     telephone: false,
   },
