@@ -2,6 +2,7 @@ export type Category =
   | "CS"
   | "HTML/CSS"
   | "JavaScript"
+  | "TypeScript"
   | "React"
   | "자료구조"
   | "알고리즘";

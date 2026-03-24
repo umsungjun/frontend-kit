@@ -3,6 +3,7 @@ import {
   Braces,
   Code,
   Cpu,
+  FileType,
   Network,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
@@ -13,6 +14,7 @@ export const CATEGORIES: Category[] = [
   "CS",
   "HTML/CSS",
   "JavaScript",
+  "TypeScript",
   "React",
   "자료구조",
   "알고리즘",
@@ -39,6 +41,12 @@ export const CATEGORY_CONFIG: Record<
     icon: Braces,
     color: "text-yellow-600 dark:text-yellow-400",
     bgColor: "bg-yellow-100 dark:bg-yellow-900/30",
+  },
+  TypeScript: {
+    label: "TypeScript",
+    icon: FileType,
+    color: "text-blue-600 dark:text-blue-400",
+    bgColor: "bg-blue-100 dark:bg-blue-900/30",
   },
   React: {
     label: "React",

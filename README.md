@@ -8,7 +8,7 @@
 
 - 스와이프 / 버튼으로 카드 넘기기
 - 답변 슬라이드 애니메이션으로 공개
-- 6개 카테고리 필터 (CS, HTML/CSS, JavaScript, React, 자료구조, 알고리즘)
+- 7개 카테고리 필터 (CS, HTML/CSS, JavaScript, TypeScript, React, 자료구조, 알고리즘)
 - 랜덤 셔플 모드
 - AI 문답 기능 (Gemma 3 27B 기반, 현재 카드 컨텍스트 연동)
 - 다크모드 / 라이트모드
