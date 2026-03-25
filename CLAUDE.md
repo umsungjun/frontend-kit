@@ -24,7 +24,7 @@ src/components/flashcard/  → presentational components consuming context
 
 ### State Management
 
-`FlashcardContext` uses `useReducer` with actions: `NEXT_CARD`, `PREV_CARD`, `TOGGLE_ANSWER`, `HIDE_ANSWER`, `SET_CATEGORY`, `TOGGLE_SHUFFLE`. The context exposes `filteredCards` (memoized) which is either the category-filtered array or a shuffled version of it.
+`FlashcardContext` uses `useReducer` with actions: `NEXT_CARD`, `PREV_CARD`, `TOGGLE_ANSWER`, `HIDE_ANSWER`, `SET_CATEGORY`, `TOGGLE_SHUFFLE`, `NAVIGATE_TO_CARD`. The context exposes `filteredCards` (memoized) which is either the category-filtered array or a shuffled version of it.
 
 Font size preference is persisted in localStorage via `useFontSize` → `useLocalStorage`.
 
@@ -47,7 +47,7 @@ IDs must be unique within the file. `questions.ts` auto-includes the new data vi
 ### Adding a New Category
 
 1. Add the category string to the `Category` union in `src/types/flashcard.ts`
-2. Add config (label, icon, color, bgColor) to `CATEGORY_CONFIG` in `src/lib/constants.ts`
+2. Add to `CATEGORIES` array and `CATEGORY_CONFIG` (label, icon, color, bgColor) in `src/lib/constants.ts`
 3. Create a data file in `src/data/` and add it to `src/data/questions.ts`
 
 ### PWA / Service Worker
