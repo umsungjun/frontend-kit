@@ -1,3 +1,5 @@
+import type { Category } from "@/types/flashcard";
+
 import {
   Binary,
   Braces,
@@ -8,8 +10,6 @@ import {
   Network,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-
-import type { Category } from "@/types/flashcard";
 
 export const CATEGORIES: Category[] = [
   "CS",

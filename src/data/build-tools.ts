@@ -12,8 +12,7 @@ export const buildTools: Flashcard[] = [
   {
     id: 2,
     category: "빌드도구",
-    question:
-      "CommonJS의 require와 ES Module의 import는 어떤 차이가 있나요?",
+    question: "CommonJS의 require와 ES Module의 import는 어떤 차이가 있나요?",
     answer:
       "CommonJS의 require는 동기적으로 모듈을 로드하며, 런타임에 동적으로 경로를 결정할 수 있습니다. 반면 ES Module의 import는 정적 구문으로 컴파일 타임에 모듈 구조가 결정되어 트리 쉐이킹 같은 정적 분석 최적화가 가능합니다. CommonJS는 모듈의 복사본(값)을 내보내지만, ESM은 바인딩(참조)을 내보내 원본 값의 변경이 반영됩니다. 현재 브라우저는 ESM을 네이티브로 지원하며, Node.js도 ESM을 공식 지원합니다.",
   },
@@ -49,10 +48,9 @@ export const buildTools: Flashcard[] = [
   {
     id: 7,
     category: "빌드도구",
-    question:
-      "Vite는 브라우저 Native ESM을 통해 번들 없이 어떻게 동작하나요?",
+    question: "Vite는 브라우저 Native ESM을 통해 번들 없이 어떻게 동작하나요?",
     answer:
-      "Vite 개발 서버는 소스 코드의 import 문을 브라우저가 이해할 수 있는 경로로 변환하여 그대로 제공합니다. 브라우저가 HTML의 <script type=\"module\">을 만나면 import 문을 따라 필요한 모듈을 개별 HTTP 요청으로 가져옵니다. Vite는 이 요청을 가로채 해당 파일을 실시간으로 변환(TypeScript, JSX 등)하여 응답합니다. 즉, 전체를 하나로 묶지 않고 브라우저의 모듈 로딩 메커니즘에 위임하는 방식입니다.",
+      'Vite 개발 서버는 소스 코드의 import 문을 브라우저가 이해할 수 있는 경로로 변환하여 그대로 제공합니다. 브라우저가 HTML의 <script type="module">을 만나면 import 문을 따라 필요한 모듈을 개별 HTTP 요청으로 가져옵니다. Vite는 이 요청을 가로채 해당 파일을 실시간으로 변환(TypeScript, JSX 등)하여 응답합니다. 즉, 전체를 하나로 묶지 않고 브라우저의 모듈 로딩 메커니즘에 위임하는 방식입니다.',
   },
   {
     id: 8,
@@ -89,8 +87,7 @@ export const buildTools: Flashcard[] = [
   {
     id: 12,
     category: "빌드도구",
-    question:
-      "Webpack과 Vite의 장단점을 비교하면 어떤 차이가 있나요?",
+    question: "Webpack과 Vite의 장단점을 비교하면 어떤 차이가 있나요?",
     answer:
       "Webpack은 성숙한 생태계, 풍부한 loader/plugin, 세밀한 설정이 가능하다는 장점이 있지만, 설정이 복잡하고 프로젝트가 커질수록 빌드와 HMR이 느려집니다. Vite는 빠른 개발 서버 시작과 HMR, 간결한 설정, 최신 웹 표준 활용이 장점이지만, Webpack 대비 플러그인 생태계가 작고 레거시 브라우저 지원에 추가 설정이 필요할 수 있습니다. 신규 프로젝트에서는 Vite가, 복잡한 레거시 프로젝트에서는 Webpack이 더 적합할 수 있습니다.",
   },
