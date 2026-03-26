@@ -1,14 +1,15 @@
+import type { Category } from "@/types/flashcard";
+
 import {
   Binary,
   Braces,
   Code,
   Cpu,
   FileType,
+  Hammer,
   Network,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-
-import type { Category } from "@/types/flashcard";
 
 export const CATEGORIES: Category[] = [
   "CS",
@@ -18,6 +19,7 @@ export const CATEGORIES: Category[] = [
   "React",
   "자료구조",
   "알고리즘",
+  "빌드도구",
 ];
 
 export const CATEGORY_CONFIG: Record<
@@ -65,6 +67,12 @@ export const CATEGORY_CONFIG: Record<
     icon: Binary,
     color: "text-red-600 dark:text-red-400",
     bgColor: "bg-red-100 dark:bg-red-900/30",
+  },
+  빌드도구: {
+    label: "빌드도구",
+    icon: Hammer,
+    color: "text-teal-600 dark:text-teal-400",
+    bgColor: "bg-teal-100 dark:bg-teal-900/30",
   },
 };
 

@@ -187,7 +187,8 @@ export function FlashcardProvider({ cards, children }: FlashcardProviderProps) {
     []
   );
   const setCategory = useCallback(
-    (category: Category | "all") => dispatch({ type: "SET_CATEGORY", category }),
+    (category: Category | "all") =>
+      dispatch({ type: "SET_CATEGORY", category }),
     []
   );
   const toggleShuffle = useCallback(

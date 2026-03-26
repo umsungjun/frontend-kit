@@ -2,11 +2,11 @@
 
 import { useEffect } from "react";
 
+import { useFlashcard } from "@/context/FlashcardContext";
+import type { FontSizeKey } from "@/lib/constants";
+
 import { AnimatePresence, motion } from "motion/react";
 import { useSwipeable } from "react-swipeable";
-
-import type { FontSizeKey } from "@/lib/constants";
-import { useFlashcard } from "@/context/FlashcardContext";
 
 import { FlashcardCard } from "./FlashcardCard";
 
@@ -60,7 +60,8 @@ export function FlashcardDeck({ fontSize, isChatOpen }: FlashcardDeckProps) {
         el.tagName === "TEXTAREA" ||
         el.tagName === "SELECT" ||
         el.isContentEditable
-      ) return;
+      )
+        return;
 
       if (e.key === "ArrowLeft") {
         prevCard();
