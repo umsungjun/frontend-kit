@@ -1,4 +1,5 @@
 import { algorithm } from "./algorithm";
+import { buildTools } from "./build-tools";
 import { cs } from "./cs";
 import { dataStructure } from "./data-structure";
 import { htmlCss } from "./html-css";
@@ -16,4 +17,5 @@ export const flashcards: Flashcard[] = [
   ...react,
   ...dataStructure,
   ...algorithm,
+  ...buildTools,
 ];
