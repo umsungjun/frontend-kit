@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Frontend Kit" }],
   creator: "Frontend Kit",
-  metadataBase: new URL("https://frontend-kit.kro.kr"),
+  metadataBase: new URL("https://kr-frontend-kit.vercel.app"),
   openGraph: {
     type: "website",
     locale: "ko_KR",
