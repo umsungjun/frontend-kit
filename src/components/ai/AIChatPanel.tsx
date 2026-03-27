@@ -1,15 +1,16 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
-import { Send, Sparkles, Trash2, X } from "lucide-react";
 
+import { ConfirmDialog } from "@/components/ui/ConfirmDialog";
+import { useFlashcard } from "@/context/FlashcardContext";
 import { useAIChat } from "@/hooks/useAIChat";
 import { useFontSize } from "@/hooks/useFontSize";
 import type { FontSizeKey } from "@/lib/constants";
 import { FONT_SIZE_PRESETS } from "@/lib/constants";
-import { useFlashcard } from "@/context/FlashcardContext";
-import { ConfirmDialog } from "@/components/ui/ConfirmDialog";
+
+import { Send, Sparkles, Trash2, X } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
 
 import { AIChatMessage } from "./AIChatMessage";
 
@@ -21,14 +22,8 @@ interface AIChatPanelProps {
 export function AIChatPanel({ isOpen, onClose }: AIChatPanelProps) {
   const { currentCard } = useFlashcard();
   const { fontSize } = useFontSize();
-  const {
-    messages,
-    isLoading,
-    error,
-    sendMessage,
-    clearMessages,
-    clearError,
-  } = useAIChat();
+  const { messages, isLoading, error, sendMessage, clearMessages, clearError } =
+    useAIChat();
   const [input, setInput] = useState("");
   const [showConfirm, setShowConfirm] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -98,7 +93,10 @@ export function AIChatPanel({ isOpen, onClose }: AIChatPanelProps) {
             <div className="flex items-center gap-2">
               <span
                 className="flex h-7 w-7 items-center justify-center rounded-lg text-white"
-                style={{ background: "linear-gradient(135deg, #8b5cf6, #ec4899, #f97316)" }}
+                style={{
+                  background:
+                    "linear-gradient(135deg, #8b5cf6, #ec4899, #f97316)",
+                }}
               >
                 <Sparkles size={15} strokeWidth={1.5} />
               </span>
@@ -143,7 +141,8 @@ export function AIChatPanel({ isOpen, onClose }: AIChatPanelProps) {
                   <div
                     className="flex h-12 w-12 items-center justify-center rounded-full text-white"
                     style={{
-                      background: "linear-gradient(135deg, #8b5cf6, #ec4899, #f97316)",
+                      background:
+                        "linear-gradient(135deg, #8b5cf6, #ec4899, #f97316)",
                     }}
                   >
                     <Sparkles size={22} strokeWidth={1.5} />
@@ -237,7 +236,10 @@ export function AIChatPanel({ isOpen, onClose }: AIChatPanelProps) {
                 type="submit"
                 disabled={!input.trim() || isLoading}
                 className="flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-xl text-white shadow-sm transition-all hover:opacity-90 active:scale-95 disabled:cursor-not-allowed disabled:opacity-40"
-                style={{ background: "linear-gradient(135deg, #8b5cf6, #ec4899, #f97316)" }}
+                style={{
+                  background:
+                    "linear-gradient(135deg, #8b5cf6, #ec4899, #f97316)",
+                }}
                 aria-label="전송"
               >
                 <Send size={17} />
@@ -245,10 +247,12 @@ export function AIChatPanel({ isOpen, onClose }: AIChatPanelProps) {
             </form>
             <div className="mt-1.5 flex items-center justify-between">
               <span className="text-[10px] text-neutral-400 dark:text-neutral-500">
-                Gemma 3 27B
+                Gemini 3.1 Flash Lite
               </span>
               {input.length > 0 ? (
-                <span className={`text-[10px] ${input.length >= MAX_INPUT ? "text-red-400" : "text-neutral-400 dark:text-neutral-500"}`}>
+                <span
+                  className={`text-[10px] ${input.length >= MAX_INPUT ? "text-red-400" : "text-neutral-400 dark:text-neutral-500"}`}
+                >
                   {input.length}/{MAX_INPUT}
                 </span>
               ) : (

@@ -18,7 +18,8 @@
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-markdown": "^10.1.0",
-    "react-swipeable": "^7.0.2"
+    "react-swipeable": "^7.0.2",
+    "rehype-raw": "^7.0.0"
   },
   "devDependencies": {
     "@serwist/next": "^9.5.6",
