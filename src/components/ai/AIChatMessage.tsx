@@ -1,10 +1,16 @@
 "use client";
 
-import ReactMarkdown from "react-markdown";
-
+import type { ChatMessage } from "@/hooks/useAIChat";
 import type { FontSizeKey } from "@/lib/constants";
 import { FONT_SIZE_PRESETS } from "@/lib/constants";
-import type { ChatMessage } from "@/hooks/useAIChat";
+
+import ReactMarkdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
+
+// CommonMark 파서가 **'text'** 같은 패턴을 bold로 인식하지 못하는 문제 보완
+function preprocessBold(content: string): string {
+  return content.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+}
 
 interface AIChatMessageProps {
   message: ChatMessage;
@@ -28,6 +34,7 @@ export function AIChatMessage({ message, fontSize }: AIChatMessageProps) {
           <span className="whitespace-pre-line">{message.content}</span>
         ) : (
           <ReactMarkdown
+            rehypePlugins={[rehypeRaw]}
             components={{
               p: ({ children }) => <p className="mb-2 last:mb-0">{children}</p>,
               strong: ({ children }) => (
@@ -66,7 +73,7 @@ export function AIChatMessage({ message, fontSize }: AIChatMessageProps) {
               ),
             }}
           >
-            {message.content}
+            {preprocessBold(message.content)}
           </ReactMarkdown>
         )}
       </div>
