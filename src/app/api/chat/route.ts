@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 import { GoogleGenAI } from "@google/genai";
 
-const MODEL = "gemini-3.1-flash-lite-preview";
+const MODEL = "gemma-3-27b-it";
 
 const BASE_SYSTEM_PROMPT = `당신은 프론트엔드 개발자 면접 준비를 돕는 AI 튜터입니다.
 JavaScript, React, CSS, CS, 자료구조, 알고리즘 등 프론트엔드 관련 개념에 대해 명확하고 이해하기 쉽게 설명해 주세요.
@@ -67,7 +67,13 @@ export async function POST(req: NextRequest) {
     ? `${BASE_SYSTEM_PROMPT}\n\n현재 사용자가 학습 중인 플래시카드:\n질문: ${cardContext.question}\n답변: ${cardContext.answer}`
     : BASE_SYSTEM_PROMPT;
 
+  // Gemma는 systemInstruction 미지원 → 첫 turn에 주입
   const contents = [
+    { role: "user" as const, parts: [{ text: systemPrompt }] },
+    {
+      role: "model" as const,
+      parts: [{ text: "알겠습니다. 프론트엔드 면접 준비를 도와드리겠습니다." }],
+    },
     ...(history ?? []).map((h) => ({
       role: h.role as "user" | "model",
       parts: [{ text: h.text }],
@@ -81,7 +87,6 @@ export async function POST(req: NextRequest) {
       model: MODEL,
       contents,
       config: {
-        systemInstruction: systemPrompt,
         maxOutputTokens: 1024,
         temperature: 0.7,
       },
