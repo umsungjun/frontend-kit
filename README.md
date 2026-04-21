@@ -10,7 +10,7 @@
 - 답변 슬라이드 애니메이션으로 공개
 - 7개 카테고리 필터 (CS, HTML/CSS, JavaScript, TypeScript, React, 자료구조, 알고리즘)
 - 랜덤 셔플 모드
-- AI 문답 기능 (Gemma 3 27B 기반, 현재 카드 컨텍스트 연동)
+- AI 문답 기능 (Gemma 4 31B 기반, 현재 카드 컨텍스트 연동)
 - 다크모드 / 라이트모드
 - 글자 크기 조절 (소 / 중 / 대)
 - 키보드 단축키 (← →, Space / Enter)
@@ -28,7 +28,7 @@
 | PWA        | @serwist/next                   |
 | 아이콘     | lucide-react                    |
 | 상태관리   | React Context + useReducer      |
-| AI         | Google Gemini API (Gemma 3 27B) |
+| AI         | Google Gemini API (Gemma 4 31B) |
 
 ## 시작하기
 

@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 import { GoogleGenAI } from "@google/genai";
 
-const MODEL = "gemma-3-27b-it";
+const MODEL = "gemma-4-31b-it";
 
 const BASE_SYSTEM_PROMPT = `당신은 프론트엔드 개발자 면접 준비를 돕는 AI 튜터입니다.
 JavaScript, React, CSS, CS, 자료구조, 알고리즘 등 프론트엔드 관련 개념에 대해 명확하고 이해하기 쉽게 설명해 주세요.

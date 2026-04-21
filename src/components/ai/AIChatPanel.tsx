@@ -247,7 +247,7 @@ export function AIChatPanel({ isOpen, onClose }: AIChatPanelProps) {
             </form>
             <div className="mt-1.5 flex items-center justify-between">
               <span className="text-[10px] text-neutral-400 dark:text-neutral-500">
-                Gemma 3 27B
+                Gemma 4 31B
               </span>
               {input.length > 0 ? (
                 <span
