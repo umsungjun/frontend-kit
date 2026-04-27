@@ -123,7 +123,8 @@ export const htmlCss: Flashcard[] = [
   {
     id: 18,
     category: "HTML/CSS",
-    question: "display 속성의 block, inline, inline-block, none의 차이는 뭔가요?",
+    question:
+      "display 속성의 block, inline, inline-block, none의 차이는 뭔가요?",
     answer:
       "display 속성은 요소가 어떻게 배치되고 크기를 가지는지를 결정합니다.\n\nblock은 한 줄 전체를 차지하며 width/height 설정이 가능합니다(div, p 등).\ninline은 콘텐츠 크기만큼만 차지하고 width/height 설정이 불가능합니다(span, a 등).\ninline-block은 inline처럼 한 줄에 나란히 배치되면서도 width/height 설정이 가능합니다.\nnone은 요소를 화면에서 완전히 제거하여 공간도 차지하지 않습니다(visibility: hidden은 공간은 유지).",
   },

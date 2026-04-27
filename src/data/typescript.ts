@@ -53,7 +53,8 @@ export const typescript: Flashcard[] = [
   {
     id: 8,
     category: "TypeScript",
-    question: "유니온 타입(Union Type)과 인터섹션 타입(Intersection Type)이란 뭔가요?",
+    question:
+      "유니온 타입(Union Type)과 인터섹션 타입(Intersection Type)이란 뭔가요?",
     answer:
       "유니온은 여러 타입 중 하나를 의미하는 OR 개념이고, 인터섹션은 여러 타입을 모두 만족하는 AND 개념이라는 점이 핵심 차이입니다.\n\n유니온 타입은 | 연산자를 사용하여 여러 타입 중 하나가 될 수 있는 타입을 정의합니다. 예를 들어 string | number는 문자열 또는 숫자를 허용합니다.\n\n인터섹션 타입은 & 연산자를 사용하여 여러 타입을 모두 만족하는 타입을 만듭니다. A & B는 A와 B의 모든 속성을 가진 타입이 됩니다.\n\n유니온은 입력값의 종류를 제한할 때, 인터섹션은 여러 타입을 합성할 때 주로 활용합니다.",
   },
@@ -109,7 +110,8 @@ export const typescript: Flashcard[] = [
   {
     id: 16,
     category: "TypeScript",
-    question: "타입 단언(Type Assertion)이란 뭔가요? as와 angle bracket의 차이는 뭔가요?",
+    question:
+      "타입 단언(Type Assertion)이란 뭔가요? as와 angle bracket의 차이는 뭔가요?",
     answer:
       "타입 단언은 개발자가 컴파일러에게 '이 값의 타입을 내가 더 잘 알고 있다'고 알려주는 기능입니다.\n\nvalue as string 형태의 as 구문과 <string>value 형태의 앵글 브래킷 구문이 있습니다. 두 방식은 기능적으로 동일합니다.\n\nJSX/TSX 파일에서는 앵글 브래킷이 JSX 태그와 충돌하므로 as 구문을 사용해야 합니다.\n\n타입 단언은 타입 검사를 우회하므로 남용하면 런타임 에러가 발생할 수 있어 꼭 필요한 경우에만 사용해야 합니다.",
   },
