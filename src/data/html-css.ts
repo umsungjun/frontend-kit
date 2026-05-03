@@ -4,7 +4,7 @@ export const htmlCss: Flashcard[] = [
   {
     id: 1,
     category: "HTML/CSS",
-    question: "DOCTYPE에 대해 설명해주세요",
+    question: "DOCTYPE이 뭔가요?",
     answer:
       "DOCTYPE은 문서 유형 선언(Document Type Declaration)으로, 브라우저에 해당 문서가 어떤 HTML 버전으로 작성되었는지 알려주는 역할을 합니다.\n\nHTML5에서는 <!DOCTYPE html>로 간단하게 선언하며, 문서 최상단에 위치해야 합니다.\n\n선언을 생략하면 브라우저가 쿼크 모드(Quirks Mode)로 렌더링하여 예기치 않은 레이아웃 문제가 발생할 수 있으므로 반드시 작성해야 합니다.",
   },
@@ -46,7 +46,7 @@ export const htmlCss: Flashcard[] = [
   {
     id: 7,
     category: "HTML/CSS",
-    question: "웹 접근성에 맞는 마크업 예시를 몇 가지 말해보세요",
+    question: "웹 접근성에 맞는 마크업에는 어떤 게 있나요?",
     answer:
       "접근성을 높이려면 콘텐츠의 의미와 조작 가능성을 명확히 드러내야 합니다.\n\n이미지에 alt 속성을 부여하여 대체 텍스트를 제공하고, form 요소에 label 태그를 연결하여 입력 필드의 용도를 명시합니다.\n시멘틱 태그를 사용하여 문서 구조를 명확히 하고, aria 속성(aria-label, aria-hidden, role 등)을 활용하여 스크린 리더가 콘텐츠를 올바르게 해석할 수 있도록 합니다.\n또한 키보드만으로도 모든 기능에 접근 가능하도록 tabindex와 focus 관리를 적절히 설정합니다.",
   },
@@ -195,7 +195,7 @@ export const htmlCss: Flashcard[] = [
   {
     id: 28,
     category: "HTML/CSS",
-    question: "PX, EM에 대해 설명해주세요 (절대단위, 상대단위)",
+    question: "px, em, rem은 어떻게 다른가요?",
     answer:
       "px과 em·rem은 기준점이 다른 단위로, 반응형 대응 능력에 차이가 있습니다.\n\npx은 절대 단위로 화면의 픽셀을 기준으로 하며 고정된 크기를 가집니다.\nem은 상대 단위로 부모 요소의 font-size를 기준으로 계산됩니다(예: 부모가 16px이면 1.5em = 24px).\nrem은 최상위 html 요소의 font-size를 기준으로 하여 em보다 일관된 크기 관리가 가능합니다.\n\n반응형 디자인에서는 상대 단위를 사용하는 것이 다양한 화면 크기에 유연하게 대응할 수 있어 권장됩니다.",
   },
