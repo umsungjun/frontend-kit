@@ -55,4 +55,7 @@ pnpm start
 
 ## 질문 출처
 
-질문 목록은 [prepare_frontend_interview](https://github.com/junh0328/prepare_frontend_interview) 저장소를 기반으로 작성되었습니다.
+질문 목록은 아래 저장소를 참고하여 작성되었습니다.
+
+- [prepare_frontend_interview](https://github.com/junh0328/prepare_frontend_interview)
+- [maeil-mail-contents](https://github.com/maeil-mail/maeil-mail-contents)
