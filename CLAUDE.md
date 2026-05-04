@@ -46,6 +46,27 @@ Add entries to the relevant file in `src/data/`. Each card follows:
 
 IDs must be unique within the file. `questions.ts` auto-includes the new data via spread.
 
+**질문 출처:** [prepare_frontend_interview](https://github.com/junh0328/prepare_frontend_interview), [maeil-mail-contents](https://github.com/maeil-mail/maeil-mail-contents)
+
+**현재 카드 수 (파일별 max ID):**
+
+| 파일                         | 카테고리   | 카드 수 |
+| ---------------------------- | ---------- | ------- |
+| `src/data/cs.ts`             | CS         | 95      |
+| `src/data/javascript.ts`     | JavaScript | 92      |
+| `src/data/react.ts`          | React      | 66      |
+| `src/data/html-css.ts`       | HTML/CSS   | 53      |
+| `src/data/build-tools.ts`    | 빌드도구   | 30      |
+| `src/data/typescript.ts`     | TypeScript | 26      |
+| `src/data/algorithm.ts`      | 알고리즘   | 26      |
+| `src/data/data-structure.ts` | 자료구조   | 11      |
+
+**카드 작성 컨벤션:** `.claude/agents/flashcard-writer.md` 에이전트 참고
+
+- 질문: 구어체 한국어, `~나요?/~가요?/~뭔가요?` 형식
+- 답변: 자연스러운 산문체, AI 문체 안티패턴 회피 (`.claude/rules/flashcard-conventions.md` 참고)
+- `src/data/*.ts` 수정 시 AI 문체 자동 점검 훅 실행 (`.claude/hooks/check-flashcard-style.sh`)
+
 ### Adding a New Category
 
 1. Add the category string to the `Category` union in `src/types/flashcard.ts`
