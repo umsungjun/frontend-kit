@@ -14,7 +14,7 @@ export const buildTools: Flashcard[] = [
     category: "빌드도구",
     question: "CommonJS의 require와 ES Module의 import는 어떤 차이가 있나요?",
     answer:
-      "CommonJS의 require는 동기적·동적으로 모듈을 로드하는 런타임 방식이고, ES Module의 import는 컴파일 타임에 구조가 결정되는 정적 방식입니다.\n\nrequire는 런타임에 경로를 동적으로 결정할 수 있고, 모듈의 복사본(값)을 내보내는 동기 방식입니다.\n\nimport는 정적 구문이라 트리 쉐이킹 같은 정적 분석 최적화가 가능하고, 바인딩(참조)을 내보내 원본 값의 변경이 반영됩니다.\n\n현재 브라우저와 Node.js 모두 ESM을 네이티브로 지원하므로 신규 코드는 ESM을 사용하는 것이 일반적입니다.",
+      "CommonJS와 ES Module은 자바스크립트에서 모듈을 관리하는 두 가지 주요 방식으로, 로딩 방식과 사용 환경에 차이가 있습니다.\n\nCommonJS는 주로 Node.js 환경에서 사용되며, require 키워드로 모듈을 동기적으로 불러옵니다. 모듈이 로드될 때까지 다음 코드가 실행되지 않는 방식입니다. module.exports로 내보내고, 경로를 런타임에 동적으로 결정할 수 있습니다.\n\nES Module은 ECMAScript 2015(ES6)부터 도입된 공식 표준으로, import/export 키워드를 사용하고 비동기적으로 모듈을 로드합니다. 정적 구문이라 번들러가 코드를 실행하지 않아도 어떤 모듈이 사용되는지 분석할 수 있어서, 트리 쉐이킹 같은 최적화가 가능합니다.\n\nNode.js는 버전 12부터 ESM을 네이티브로 지원하기 시작했고, 브라우저와 서버 모두에서 동작한다는 이점 덕분에 신규 코드에서는 ESM을 쓰는 추세입니다.",
   },
   {
     id: 3,
@@ -65,7 +65,7 @@ export const buildTools: Flashcard[] = [
     question:
       "Vite에서 pre-bundling은 왜 필요한가요? 어떤 문제를 해결하기 위한 과정인가요?",
     answer:
-      "Pre-bundling은 의존성을 ESM으로 통일하고 모듈 수를 줄여, 브라우저가 효율적으로 로드할 수 있도록 만드는 사전 처리 과정입니다.\n\n첫째, CommonJS나 UMD로 작성된 의존성을 ESM으로 변환하여 브라우저가 직접 로드할 수 있게 합니다.\n\n둘째, 내부적으로 수많은 모듈로 구성된 패키지(예: lodash-es는 600개 이상의 모듈)를 하나의 모듈로 합쳐 HTTP 요청 수를 줄입니다.\n\n개별 모듈마다 요청하면 네트워크 혼잡과 브라우저 성능 저하가 발생하기 때문에, 개발 환경에서도 의존성만큼은 미리 번들링해 두는 것이 효율적입니다.",
+      "Pre-bundling은 의존성을 ESM으로 통일하고 모듈 수를 줄여, 브라우저가 효율적으로 로드할 수 있도록 만드는 사전 처리 과정입니다.\n\n해결하는 문제는 두 가지입니다. CommonJS나 UMD로 작성된 의존성을 ESM으로 변환해 브라우저가 직접 로드할 수 있게 하는 것이 하나고, 내부적으로 수많은 모듈로 구성된 패키지(예: lodash-es는 600개 이상의 모듈)를 하나의 모듈로 합쳐 HTTP 요청 수를 줄이는 것이 나머지입니다.\n\n개별 모듈마다 요청하면 네트워크 혼잡과 브라우저 성능 저하가 발생하기 때문에, 개발 환경에서도 의존성만큼은 미리 번들링해 두는 것이 효율적입니다.",
   },
   {
     id: 10,
@@ -110,7 +110,7 @@ export const buildTools: Flashcard[] = [
     category: "빌드도구",
     question: "Tree shaking이란 뭔가요? 어떤 조건에서 동작하나요?",
     answer:
-      "Tree shaking은 사용되지 않는 코드(dead code)를 번들에서 제거하는 최적화 기법으로, 나무를 흔들어 죽은 잎을 떨어뜨리는 것에 비유한 이름입니다.\n\nES Module의 정적 구조(import/export)를 분석하여 실제로 사용되는 코드만 번들에 포함시킵니다.\n\n동작 조건으로는 ESM 사용, 사이드 이펙트 없는 모듈(package.json의 sideEffects 설정), 프로덕션 모드 빌드가 필요합니다.\n\nCommonJS의 동적 require는 정적 분석이 어려워 트리 쉐이킹이 잘 동작하지 않는다는 점을 주의해야 합니다.",
+      'Tree shaking은 사용되지 않는 코드(dead code)를 번들에서 제거해 번들 크기를 줄이는 최적화 기법입니다. 나무를 흔들어 죽은 잎을 떨어뜨리는 모습에 비유한 이름입니다.\n\nES Module의 정적 구조 덕분에 가능한 방식입니다. ESM은 import/export가 정적으로 분석 가능해서 번들러가 코드를 실행하지 않아도 어떤 모듈이 실제로 쓰이는지 파악할 수 있습니다. CommonJS의 require는 런타임에 동적으로 결정되기 때문에 정적 분석이 어렵고, 트리 쉐이킹이 잘 동작하지 않습니다.\n\n또 한 가지 조건이 있는데, 코드에 사이드 이펙트가 없어야 합니다. 전역 상태를 변경하거나 예측 불가능한 동작을 하는 코드는 번들러가 안전하게 제거할 수 없습니다. package.json에 "sideEffects": false를 명시하면 번들러가 더 적극적으로 최적화를 수행합니다.\n\nWebpack은 production 모드에서 기본적으로 트리 쉐이킹이 활성화되고, Rollup이나 esbuild도 ESM 기반 코드에서 효과적으로 동작합니다.',
   },
   {
     id: 16,
@@ -132,5 +132,89 @@ export const buildTools: Flashcard[] = [
     question: "Webpack의 chunk란 뭔가요? 어떤 종류가 있나요?",
     answer:
       "Chunk는 Webpack이 번들링 과정에서 생성하는 코드 묶음 단위로, 크게 세 종류로 나뉩니다.\n\nEntry chunk는 entry point에서 시작하는 메인 번들입니다.\nAsync chunk는 동적 import()로 분리된 비동기 로딩 청크입니다.\nVendor chunk(또는 common chunk)는 SplitChunksPlugin을 통해 여러 entry에서 공유하는 공통 의존성을 분리한 청크입니다.\n\n적절한 청크 분할은 캐싱 효율과 로딩 성능을 개선하는 데 핵심적인 역할을 합니다.",
+  },
+  {
+    id: 19,
+    category: "빌드도구",
+    question: "Tanstack Query에서 staleTime과 gcTime의 차이가 뭔가요?",
+    answer:
+      "staleTime은 데이터를 얼마나 오래 '신선한 상태'로 볼지 결정하고, gcTime은 쿼리가 사용되지 않은 뒤 캐시를 메모리에서 얼마나 유지할지 결정합니다. 역할이 다른 두 개의 타이머입니다.\n\nstaleTime은 기본값이 0이라 데이터를 가져오는 즉시 stale 상태가 됩니다. staleTime을 늘려두면 그 시간 동안은 refetch 트리거가 발생해도 새 네트워크 요청을 보내지 않고 캐시된 데이터를 그대로 씁니다.\n\ngcTime(이전에는 cacheTime)은 기본값이 5분입니다. 컴포넌트가 언마운트되어 해당 쿼리를 구독하는 곳이 없어지면, gcTime 이후에 캐시에서 완전히 제거됩니다. staleTime이 지나 데이터가 stale 상태여도 gcTime이 남아 있으면 캐시는 유지되므로, 다시 요청이 들어올 때 로딩 없이 기존 데이터를 먼저 보여주면서 백그라운드에서 새 데이터를 가져올 수 있습니다.\n\n둘을 함께 조절하면 불필요한 네트워크 요청을 줄이면서도 오래된 캐시가 메모리를 낭비하지 않도록 균형을 맞출 수 있습니다.",
+  },
+  {
+    id: 20,
+    category: "빌드도구",
+    question: "script 태그의 async와 defer 차이가 뭔가요?",
+    answer:
+      "두 속성 모두 스크립트를 비동기적으로 다운로드한다는 점은 같지만, 실행 시점에서 차이가 납니다.\n\nasync는 다운로드가 완료되는 순간 바로 실행됩니다. 이때 HTML 파싱이 잠시 중단되고, 여러 async 스크립트가 있으면 다운로드 완료 순서대로 실행되므로 실행 순서가 보장되지 않습니다.\n\ndefer는 HTML 문서 파싱이 완전히 끝난 뒤, DOMContentLoaded 이벤트 직전에 실행됩니다. 여러 defer 스크립트가 있으면 HTML에 작성된 순서대로 실행되므로 순서가 보장됩니다.\n\n실행 순서가 중요하거나 DOM을 다뤄야 하는 메인 애플리케이션 스크립트에는 defer를, Google Analytics처럼 독립적으로 동작하는 스크립트에는 async를 사용하는 것이 적절합니다.",
+  },
+  {
+    id: 21,
+    category: "빌드도구",
+    question: "CI/CD가 뭔가요?",
+    answer:
+      "CI/CD는 코드 변경을 자동으로 빌드·테스트·배포하는 파이프라인으로, 소프트웨어를 더 빠르고 안정적으로 출시하기 위한 개발 방식입니다.\n\nCI(Continuous Integration, 지속적 통합)는 개발자가 코드를 커밋할 때마다 자동으로 빌드와 테스트를 실행해 문제를 조기에 발견하는 과정입니다. 여러 사람이 동시에 작업하는 환경에서 코드 충돌이나 버그가 누적되는 것을 방지합니다.\n\nCD는 Continuous Delivery(지속적 전달)와 Continuous Deployment(지속적 배포) 두 개념으로 나뉩니다. Continuous Delivery는 CI를 통과한 코드를 언제든 배포할 수 있는 상태로 유지하되, 실제 배포는 수동으로 승인하는 방식입니다. Continuous Deployment는 승인 없이 자동으로 프로덕션까지 배포하는 방식입니다.\n\nGitHub Actions, Jenkins, CircleCI 같은 도구로 파이프라인을 구성하며, 프론트엔드에서는 코드 푸시 시 lint·테스트·빌드·배포까지 자동화하는 데 많이 활용됩니다.",
+  },
+  {
+    id: 22,
+    category: "빌드도구",
+    question: "모노레포(Monorepo)가 뭔가요?",
+    answer:
+      "모노레포는 여러 프로젝트나 패키지를 하나의 코드 저장소에서 통합 관리하는 방식입니다. mono(단일) + repo(레포지토리)를 합친 말입니다.\n\n주로 두 가지 구성 방식을 씁니다. 각 프로젝트를 독립적인 폴더로 나누고 yarn workspaces나 npm workspaces로 의존성을 중앙에서 관리하는 방식이 하나고, 공통 유틸·스타일·컴포넌트를 shared 폴더에 모아 여러 프로젝트에서 재사용하는 방식이 나머지입니다.\n\n가장 큰 장점은 코드와 설정을 일관되게 관리할 수 있다는 점입니다. 중복 작업이 줄고, 공통 모듈의 변경 영향을 같은 저장소 안에서 바로 추적할 수 있습니다. 반면 저장소가 커질수록 빌드·테스트 시간이 늘어나고, CI/CD 파이프라인 관리가 복잡해지는 단점이 있습니다. 이를 해결하기 위해 Nx, Turborepo 같은 도구를 함께 사용합니다.\n\n소규모 팀이나 단일 프로젝트 환경에서는 오히려 부담이 될 수 있어, 여러 팀이 공유하는 코드가 많거나 패키지 간 의존성이 복잡할 때 도입 효과가 큽니다.",
+  },
+  {
+    id: 23,
+    category: "빌드도구",
+    question: "git 브랜치 전략에는 어떤 게 있나요?",
+    answer:
+      "대표적인 브랜치 전략으로 Git Flow, GitHub Flow, Trunk-Based Development 세 가지가 있습니다.\n\nGit Flow는 feature, develop, release, main, hotfix 브랜치를 운영하는 체계적인 방식입니다. 대규모 프로젝트에서 릴리즈 주기를 관리하기 좋지만, 브랜치가 많아질수록 복잡도가 올라가는 단점이 있습니다.\n\nGitHub Flow는 main에서 바로 feature 브랜치를 만들고, 코드 리뷰를 거쳐 main으로 병합하는 단순한 방식입니다. 빠른 배포 주기를 가진 팀에 잘 맞지만, 별도의 QA 브랜치가 없어서 프로덕션 안정성을 자동화 테스트로 보완해야 합니다.\n\nTrunk-Based Development는 모든 개발자가 main 브랜치에 직접 커밋하거나 매우 짧은 수명의 브랜치를 사용하는 방식입니다. 머지 충돌을 최소화하고 지속적 통합에 유리하지만, 강력한 자동화 인프라가 뒷받침되어야 합니다.\n\n정답이 있는 것은 아니고, 금융 서비스처럼 안정성이 중요한 프로젝트에는 Git Flow가, 빠른 이터레이션이 필요한 스타트업 환경에는 GitHub Flow나 Trunk-Based가 더 잘 맞는 경향이 있습니다.",
+  },
+  {
+    id: 24,
+    category: "빌드도구",
+    question: "pnpm과 yarn berry는 어떻게 다른가요?",
+    answer:
+      "pnpm과 Yarn Berry는 모두 npm의 비효율성을 개선한 패키지 매니저지만, 의존성을 저장하고 참조하는 방식이 다릅니다.\n\npnpm은 콘텐츠 기반 전역 저장소(content-addressable store)를 사용합니다. 패키지를 한 번 다운받으면 글로벌 스토어에 저장해두고, 프로젝트마다 하드 링크와 심볼릭 링크로 참조합니다. node_modules 구조를 유지하면서도 디스크 공간과 설치 시간을 크게 줄입니다.\n\nYarn Berry는 node_modules를 아예 없애는 Plug'n'Play(PnP) 방식을 도입했습니다. 패키지 위치와 의존성 정보를 .pnp.cjs 파일에 기술하고, 패키지 자체는 .yarn/cache에 압축 파일로 저장합니다. 이 압축 파일을 Git에 커밋하면 Zero-Install이 가능해 CI/CD에서 설치 단계를 건너뛸 수 있습니다.\n\n두 방식 모두 팬텀 디펜던시 문제를 해결하고 워크스페이스를 지원하는 공통점이 있습니다. PnP는 호환성 문제가 생길 수 있고, pnpm은 기존 node_modules 방식과 호환성이 좋아 도입 장벽이 낮습니다.",
+  },
+  {
+    id: 25,
+    category: "빌드도구",
+    question: "npm install과 npm ci의 차이가 뭔가요?",
+    answer:
+      "두 커맨드 모두 의존성을 설치하지만, npm ci는 npm install보다 버전을 훨씬 엄격하게 유지합니다.\n\nnpm install은 package.json에 명시된 버전 범위 안에서 최신 버전을 설치할 수 있어, 실행 시점에 따라 설치되는 버전이 달라질 수 있습니다. package-lock.json을 수정하기도 합니다.\n\nnpm ci는 package-lock.json에 기록된 정확한 버전만 설치하고 lock 파일을 절대 변경하지 않습니다. 또한 매번 node_modules를 삭제하고 처음부터 다시 설치해서 이전 설치 잔재로 인한 충돌을 방지합니다.\n\nCI/CD 환경에서는 빌드 결과의 일관성이 중요하기 때문에 npm ci를 사용하는 것이 맞습니다. 로컬 개발에서는 매번 전체를 재설치하는 오버헤드 때문에 npm install이 더 실용적이지만, lock 파일이 최신 상태일 때는 npm ci를 써도 무방합니다.",
+  },
+  {
+    id: 26,
+    category: "빌드도구",
+    question: "JSX가 뭐고, 자바스크립트에서 어떻게 변환되나요?",
+    answer:
+      "JSX는 JavaScript XML의 약자로, HTML과 유사한 문법을 JavaScript 코드 안에서 쓸 수 있게 해주는 확장 문법입니다. React에서 UI를 선언적으로 표현하기 위해 도입되었지만, React 전용은 아닙니다.\n\n브라우저는 JSX를 직접 이해하지 못하기 때문에 Babel 같은 트랜스파일러가 일반 JavaScript로 변환합니다. 변환 과정에서 JSX 태그는 React.createElement() 호출로 바뀌고, 이 함수가 가상 DOM 요소 객체를 생성합니다. React 17 이후에는 jsx() 함수로 자동 변환되어 import React from 'react'를 매번 쓰지 않아도 됩니다.\n\nJSX가 단일 루트 요소를 요구하는 이유도 여기에 있습니다. JavaScript 함수는 배열로 감싸지 않은 여러 객체를 동시에 반환할 수 없고, JSX도 내부적으로는 객체로 변환되기 때문입니다. Fragment(<>...</>)를 쓰면 불필요한 DOM 노드 없이 여러 요소를 반환할 수 있습니다.",
+  },
+  {
+    id: 27,
+    category: "빌드도구",
+    question: "dependency, devDependency, peerDependency의 차이가 뭔가요?",
+    answer:
+      "세 가지는 npm에서 사용되는 의존성 유형으로, 해당 패키지가 언제 필요한지에 따라 구분합니다.\n\ndependency는 프로덕션 환경에서도 필요한 패키지입니다. 애플리케이션 실행에 직접 쓰이므로 배포 환경에서도 설치됩니다. react, axios 같은 패키지가 여기에 해당합니다.\n\ndevDependency는 개발 과정에서만 필요한 패키지입니다. eslint, jest, webpack처럼 코드 품질 검증이나 테스트, 번들링에 쓰이지만 실제 서비스 운영에는 필요 없습니다. 잘못해서 devDependency를 dependency에 넣으면 프로덕션 번들 크기가 불필요하게 커집니다.\n\npeerDependency는 주로 라이브러리를 개발할 때 쓰는 유형으로, '이 패키지는 특정 버전의 다른 패키지와 함께 사용되어야 한다'는 호환성 요구 사항을 명시합니다. 예를 들어 react-dom이 특정 버전의 react를 peerDependency로 선언하는 것처럼, 같은 패키지가 중복 설치되는 것을 막으면서 버전 호환성을 보장합니다.",
+  },
+  {
+    id: 28,
+    category: "빌드도구",
+    question: "Storybook이 뭔가요?",
+    answer:
+      "Storybook은 UI 컴포넌트를 전체 애플리케이션과 독립적으로 개발하고 문서화하는 도구입니다. 컴포넌트의 다양한 상태와 동작을 격리된 환경에서 테스트할 수 있습니다.\n\nStorybook에서 'Story'는 특정 컴포넌트가 어떤 상태로 렌더링되는지를 나타내는 단위입니다. 예를 들어 버튼 컴포넌트를 기본 상태, 비활성화 상태, 로딩 상태 등 각각 Story로 만들어두면 전체 앱을 실행하지 않고도 컴포넌트를 독립적으로 확인하고 수정할 수 있습니다.\n\n팀 협업에도 도움이 됩니다. 디자이너, QA, 기획자가 Storybook을 통해 컴포넌트를 시각적으로 확인하고 피드백을 줄 수 있어, 개발 과정에서 발생하는 커뮤니케이션 비용을 줄여줍니다.\n\n다만 Story 파일 작성과 유지보수에 추가 공수가 들고, 서버 의존성이 있는 컴포넌트에는 mock 데이터 설정이 필요합니다. 라이브러리 호환 문제가 생기기도 해서, 도입 전에 프로젝트 규모와 팀 상황을 고려하는 것이 좋습니다.",
+  },
+  {
+    id: 29,
+    category: "빌드도구",
+    question: "Node.js의 주요 특징은 뭔가요?",
+    answer:
+      "Node.js는 크롬 V8 엔진을 기반으로 하는 JavaScript 런타임 환경으로, 브라우저 밖에서도 JavaScript를 실행할 수 있게 해줍니다.\n\n가장 큰 특징은 싱글 스레드 기반의 이벤트 드리븐, 논블로킹 I/O 모델입니다. 요청마다 새 스레드를 만드는 전통적인 방식과 달리, 하나의 스레드로 이벤트 루프를 돌리며 작업을 처리합니다. 데이터베이스 조회나 파일 읽기 같은 I/O 작업은 완료될 때까지 기다리지 않고 다음 작업을 계속 처리하다가, 이벤트 루프가 완료 신호를 감지하면 콜백을 실행합니다.\n\n이 구조 덕분에 동시에 많은 요청을 적은 서버 자원으로 처리할 수 있어, 채팅이나 실시간 API처럼 I/O가 많은 서비스에 잘 맞습니다.\n\n반면 이미지 변환, 머신러닝 연산처럼 CPU를 많이 쓰는 작업에는 취약합니다. 싱글 스레드 특성상 CPU 집약적인 작업이 이벤트 루프를 블로킹하면 다른 요청 처리가 멈추기 때문입니다. 이런 경우엔 worker_threads나 별도 언어를 활용해야 합니다.",
+  },
+  {
+    id: 30,
+    category: "빌드도구",
+    question: "Yarn과 Yarn Berry의 차이가 뭔가요?",
+    answer:
+      "Yarn은 1.x 버전을 가리키고, Yarn Berry는 2.x 이상의 완전히 재설계된 버전입니다. 단순한 업그레이드가 아니라 의존성 관리 방식 자체가 달라졌습니다.\n\nYarn 1.x는 npm과 구조적으로 비슷하게 node_modules 폴더를 사용하고, 성능 개선과 lock 파일 도입에 초점을 맞췄습니다.\n\nYarn Berry의 가장 큰 변화는 Plug'n'Play(PnP) 도입입니다. node_modules를 생성하지 않고 .pnp.cjs 파일 하나로 모든 패키지 위치와 의존성 정보를 관리합니다. 패키지는 .yarn/cache 디렉토리에 압축 파일로 저장됩니다. 이 캐시를 Git에 커밋하면 Zero-Install이 가능해, 저장소를 클론하거나 브랜치를 전환한 뒤 별도 설치 없이 바로 실행할 수 있습니다.\n\nZero-Install은 CI/CD에서 특히 유용한데, 설치 단계를 건너뛰고 바로 빌드나 테스트를 시작할 수 있어 파이프라인 시간이 단축됩니다. 다만 PnP 방식은 일부 라이브러리와 호환 문제가 생길 수 있어 기존 프로젝트에 도입할 때 검토가 필요합니다.",
   },
 ];
