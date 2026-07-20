@@ -62,6 +62,7 @@ IDs must be unique within the file. `questions.ts` auto-includes the new data vi
 | `src/data/data-structure.ts` | 자료구조   | 11      |
 
 **카드 작성 컨벤션:** `.claude/agents/flashcard-writer.md` 에이전트 참고
+**기존 답변 다듬기:** `.claude/agents/flashcard-refiner.md` 에이전트 참고 — 정확성 검증 + 두괄식 암기 최적화 재작성 (내용 교정 허용)
 
 - 질문: 구어체 한국어, `~나요?/~가요?/~뭔가요?` 형식
 - 답변: 자연스러운 산문체, AI 문체 안티패턴 회피 (`.claude/rules/flashcard-conventions.md` 참고)
