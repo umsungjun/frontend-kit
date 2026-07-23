@@ -111,7 +111,7 @@ export const javascript: Flashcard[] = [
     category: "JavaScript",
     question: "정적 타이핑이 뭔가요?",
     answer:
-      "정적 타이핑은 변수를 선언할 때 데이터 타입을 명시적으로 지정하는 방식입니다.\n\n컴파일 시점에 타입이 결정되며, 선언한 타입과 다른 값을 할당하면 컴파일 에러가 발생합니다.\nC, Java, TypeScript 등이 정적 타이핑 언어에 해당합니다.\n\n런타임 전에 타입 관련 오류를 잡을 수 있어 안정성이 높습니다.",
+      "정적 타이핑(Static Typing)이란 변수의 타입이 컴파일 시점에 결정되고 검사되는 방식입니다.\n\n보통 선언할 때 타입을 명시하지만, TypeScript처럼 타입 추론으로 자동 결정하기도 합니다. 선언된 타입과 다른 값을 할당하면 컴파일 에러가 발생합니다.\nC, Java, TypeScript 등이 여기 해당합니다.\n\n런타임 전에 타입 오류를 잡을 수 있어 안정성이 높습니다.",
   },
   {
     id: 17,
@@ -125,21 +125,21 @@ export const javascript: Flashcard[] = [
     category: "JavaScript",
     question: "truthy / falsy 한 값이 뭔가요?",
     answer:
-      "truthy와 falsy는 조건문에서 불리언으로 평가될 때의 값을 구분하는 개념입니다.\n\nfalsy 값은 false로 취급되는 값으로, false, 0, -0, 0n, '', null, undefined, NaN이 있습니다.\ntruthy 값은 falsy가 아닌 모든 값으로, 빈 배열 [], 빈 객체 {}, 문자열 '0' 등도 truthy로 평가됩니다.\n\n조건문이나 논리 연산에서 암묵적 타입 변환이 일어날 때 이 개념이 중요하게 사용됩니다.",
+      "truthy와 falsy는 불리언이 아닌 값이 조건문에서 각각 true, false로 평가되는 것을 말합니다.\n\nfalsy 값은 false, 0, -0, 0n, '', null, undefined, NaN 여덟 가지뿐이고, 나머지는 모두 truthy입니다.\n그래서 빈 배열 [], 빈 객체 {}, 문자열 '0'도 truthy로 평가됩니다.\n\n조건문이나 논리 연산에서 암묵적 타입 변환이 일어날 때 이 개념이 중요합니다.",
   },
   {
     id: 19,
     category: "JavaScript",
     question: "자바스크립트의 배열은 자료구조의 배열과 같나요?",
     answer:
-      "자바스크립트의 배열은 일반적인 자료구조의 밀집 배열(dense array)과 다릅니다.\n\n자료구조의 배열은 동일한 크기의 메모리 공간이 연속적으로 나열되지만, 자바스크립트의 배열은 각 요소의 메모리 크기가 다를 수 있고 연속적이지 않은 희소 배열(sparse array)입니다.\n\n자바스크립트의 배열은 사실 인덱스를 프로퍼티 키로 가지는 특수한 객체이며, 해시 테이블로 구현되어 인덱스 접근은 느리지만 삽입과 삭제는 빠릅니다.",
+      "자바스크립트의 배열은 자료구조의 배열과 달리, 인덱스를 프로퍼티 키로 갖는 특수한 객체입니다.\n\n자료구조의 배열은 같은 크기의 메모리가 빈틈없이 연속으로 나열되는 밀집 배열이지만, 자바스크립트 배열은 요소마다 타입이 달라도 되고 중간에 빈 자리가 있는 희소 배열도 허용합니다.\n\n덕분에 삽입과 삭제는 유연하지만 연속 배열보다 접근이 느릴 수 있습니다. 다만 V8 같은 엔진은 밀집 배열을 연속 메모리로 최적화하고, 희소해질 때만 해시 테이블 방식으로 전환합니다.",
   },
   {
     id: 20,
     category: "JavaScript",
     question: "배열의 메서드는 어떤 종류가 있나요?",
     answer:
-      "배열 메서드는 원본 배열을 변경하는 뮤테이터 메서드와 새로운 배열을 반환하는 접근자 메서드로 나뉩니다.\n\n뮤테이터 메서드에는 push, pop, shift, unshift, splice, sort, reverse 등이 있습니다.\n접근자 메서드에는 slice, concat, join, indexOf, includes 등이 있습니다.\nforEach, map, filter, reduce, find, some, every 같은 고차 함수 메서드는 배열을 함수형으로 처리할 수 있게 해줍니다.\n\n원본 배열의 변경 여부를 의식하면서 메서드를 선택하는 것이 중요합니다.",
+      "배열 메서드는 원본을 바꾸는 뮤테이터 메서드와 원본을 그대로 두고 값을 반환하는 접근자 메서드로 나뉩니다.\n\n뮤테이터 메서드에는 push, pop, shift, unshift, splice, sort, reverse 등이 있습니다.\n접근자 메서드에는 slice, concat, join, indexOf, includes 등이 있으며, 반환값은 새 배열일 수도 문자열이나 인덱스일 수도 있습니다.\nmap, filter, reduce, forEach, find, some, every 같은 고차 함수 메서드는 콜백을 받아 배열을 함수형으로 처리하게 해줍니다.\n\n메서드가 원본을 바꾸는지 의식하며 선택하는 것이 중요합니다.",
   },
   {
     id: 21,
