@@ -504,7 +504,7 @@ export const javascript: Flashcard[] = [
     category: "JavaScript",
     question: "HTTP 요청 메서드에 대해서 설명해주세요",
     answer:
-      "HTTP 요청 메서드는 자원에 대해 어떤 행위를 할지를 정의하며, 메서드마다 용도와 특성이 다릅니다.\n\nGET은 리소스를 조회할 때, POST는 새로운 리소스를 생성할 때, PUT은 리소스 전체를 교체할 때, PATCH는 리소스의 일부를 수정할 때, DELETE는 리소스를 삭제할 때 사용합니다.\nGET과 DELETE는 요청 본문(body)이 없고, POST, PUT, PATCH는 요청 본문을 가집니다.\nGET은 멱등성과 안전성을 보장하며, PUT과 DELETE는 멱등성을 보장하지만 안전하지 않습니다.\n\n메서드의 의미와 멱등성을 의식하여 API를 설계하면 예측 가능한 동작을 보장할 수 있습니다.",
+      "HTTP 요청 메서드는 자원에 대해 어떤 행위를 할지를 정의하며, 메서드마다 용도와 특성이 다릅니다.\n\nGET은 리소스를 조회할 때, POST는 새로운 리소스를 생성할 때, PUT은 리소스 전체를 교체할 때, PATCH는 리소스의 일부를 수정할 때, DELETE는 리소스를 삭제할 때 사용합니다.\nGET과 DELETE는 보통 요청 본문(body)을 쓰지 않고, POST, PUT, PATCH는 요청 본문에 데이터를 담습니다.\nGET은 멱등성과 안전성을 보장하며, PUT과 DELETE는 멱등성을 보장하지만 안전하지 않습니다.\n\n메서드의 의미와 멱등성을 의식하여 API를 설계하면 예측 가능한 동작을 보장할 수 있습니다.",
   },
   {
     id: 75,
