@@ -623,6 +623,6 @@ export const javascript: Flashcard[] = [
     category: "JavaScript",
     question: "자바스크립트 클래스에서 private 필드(#)는 어떻게 사용하나요?",
     answer:
-      "private 필드는 클래스 내부에서만 접근 가능한 필드를 선언하는 문법으로, 필드 이름 앞에 # 기호를 붙여서 사용합니다. 클래스 본문 상단에 #fieldName 형태로 먼저 선언한 뒤 constructor나 메서드에서 this.#fieldName으로 접근합니다.\n\n클래스 외부에서 #필드에 접근하면 SyntaxError가 발생합니다. 기존에는 클로저나 WeakMap, 컨벤션(_prefix)으로 private을 흉내냈지만, #을 쓰면 언어 차원에서 진정한 캡슐화가 보장됩니다.\n\n메서드도 마찬가지로 #method() 형태로 선언해 클래스 내부에서만 호출하도록 제한할 수 있습니다. in 연산자로 특정 객체에 해당 private 필드가 있는지 확인하는 패턴('‌#field' in obj)도 활용됩니다.",
+      "private 필드는 클래스 내부에서만 접근 가능한 필드를 선언하는 문법으로, 필드 이름 앞에 # 기호를 붙여서 사용합니다. 클래스 본문 상단에 #fieldName 형태로 먼저 선언한 뒤 constructor나 메서드에서 this.#fieldName으로 접근합니다.\n\n클래스 외부에서 #필드에 접근하면 SyntaxError가 발생합니다. 기존에는 클로저나 WeakMap, 컨벤션(_prefix)으로 private을 흉내냈지만, #을 쓰면 언어 차원에서 진정한 캡슐화가 보장됩니다.\n\n메서드도 마찬가지로 #method() 형태로 선언해 클래스 내부에서만 호출하도록 제한할 수 있습니다. in 연산자로 특정 객체에 해당 private 필드가 있는지 확인하는 패턴(#field in obj)도 활용됩니다.",
   },
 ];
