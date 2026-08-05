@@ -198,12 +198,12 @@ export const react: Flashcard[] = [
     category: "React",
     question: "리액트에서 setState는 비동기 동작인가요 동기 동작인가요?",
     answer:
-      "setState는 비동기적으로 동작합니다.\n\n리액트는 성능 최적화를 위해 여러 setState 호출을 배치(batch)로 모아서 한 번에 처리합니다.\n\n따라서 setState 호출 직후에 변경된 state 값에 바로 접근할 수 없으며, 업데이트된 값을 기반으로 로직을 작성하려면 useEffect를 사용하거나 setState에 콜백 함수 형태(prev => newState)를 전달해야 합니다.",
+      "setState는 호출 즉시 state를 바꾸지 않고, 여러 호출을 배치(batch)로 모아 다음 렌더에서 한 번에 처리합니다. 그래서 흔히 '비동기적'이라고 표현합니다.\n\n따라서 setState 직후 같은 함수 안에서는 변경된 값에 바로 접근할 수 없습니다. 현재 렌더의 state는 고정돼 있고 다음 렌더에서 새 값으로 갱신되기 때문입니다. 업데이트된 값이 필요하면 useEffect를 쓰거나 setState에 콜백 형태(prev => newState)를 전달해야 합니다.\n\nReact 17까지는 이 배칭이 React 이벤트 핸들러 안에서만 적용되고 setTimeout·Promise 콜백에서는 setState마다 즉시 리렌더됐지만, React 18부터는 자동 배칭(automatic batching)으로 어디서든 배칭됩니다.",
   },
   {
     id: 29,
     category: "React",
-    question: "setState가 비동기 동작을 취했을 때 얻을 수 있는 이점은?",
+    question: "setState가 비동기로 동작할 때 얻을 수 있는 이점은 뭔가요?",
     answer:
       "여러 setState 호출을 배치(batch)로 모아 한 번에 처리함으로써 불필요한 리렌더링 횟수를 줄여 성능을 최적화할 수 있습니다.\n\n만약 setState가 동기적으로 동작한다면 각 호출마다 리렌더링이 발생하여 성능 저하로 이어질 수 있습니다.\n\n또한 일관된 상태를 보장하여 부모와 자식 컴포넌트가 서로 다른 시점의 상태를 참조하는 문제를 방지합니다.",
   },
