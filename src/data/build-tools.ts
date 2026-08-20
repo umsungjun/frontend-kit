@@ -217,4 +217,18 @@ export const buildTools: Flashcard[] = [
     answer:
       "Yarn은 1.x 버전을 가리키고, Yarn Berry는 2.x 이상의 완전히 재설계된 버전입니다. 단순한 업그레이드가 아니라 의존성 관리 방식 자체가 달라졌습니다.\n\nYarn 1.x는 npm과 구조적으로 비슷하게 node_modules 폴더를 사용하고, 성능 개선과 lock 파일 도입에 초점을 맞췄습니다.\n\nYarn Berry의 가장 큰 변화는 Plug'n'Play(PnP) 도입입니다. node_modules를 생성하지 않고 .pnp.cjs 파일 하나로 모든 패키지 위치와 의존성 정보를 관리합니다. 패키지는 .yarn/cache 디렉토리에 압축 파일로 저장됩니다. 이 캐시를 Git에 커밋하면 Zero-Install이 가능해, 저장소를 클론하거나 브랜치를 전환한 뒤 별도 설치 없이 바로 실행할 수 있습니다.\n\nZero-Install은 CI/CD에서 특히 유용한데, 설치 단계를 건너뛰고 바로 빌드나 테스트를 시작할 수 있어 파이프라인 시간이 단축됩니다. 다만 PnP 방식은 일부 라이브러리와 호환 문제가 생길 수 있어 기존 프로젝트에 도입할 때 검토가 필요합니다.",
   },
+  {
+    id: 31,
+    category: "빌드도구",
+    question: "바벨이란 뭔가요?",
+    answer:
+      "바벨(Babel)은 최신 JavaScript 문법을 구형 환경에서도 동작하도록 변환해주는 트랜스파일러입니다.\n\n화살표 함수, 클래스, 템플릿 리터럴, async/await 같은 최신 문법을 이전 버전의 JavaScript로 바꿔주어 브라우저 호환성 문제를 해결합니다.\n\nJSX 변환, TypeScript 변환 등도 플러그인 형태로 제공되어, 다양한 프레임워크와 함께 자주 사용됩니다.",
+  },
+  {
+    id: 32,
+    category: "빌드도구",
+    question: "웹팩의 주요 속성 4가지는 뭔가요?",
+    answer:
+      "웹팩 설정의 핵심은 Entry, Output, Loader, Plugin 네 가지 속성입니다.\n\nEntry: 번들링의 시작점이 되는 파일을 지정\nOutput: 번들 결과물의 파일명과 경로 설정\nLoader: JavaScript 외 파일(CSS, 이미지 등)을 모듈로 변환\nPlugin: 번들링 전체 과정에 걸쳐 다양한 기능(번들 최적화, 환경변수 주입, HTML 생성 등) 수행\n\n이 네 속성을 어떻게 조합하느냐에 따라 빌드 결과물의 구조와 최적화 수준이 결정됩니다.",
+  },
 ];
