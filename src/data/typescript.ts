@@ -6,7 +6,7 @@ export const typescript: Flashcard[] = [
     category: "TypeScript",
     question: "TypeScript란 무엇이고, JavaScript와의 차이점은 뭔가요?",
     answer:
-      "TypeScript는 Microsoft가 개발한 JavaScript의 상위 집합(Superset) 언어로, 정적 타입 시스템을 추가한 것이 가장 큰 특징입니다.\n\nTypeScript 코드는 컴파일(트랜스파일) 과정을 거쳐 순수 JavaScript로 변환되어 실행됩니다. JavaScript와 달리 컴파일 시점에 타입 오류를 잡을 수 있어 런타임 에러를 사전에 방지할 수 있습니다.\n\nIDE의 자동 완성과 리팩토링 지원이 강화되어 대규모 프로젝트의 생산성과 안정성을 높이는 데 효과적입니다.",
+      "TypeScript는 Microsoft가 개발한 JavaScript의 상위 집합(Superset) 언어로, 정적 타입 시스템을 추가한 것이 가장 큰 특징입니다.\n\nTypeScript 코드는 컴파일(트랜스파일) 과정을 거쳐 순수 JavaScript로 변환되어 실행됩니다. JavaScript와 달리 컴파일 시점에 타입 오류를 잡을 수 있어 런타임 에러를 사전에 방지할 수 있습니다.\n\n브라우저는 TypeScript를 직접 실행하지 못하므로, 타입은 컴파일 단계에서만 존재하고 결과물에는 남지 않습니다. 즉 타입 검사는 실행 성능과 무관합니다.",
   },
   {
     id: 2,
@@ -14,13 +14,6 @@ export const typescript: Flashcard[] = [
     question: "TypeScript를 사용하는 이유와 장점은 뭔가요?",
     answer:
       "TypeScript를 사용하는 가장 큰 이유는 정적 타이핑으로 코드의 안정성을 높일 수 있기 때문입니다. 런타임이 아닌 컴파일 시점에 타입 에러를 잡아주므로, 특히 규모가 큰 프로젝트에서 버그 발생 가능성을 크게 줄일 수 있습니다.\n\nIDE 경험도 눈에 띄게 좋아집니다. 자동 완성이 더 정확해지고, 타입 기반으로 리팩토링을 안전하게 할 수 있으며, 함수 시그니처나 객체 구조를 즉시 확인할 수 있어 개발 속도가 빨라집니다. 타입 정의 자체가 문서 역할을 하기 때문에 별도의 주석 없이도 코드의 의도가 명확하게 전달됩니다.\n\n다만 TypeScript가 항상 옳은 선택은 아닙니다. 프로토타입이나 간단한 프로젝트처럼 빠른 개발이 우선인 경우, 설정 비용이 오히려 부담이 될 수 있습니다. 기존 JavaScript 코드베이스가 방대한 경우에도 마이그레이션 비용이 적지 않습니다. 팀 전체가 TypeScript에 익숙하지 않다면 점진적으로 도입하는 전략이 현실적입니다.",
-  },
-  {
-    id: 3,
-    category: "TypeScript",
-    question: "정적 타이핑과 동적 타이핑의 차이점은 뭔가요?",
-    answer:
-      "정적 타이핑은 타입이 컴파일 시점에 결정되고, 동적 타이핑은 타입이 런타임에 결정된다는 점이 가장 큰 차이입니다.\n\n정적 타이핑은 TypeScript, Java, C++ 등이 해당하며, 코드 실행 전에 타입 오류를 발견할 수 있어 안정성이 높습니다.\n\n동적 타이핑은 JavaScript, Python 등이 해당하며, 작성이 유연하지만 런타임에서야 타입 관련 에러를 발견할 수 있다는 단점이 있습니다.\n\n안정성을 우선한다면 정적 타이핑, 빠른 프로토타이핑이 중요하다면 동적 타이핑이 어울립니다.",
   },
   {
     id: 4,
@@ -114,13 +107,6 @@ export const typescript: Flashcard[] = [
       "타입 단언(Type Assertion)이란 뭔가요? as와 angle bracket의 차이는 뭔가요?",
     answer:
       "타입 단언은 개발자가 컴파일러보다 해당 값의 타입을 더 잘 알고 있을 때, 컴파일러에게 '이 타입으로 취급해라'고 알려주는 기능입니다.\n\n문법은 두 가지입니다. value as string처럼 as 키워드를 쓰는 방식과, <string>value처럼 앵글 브래킷을 쓰는 방식입니다. 기능은 동일하지만, JSX/TSX 파일에서는 앵글 브래킷이 JSX 태그와 혼동될 수 있어 as 구문만 사용해야 합니다.\n\n타입 단언은 타입 변환이 아닙니다. 런타임 동작에는 아무런 영향을 주지 않고 컴파일러의 타입 검사만 우회합니다. 그래서 잘못 사용하면 컴파일은 통과하지만 런타임에서 에러가 날 수 있습니다.\n\n타입 단언보다는 타입 가드나 타입 좁히기를 먼저 고려하는 것이 좋고, DOM 접근처럼 TypeScript가 타입을 추론하기 어려운 상황에서만 제한적으로 쓰는 것이 권장됩니다. 확실히 null이 아님을 보장할 때는 as 대신 non-null assertion(!)을 쓸 수도 있습니다.",
-  },
-  {
-    id: 17,
-    category: "TypeScript",
-    question: "유틸리티 타입을 사용하는 이유와 주요 종류는 뭔가요?",
-    answer:
-      "유틸리티 타입은 TypeScript가 기본 제공하는 타입 변환 도구로, 기존 타입을 기반으로 새로운 타입을 쉽게 만들 수 있게 해줍니다.\n\n속성을 변환하는 Partial, Required, Readonly가 있습니다.\n속성을 선택하는 Pick, Omit이 있습니다.\n객체를 생성하는 Record가 있습니다.\n유니온을 필터링하는 Exclude, Extract, NonNullable이 있습니다.\n함수 관련 ReturnType, Parameters가 있습니다.\n\n중복 타입 정의를 줄이고 타입 간의 관계를 명확히 표현하여 유지보수성을 높이는 데 도움이 됩니다.",
   },
   {
     id: 18,

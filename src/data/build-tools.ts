@@ -46,13 +46,6 @@ export const buildTools: Flashcard[] = [
       "Webpack은 변경 시 번들 단위로 다시 빌드해야 하지만, Vite는 Native ESM 기반이라 변경된 모듈만 교체하면 되기 때문입니다.\n\nWebpack의 HMR은 파일이 변경되면 해당 모듈이 속한 번들을 다시 빌드하고, 의존성 체인을 따라가며 업데이트를 전파합니다. 프로젝트가 커질수록 이 과정이 점점 느려집니다.\n\nVite는 변경된 모듈만 교체하면 되고, 브라우저가 해당 모듈만 다시 요청하므로 프로젝트 크기와 관계없이 일관되게 빠른 HMR을 제공합니다.",
   },
   {
-    id: 7,
-    category: "빌드도구",
-    question: "Vite는 브라우저 Native ESM을 통해 번들 없이 어떻게 동작하나요?",
-    answer:
-      "Vite 개발 서버는 소스 코드의 import 문을 브라우저가 이해할 수 있는 경로로 변환해 그대로 제공하고, 모듈 로딩은 브라우저에 위임합니다.\n\n브라우저가 HTML의 모듈 스크립트를 만나면 import 문을 따라 필요한 모듈을 개별 HTTP 요청으로 가져옵니다.\n\nVite는 이 요청을 가로채 해당 파일을 실시간으로 변환(TypeScript, JSX 등)하여 응답합니다.\n\n즉, 전체를 하나로 묶지 않고 브라우저의 모듈 로딩 메커니즘에 위임하는 방식이라 빌드 단계 자체가 사라지는 효과가 있습니다.",
-  },
-  {
     id: 8,
     category: "빌드도구",
     question: "Vite도 production에서는 왜 번들링을 하나요?",
@@ -132,13 +125,6 @@ export const buildTools: Flashcard[] = [
     question: "Webpack의 chunk란 뭔가요? 어떤 종류가 있나요?",
     answer:
       "Chunk는 Webpack이 번들링 과정에서 생성하는 코드 묶음 단위로, 크게 세 종류로 나뉩니다.\n\nEntry chunk는 entry point에서 시작하는 메인 번들입니다.\nAsync chunk는 동적 import()로 분리된 비동기 로딩 청크입니다.\nVendor chunk(또는 common chunk)는 SplitChunksPlugin을 통해 여러 entry에서 공유하는 공통 의존성을 분리한 청크입니다.\n\n적절한 청크 분할은 캐싱 효율과 로딩 성능을 개선하는 데 핵심적인 역할을 합니다.",
-  },
-  {
-    id: 19,
-    category: "빌드도구",
-    question: "Tanstack Query에서 staleTime과 gcTime의 차이가 뭔가요?",
-    answer:
-      "staleTime은 데이터를 얼마나 오래 '신선한 상태'로 볼지 결정하고, gcTime은 쿼리가 사용되지 않은 뒤 캐시를 메모리에서 얼마나 유지할지 결정합니다. 역할이 다른 두 개의 타이머입니다.\n\nstaleTime은 기본값이 0이라 데이터를 가져오는 즉시 stale 상태가 됩니다. staleTime을 늘려두면 그 시간 동안은 refetch 트리거가 발생해도 새 네트워크 요청을 보내지 않고 캐시된 데이터를 그대로 씁니다.\n\ngcTime(이전에는 cacheTime)은 기본값이 5분입니다. 컴포넌트가 언마운트되어 해당 쿼리를 구독하는 곳이 없어지면, gcTime 이후에 캐시에서 완전히 제거됩니다. staleTime이 지나 데이터가 stale 상태여도 gcTime이 남아 있으면 캐시는 유지되므로, 다시 요청이 들어올 때 로딩 없이 기존 데이터를 먼저 보여주면서 백그라운드에서 새 데이터를 가져올 수 있습니다.\n\n둘을 함께 조절하면 불필요한 네트워크 요청을 줄이면서도 오래된 캐시가 메모리를 낭비하지 않도록 균형을 맞출 수 있습니다.",
   },
   {
     id: 20,
