@@ -73,9 +73,13 @@ IDs must be unique within the file. `questions.ts` auto-includes the new data vi
 **카드 작성 컨벤션:** `.claude/agents/flashcard-writer.md` 에이전트 참고
 **기존 답변 다듬기:** `.claude/agents/flashcard-refiner.md` 에이전트 참고 — 정확성 검증 + 두괄식 암기 최적화 재작성 (내용 교정 허용)
 
-- 질문: 구어체 한국어, `~나요?/~가요?/~뭔가요?` 형식
+- 질문: 구어체 한국어, `~나요?/~가요?/~뭔가요?` 형식. 명사형 종결(`SPA의 단점은?`) 금지
 - 답변: 자연스러운 산문체, AI 문체 안티패턴 회피 (`.claude/rules/flashcard-conventions.md` 참고)
 - `src/data/*.ts` 수정 시 AI 문체 자동 점검 훅 실행 (`.claude/hooks/check-flashcard-style.sh`)
+
+**어투 기준:** 질문·답변 모두 [gn-voice](https://github.com/gongnyang/gn-voice) 규칙을 따릅니다. 전역 스킬로 설치되어 있고(`~/.claude/skills/gn-voice`), 상세 적용 범위는 `.claude/rules/flashcard-conventions.md`에 정리했습니다. 플래시카드는 학습용 설명문이라 gn-voice §3(장르 밖) 원칙에 따라 표면 규칙만 적용하고 리듬·인격 요소는 이식하지 않습니다. 핵심 금지 항목은 줄표(`—`), AI 정리 상투구(`결론적으로`·`정리하면`·`핵심은`), 개조식 명사종결, 이모지·초성체입니다.
+
+**진행 중 작업:** 367장 전수 점검 체크리스트는 `.claude/flashcard-review.md`에 있습니다.
 
 ### Adding a New Category
 
