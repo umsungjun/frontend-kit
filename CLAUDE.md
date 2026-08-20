@@ -48,18 +48,27 @@ IDs must be unique within the file. `questions.ts` auto-includes the new data vi
 
 **질문 출처:** [prepare_frontend_interview](https://github.com/junh0328/prepare_frontend_interview), [maeil-mail-contents](https://github.com/maeil-mail/maeil-mail-contents)
 
-**현재 카드 수 (파일별 max ID):**
+**현재 카드 수 (총 367장):**
 
 | 파일                         | 카테고리   | 카드 수 |
 | ---------------------------- | ---------- | ------- |
-| `src/data/cs.ts`             | CS         | 95      |
-| `src/data/javascript.ts`     | JavaScript | 92      |
-| `src/data/react.ts`          | React      | 66      |
-| `src/data/html-css.ts`       | HTML/CSS   | 53      |
+| `src/data/javascript.ts`     | JavaScript | 89      |
+| `src/data/cs.ts`             | CS         | 80      |
+| `src/data/react.ts`          | React      | 63      |
+| `src/data/html-css.ts`       | HTML/CSS   | 52      |
 | `src/data/build-tools.ts`    | 빌드도구   | 30      |
-| `src/data/typescript.ts`     | TypeScript | 26      |
-| `src/data/algorithm.ts`      | 알고리즘   | 26      |
-| `src/data/data-structure.ts` | 자료구조   | 11      |
+| `src/data/typescript.ts`     | TypeScript | 24      |
+| `src/data/algorithm.ts`      | 알고리즘   | 17      |
+| `src/data/data-structure.ts` | 자료구조   | 12      |
+
+중복 정리 과정에서 카드를 제거해 **id에 결번이 있습니다.** id는 파일 내 고유 키일 뿐이라 연속성이 필요 없으므로, 새 카드는 해당 파일의 max ID + 1로 부여하세요.
+
+**카테고리 경계 (중복 방지):**
+
+- 번들러·트랜스파일러·패키지 매니저는 `build-tools.ts` (cs.ts에 두지 않음)
+- 타입 시스템은 `typescript.ts` (cs.ts에 두지 않음)
+- SEO·웹 성능 지표(LCP·FCP·Core Web Vitals)는 `html-css.ts` (react.ts에 두지 않음)
+- `algorithm.ts`는 알고리즘 기법만, 자료구조는 `data-structure.ts`
 
 **카드 작성 컨벤션:** `.claude/agents/flashcard-writer.md` 에이전트 참고
 **기존 답변 다듬기:** `.claude/agents/flashcard-refiner.md` 에이전트 참고 — 정확성 검증 + 두괄식 암기 최적화 재작성 (내용 교정 허용)
