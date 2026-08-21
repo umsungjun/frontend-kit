@@ -173,7 +173,7 @@ export const buildTools: Flashcard[] = [
     category: "빌드도구",
     question: "JSX가 뭐고, 자바스크립트에서 어떻게 변환되나요?",
     answer:
-      "JSX는 JavaScript XML의 약자로, HTML과 유사한 문법을 JavaScript 코드 안에서 쓸 수 있게 해주는 확장 문법입니다. React에서 UI를 선언적으로 표현하기 위해 도입되었지만, React 전용은 아닙니다.\n\n브라우저는 JSX를 직접 이해하지 못하기 때문에 Babel 같은 트랜스파일러가 일반 JavaScript로 변환합니다. 변환 과정에서 JSX 태그는 React.createElement() 호출로 바뀌고, 이 함수가 가상 DOM 요소 객체를 생성합니다. React 17 이후에는 jsx() 함수로 자동 변환되어 import React from 'react'를 매번 쓰지 않아도 됩니다.\n\nJSX가 단일 루트 요소를 요구하는 이유도 여기에 있습니다. JavaScript 함수는 배열로 감싸지 않은 여러 객체를 동시에 반환할 수 없고, JSX도 내부적으로는 객체로 변환되기 때문입니다. Fragment(<>...</>)를 쓰면 불필요한 DOM 노드 없이 여러 요소를 반환할 수 있습니다.",
+      "JSX는 JavaScript XML의 약자로, HTML과 유사한 문법을 JavaScript 코드 안에서 쓸 수 있게 해주는 확장 문법입니다. React에서 UI를 선언적으로 표현하기 위해 도입되었지만, React 전용은 아닙니다.\n\n브라우저는 JSX를 직접 이해하지 못하기 때문에 Babel 같은 트랜스파일러가 일반 JavaScript로 변환합니다. 변환 과정에서 JSX 태그는 React.createElement() 호출로 바뀌고, 이 함수가 가상 DOM 요소 객체를 생성합니다. React 17 이후에는 jsx() 함수로 자동 변환되어 import React from 'react'를 매번 쓰지 않아도 됩니다.\n\nJSX가 단일 루트 요소를 요구하는 이유도 여기에 있습니다. JavaScript 함수는 배열로 감싸지 않은 여러 객체를 동시에 반환할 수 없고, JSX도 내부적으로는 객체로 변환되기 때문입니다. Fragment(`<>...</>`)를 쓰면 불필요한 DOM 노드 없이 여러 요소를 반환할 수 있습니다.",
   },
   {
     id: 27,

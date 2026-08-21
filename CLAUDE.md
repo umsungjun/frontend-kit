@@ -20,6 +20,7 @@ src/data/*.ts           → individual category flashcard arrays
 src/data/questions.ts   → aggregates all categories into one array
 src/context/FlashcardContext.tsx  → useReducer-based state (filtering, shuffle, navigation)
 src/components/flashcard/  → presentational components consuming context
+src/components/ui/MarkdownContent.tsx  → shared markdown renderer (answers + AI chat)
 ```
 
 ### State Management
@@ -35,6 +36,7 @@ Font size preference is persisted in localStorage via `useFontSize` → `useLoca
 - **Imports:** Sorted by Prettier plugin — CSS → React/Next.js → `@/` absolute → third-party → relative.
 - **Quotes:** Double quotes (Prettier config).
 - **Buttons:** Always include `cursor-pointer` class.
+- **마크다운 렌더링:** 카드 답변과 AI 응답은 모두 `MarkdownContent`(`src/components/ui/MarkdownContent.tsx`)로 렌더링합니다. `remark-breaks`로 단일 개행을 `<br>`로 유지하고, 원시 HTML은 AI 응답에서만 `allowRawHtml`로 허용합니다.
 
 ### Adding Flashcard Questions
 
@@ -45,6 +47,8 @@ Add entries to the relevant file in `src/data/`. Each card follows:
 ```
 
 IDs must be unique within the file. `questions.ts` auto-includes the new data via spread.
+
+**답변은 마크다운으로 렌더링됩니다.** 코드 예시는 ` ```js ` 펜스로, 태그·제네릭·식별자 표기는 백틱으로 감싸세요. `<head>`나 `<T>`처럼 백틱 없이 쓴 태그 표기는 원시 HTML로 파싱돼 화면에서 사라집니다. `__proto__`처럼 밑줄로 감싼 식별자는 볼드로 변환되므로 역시 백틱이 필요합니다.
 
 **질문 출처:** [prepare_frontend_interview](https://github.com/junh0328/prepare_frontend_interview), [maeil-mail-contents](https://github.com/maeil-mail/maeil-mail-contents)
 

@@ -13,7 +13,7 @@ export const htmlCss: Flashcard[] = [
     category: "HTML/CSS",
     question: "meta 태그에 대해서 알고 있나요?",
     answer:
-      "meta 태그는 HTML 문서의 <head> 내부에 위치하며, 문서에 대한 메타데이터(정보에 대한 정보)를 정의하는 태그입니다.\n\n화면에 직접 표시되지는 않지만, 브라우저가 문서를 어떻게 해석하고 렌더링할지, 검색 엔진과 SNS가 이 페이지를 어떻게 읽을지를 결정합니다.\n\n그래서 SEO와 올바른 렌더링에 직접 영향을 주며, 페이지 성격에 맞게 작성하는 것이 중요합니다.",
+      "meta 태그는 HTML 문서의 `<head>` 내부에 위치하며, 문서에 대한 메타데이터(정보에 대한 정보)를 정의하는 태그입니다.\n\n화면에 직접 표시되지는 않지만, 브라우저가 문서를 어떻게 해석하고 렌더링할지, 검색 엔진과 SNS가 이 페이지를 어떻게 읽을지를 결정합니다.\n\n그래서 SEO와 올바른 렌더링에 직접 영향을 주며, 페이지 성격에 맞게 작성하는 것이 중요합니다.",
   },
   {
     id: 3,
@@ -239,7 +239,7 @@ export const htmlCss: Flashcard[] = [
     category: "HTML/CSS",
     question: "HTML data- 속성이 뭔가요?",
     answer:
-      'data- 속성은 HTML 요소에 커스텀 데이터를 직접 저장할 수 있는 방법입니다. data- 접두사 뒤에 원하는 이름을 붙여서 쓰는데, 예를 들어 <div data-user-id="12345" data-role="admin"> 처럼 사용합니다.\n\nJavaScript에서는 element.dataset 객체로 접근합니다. HTML의 케밥 케이스(kebab-case) 이름이 camelCase로 자동 변환되어 data-user-id는 dataset.userId로 읽힙니다.\n\nCSS에서도 활용이 가능합니다. attr() 함수로 속성 값을 content에 삽입하거나, article[data-columns="3"] { width: 400px; } 처럼 속성 선택자로 조건부 스타일을 적용할 수 있습니다.\n\n버튼 클릭 이벤트에 데이터를 끼워넣거나, JavaScript와 HTML 사이 데이터를 간결하게 전달하는 용도로 유용합니다. 별도의 데이터 구조 없이 DOM 요소 자체에 필요한 정보를 붙일 수 있어 코드가 단순해집니다.',
+      'data- 속성은 HTML 요소에 커스텀 데이터를 직접 저장할 수 있는 방법입니다. data- 접두사 뒤에 원하는 이름을 붙여서 쓰는데, 예를 들어 `<div data-user-id="12345" data-role="admin">` 처럼 사용합니다.\n\nJavaScript에서는 element.dataset 객체로 접근합니다. HTML의 케밥 케이스(kebab-case) 이름이 camelCase로 자동 변환되어 data-user-id는 dataset.userId로 읽힙니다.\n\nCSS에서도 활용이 가능합니다. attr() 함수로 속성 값을 content에 삽입하거나, article[data-columns="3"] { width: 400px; } 처럼 속성 선택자로 조건부 스타일을 적용할 수 있습니다.\n\n버튼 클릭 이벤트에 데이터를 끼워넣거나, JavaScript와 HTML 사이 데이터를 간결하게 전달하는 용도로 유용합니다. 별도의 데이터 구조 없이 DOM 요소 자체에 필요한 정보를 붙일 수 있어 코드가 단순해집니다.',
   },
   {
     id: 37,
@@ -253,7 +253,7 @@ export const htmlCss: Flashcard[] = [
     category: "HTML/CSS",
     question: "DOM에서 Node와 Element의 차이가 뭔가요?",
     answer:
-      "Node는 DOM 트리를 구성하는 모든 객체의 최상위 인터페이스입니다. 요소(element), 텍스트, 주석, 문서 자체까지 전부 Node의 일종입니다. 반면 Element는 Node의 하위 타입으로, HTML 태그로 표현되는 요소만을 가리킵니다.\n\n예를 들어 <p>Hello</p>가 있으면 p 태그가 Element이고, 그 안의 'Hello' 텍스트는 TextNode입니다. TextNode도 Node지만 Element는 아닙니다.\n\n실무에서는 childNodes(모든 자식 Node 반환)와 children(자식 Element만 반환)의 차이가 대표적입니다. childNodes로 순회하면 텍스트 노드나 주석 노드가 섞여 나올 수 있어 예상치 못한 동작을 만날 수 있습니다. 요소만 다루고 싶다면 children이나 querySelectorAll을 쓰는 게 안전합니다.",
+      "Node는 DOM 트리를 구성하는 모든 객체의 최상위 인터페이스입니다. 요소(element), 텍스트, 주석, 문서 자체까지 전부 Node의 일종입니다. 반면 Element는 Node의 하위 타입으로, HTML 태그로 표현되는 요소만을 가리킵니다.\n\n예를 들어 `<p>Hello</p>`가 있으면 p 태그가 Element이고, 그 안의 'Hello' 텍스트는 TextNode입니다. TextNode도 Node지만 Element는 아닙니다.\n\n실무에서는 childNodes(모든 자식 Node 반환)와 children(자식 Element만 반환)의 차이가 대표적입니다. childNodes로 순회하면 텍스트 노드나 주석 노드가 섞여 나올 수 있어 예상치 못한 동작을 만날 수 있습니다. 요소만 다루고 싶다면 children이나 querySelectorAll을 쓰는 게 안전합니다.",
   },
   {
     id: 39,
@@ -324,7 +324,7 @@ export const htmlCss: Flashcard[] = [
     category: "HTML/CSS",
     question: "CSS box-sizing이 뭔가요?",
     answer:
-      "box-sizing은 요소의 width와 height를 어떻게 계산할지 결정하는 CSS 속성입니다.\n\n기본값은 content-box로, width와 height가 콘텐츠 영역에만 적용됩니다. padding과 border를 추가하면 그만큼 실제 크기가 늘어납니다. 예를 들어 width: 200px에 padding: 20px, border: 2px를 주면 실제 렌더링 크기는 244px이 됩니다. 의도한 크기와 달라지는 문제가 자주 발생하는 이유가 여기 있습니다.\n\nborder-box로 설정하면 width와 height 안에 padding과 border가 포함됩니다. 같은 조건이라면 콘텐츠 영역이 156px로 줄어들지만, 겉에서 보이는 박스 크기는 정확히 200px입니다. 레이아웃을 머릿속으로 계획한 대로 구현할 수 있어 훨씬 직관적입니다.\n\n그래서 많은 프로젝트에서 *, *::before, *::after { box-sizing: border-box; }를 전역으로 적용합니다. Tailwind CSS도 기본적으로 border-box를 사용합니다.",
+      "box-sizing은 요소의 width와 height를 어떻게 계산할지 결정하는 CSS 속성입니다.\n\n기본값은 content-box로, width와 height가 콘텐츠 영역에만 적용됩니다. padding과 border를 추가하면 그만큼 실제 크기가 늘어납니다. 예를 들어 width: 200px에 padding: 20px, border: 2px를 주면 실제 렌더링 크기는 244px이 됩니다. 의도한 크기와 달라지는 문제가 자주 발생하는 이유가 여기 있습니다.\n\nborder-box로 설정하면 width와 height 안에 padding과 border가 포함됩니다. 같은 조건이라면 콘텐츠 영역이 156px로 줄어들지만, 겉에서 보이는 박스 크기는 정확히 200px입니다. 레이아웃을 머릿속으로 계획한 대로 구현할 수 있어 훨씬 직관적입니다.\n\n그래서 많은 프로젝트에서 `*, *::before, *::after { box-sizing: border-box; }`를 전역으로 적용합니다. Tailwind CSS도 기본적으로 border-box를 사용합니다.",
   },
   {
     id: 49,

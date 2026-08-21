@@ -4,8 +4,7 @@ import type { ChatMessage } from "@/hooks/useAIChat";
 import type { FontSizeKey } from "@/lib/constants";
 import { FONT_SIZE_PRESETS } from "@/lib/constants";
 
-import ReactMarkdown from "react-markdown";
-import rehypeRaw from "rehype-raw";
+import MarkdownContent from "../ui/MarkdownContent";
 
 // CommonMark 파서가 **'text'** 같은 패턴을 bold로 인식하지 못하는 문제 보완
 function preprocessBold(content: string): string {
@@ -33,48 +32,11 @@ export function AIChatMessage({ message, fontSize }: AIChatMessageProps) {
         {isUser ? (
           <span className="whitespace-pre-line">{message.content}</span>
         ) : (
-          <ReactMarkdown
-            rehypePlugins={[rehypeRaw]}
-            components={{
-              p: ({ children }) => <p className="mb-2 last:mb-0">{children}</p>,
-              strong: ({ children }) => (
-                <strong className="font-semibold">{children}</strong>
-              ),
-              code: ({ children, className }) => {
-                const isBlock = className?.includes("language-");
-                return isBlock ? (
-                  <code className="block">{children}</code>
-                ) : (
-                  <code className="rounded bg-neutral-100 px-1 py-0.5 font-mono text-[0.85em] text-violet-600 dark:bg-neutral-700 dark:text-violet-400">
-                    {children}
-                  </code>
-                );
-              },
-              pre: ({ children }) => (
-                <pre className="my-2 overflow-x-auto rounded-xl bg-neutral-100 p-3 font-mono text-[0.85em] text-neutral-800 dark:bg-neutral-900 dark:text-neutral-200">
-                  {children}
-                </pre>
-              ),
-              ul: ({ children }) => (
-                <ul className="mb-2 list-disc pl-4">{children}</ul>
-              ),
-              ol: ({ children }) => (
-                <ol className="mb-2 list-decimal pl-4">{children}</ol>
-              ),
-              li: ({ children }) => <li className="mb-0.5">{children}</li>,
-              h1: ({ children }) => (
-                <h1 className="mb-1 text-base font-bold">{children}</h1>
-              ),
-              h2: ({ children }) => (
-                <h2 className="mb-1 text-sm font-bold">{children}</h2>
-              ),
-              h3: ({ children }) => (
-                <h3 className="mb-1 text-sm font-semibold">{children}</h3>
-              ),
-            }}
-          >
-            {preprocessBold(message.content)}
-          </ReactMarkdown>
+          // preprocessBold가 <strong>을 주입하므로 원시 HTML 허용이 필요
+          <MarkdownContent
+            content={preprocessBold(message.content)}
+            allowRawHtml
+          />
         )}
       </div>
     </div>

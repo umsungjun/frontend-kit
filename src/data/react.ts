@@ -269,7 +269,7 @@ export const react: Flashcard[] = [
     category: "React",
     question: "Next를 구성하는 기본 설정 파일에 대해서 알고 있나요?",
     answer:
-      "next.config.js(또는 next.config.mjs)는 Next.js의 핵심 설정 파일로 리다이렉트, 환경 변수, 이미지 도메인 등을 설정합니다.\n\npages/_app.tsx(또는 app/layout.tsx)는 모든 페이지에 공통으로 적용되는 레이아웃과 전역 상태를 관리합니다.\n\npages/_document.tsx는 HTML 문서 구조를 커스터마이징하며, middleware.ts는 요청 전처리를 수행하고, .env 파일로 환경 변수를 관리합니다.",
+      "next.config.js(또는 next.config.mjs)는 Next.js의 핵심 설정 파일로 리다이렉트, 환경 변수, 이미지 도메인 등을 설정합니다.\n\n`pages/_app.tsx`(또는 `app/layout.tsx`)는 모든 페이지에 공통으로 적용되는 레이아웃과 전역 상태를 관리합니다.\n\n`pages/_document.tsx`는 HTML 문서 구조를 커스터마이징하며, middleware.ts는 요청 전처리를 수행하고, .env 파일로 환경 변수를 관리합니다.",
   },
   {
     id: 41,
@@ -283,7 +283,7 @@ export const react: Flashcard[] = [
     category: "React",
     question: "suspense가 뭔가요?",
     answer:
-      "Suspense는 컴포넌트가 렌더링에 필요한 데이터나 코드가 준비될 때까지 로딩 상태를 선언적으로 처리할 수 있게 해주는 리액트의 기능입니다.\n\n<Suspense fallback={<Loading />}>으로 컴포넌트를 감싸면, 내부 컴포넌트가 준비되기 전까지 fallback에 지정한 로딩 UI를 표시합니다.\n\n비동기 작업의 로딩 상태를 컴포넌트 트리 수준에서 관리할 수 있어 코드의 가독성과 사용자 경험을 개선합니다.",
+      "Suspense는 컴포넌트가 렌더링에 필요한 데이터나 코드가 준비될 때까지 로딩 상태를 선언적으로 처리할 수 있게 해주는 리액트의 기능입니다.\n\n`<Suspense fallback={<Loading />}>`으로 컴포넌트를 감싸면, 내부 컴포넌트가 준비되기 전까지 fallback에 지정한 로딩 UI를 표시합니다.\n\n비동기 작업의 로딩 상태를 컴포넌트 트리 수준에서 관리할 수 있어 코드의 가독성과 사용자 경험을 개선합니다.",
   },
   {
     id: 43,
@@ -311,7 +311,7 @@ export const react: Flashcard[] = [
     category: "React",
     question: "React Strict Mode가 뭔가요?",
     answer:
-      "Strict Mode는 개발 환경에서만 동작하는 리액트의 진단 도구입니다. <React.StrictMode>로 감싼 컴포넌트 트리에 대해 잠재적인 문제를 미리 찾아내도록 도와줍니다.\n\n가장 눈에 띄는 동작은 특정 함수와 훅을 두 번 실행하는 것입니다. 컴포넌트 함수, useState의 초기화 함수, useReducer의 리듀서 등을 이중으로 호출해서, 두 결과가 같은지 확인합니다. 같다면 순수 함수로 동작한다는 뜻이고, 같지 않다면 부수 효과가 섞여 있다는 신호입니다. 이 이중 실행은 개발 빌드에서만 일어나고 프로덕션 성능에는 영향을 주지 않습니다.\n\n또한 더 이상 권장되지 않는 레거시 라이프사이클 메서드나 오래된 API 사용을 감지해서 콘솔 경고를 띄웁니다. 팀이 최신 리액트 패턴을 따르도록 강제하는 장치이기도 합니다.",
+      "Strict Mode는 개발 환경에서만 동작하는 리액트의 진단 도구입니다. `<React.StrictMode>`로 감싼 컴포넌트 트리에 대해 잠재적인 문제를 미리 찾아내도록 도와줍니다.\n\n가장 눈에 띄는 동작은 특정 함수와 훅을 두 번 실행하는 것입니다. 컴포넌트 함수, useState의 초기화 함수, useReducer의 리듀서 등을 이중으로 호출해서, 두 결과가 같은지 확인합니다. 같다면 순수 함수로 동작한다는 뜻이고, 같지 않다면 부수 효과가 섞여 있다는 신호입니다. 이 이중 실행은 개발 빌드에서만 일어나고 프로덕션 성능에는 영향을 주지 않습니다.\n\n또한 더 이상 권장되지 않는 레거시 라이프사이클 메서드나 오래된 API 사용을 감지해서 콘솔 경고를 띄웁니다. 팀이 최신 리액트 패턴을 따르도록 강제하는 장치이기도 합니다.",
   },
   {
     id: 49,
