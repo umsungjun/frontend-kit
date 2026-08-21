@@ -9,6 +9,15 @@ paths:
 
 플래시카드는 저자 개인 에세이가 아니라 학습용 설명문이므로 **표면 규칙만 적용**한다. gn-voice §3(장르 밖) 원칙에 따라 §1의 3·5·6·11·15와 §4 Do-NOT을 적용하고, 리듬·인격·화계 낙차(§1의 8~10·13·14)와 음슴체·은어·자기비하·사담·미완결 종결은 적용하지 않는다.
 
+# 답변 기준 자료
+
+카드 질문의 원본이자 답변 검증 기준. 한국어 면접 답변체의 기준을 이 두 곳으로 잡고, MDN과 ECMA-262는 사실 확인이 필요할 때만 보조로 쓴다. MDN 한국어 번역은 가독성이 떨어져 표현을 그대로 옮기지 않는다.
+
+- [junh0328/prepare_frontend_interview](https://github.com/junh0328/prepare_frontend_interview) — `docs/js.md`, `docs/react.md`, `docs/cs.md`, `docs/html_css.md`, `docs/algorithm_data_structure.md`. 헤딩이 카드 질문과 1:1로 대응한다
+- [maeil-mail/maeil-mail-contents](https://github.com/maeil-mail/maeil-mail-contents) — `frontend/toc-category.md`가 카테고리별 목차, 개별 답변은 `frontend/contents/fe-<번호>.md`. 코드 예시와 꼬리 질문 형식을 참고할 것
+
+용어는 두 저장소 표현을 따른다. `평가 단계`, `실행 컨텍스트`, `스코프에 등록` 같은 표기를 유지하고 MDN 번역어로 바꾸지 않는다. 두 저장소가 어긋나면 명세를 확인하고 판단 근거를 대화에 남긴다.
+
 # 플래시카드 질문 컨벤션
 
 - question 필드는 구어체 한국어로 작성

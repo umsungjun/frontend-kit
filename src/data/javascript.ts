@@ -48,14 +48,14 @@ export const javascript: Flashcard[] = [
     category: "JavaScript",
     question: "var 키워드는 뭔가요?",
     answer:
-      "var는 ES6에서 let과 const가 나오기 전까지 변수를 선언하는 유일한 키워드였습니다.\n\n특징이 그대로 문제점이 됩니다.\n함수 레벨 스코프라 if나 for 블록 안에서 선언해도 블록 밖에서 접근됩니다.\n중복 선언이 허용되어 같은 이름으로 다시 선언해도 에러 없이 값이 덮어써집니다.\n선언과 초기화가 함께 호이스팅되므로 선언 전에 참조해도 에러 대신 undefined가 나와 버그를 놓치기 쉽습니다.\n전역에 선언하면 전역 객체의 프로퍼티가 되어 브라우저에서는 window로도 접근되고, 다른 스크립트의 전역 변수와 충돌할 수 있습니다.\n\n이런 문제 때문에 ES6에서 블록 레벨 스코프를 가진 let과 const가 도입됐습니다.",
+      "var는 ES6 이전에 변수를 선언하던 유일한 키워드입니다.\n\nvar 선언은 런타임 이전 평가 단계에서 함수 스코프에 등록되고 undefined로 초기화됩니다. 여기서 문제 대부분이 나옵니다.\n\n선언 전에 참조해도 에러 대신 undefined가 나오고, 등록 단위가 함수라서 if나 for 블록 안에서 선언해도 블록 밖에서 접근됩니다. 여기에 재선언을 허용하는 규칙까지 붙어서 같은 이름으로 다시 선언해도 에러 없이 값이 덮어써집니다.",
   },
   {
     id: 8,
     category: "JavaScript",
     question: "호이스팅이 뭔가요?",
     answer:
-      "호이스팅은 자바스크립트 엔진이 코드를 실행하기 전에 변수와 함수 선언을 해당 스코프의 최상단으로 끌어올린 것처럼 동작하는 특성입니다. 실제로 코드가 물리적으로 이동하는 건 아니라, 엔진이 평가 단계에서 선언을 미리 처리하는 방식입니다.\n\n키워드마다 동작이 다릅니다. var는 선언과 초기화가 함께 호이스팅되어 선언 이전에 참조해도 undefined가 나옵니다. 반면 let과 const는 선언만 호이스팅되고 초기화는 실제 코드 위치에서 이루어지기 때문에, 그 사이 구간인 TDZ에서 접근하면 ReferenceError가 발생합니다.\n\n함수 선언문은 함수 전체가 호이스팅되어 선언 위치보다 위에서 호출해도 정상 동작합니다. 함수 표현식은 변수 호이스팅만 적용되므로 var로 선언했다면 undefined, let/const라면 TDZ 에러가 납니다.\n\n```js\nconsole.log(a); // undefined\nvar a = 1;\n\nconsole.log(b); // ReferenceError\nlet b = 1;\n```",
+      "호이스팅은 엔진이 실행 전 평가 단계에서 선언을 미리 처리해, 선언이 스코프 최상단으로 끌어올려진 것처럼 동작하는 특성입니다. 코드가 실제로 이동하는 것은 아닙니다.\n\nvar, let, const, function, class로 선언한 모든 식별자가 호이스팅됩니다. 갈리는 건 초기화 시점입니다.\n\nvar는 등록과 동시에 undefined로 초기화되니 선언 전에 참조해도 undefined가 나옵니다. let과 const는 등록만 되고 초기화는 실제 코드 위치에서 이뤄지므로, 그 사이 구간인 TDZ에서 접근하면 ReferenceError가 발생합니다. 함수 선언문은 함수 전체가 등록되어 선언 전에도 호출됩니다.\n\n```js\nconsole.log(a); // undefined\nvar a = 1;\n\nconsole.log(b); // ReferenceError\nlet b = 1;\n```",
   },
   {
     id: 10,
@@ -69,7 +69,7 @@ export const javascript: Flashcard[] = [
     category: "JavaScript",
     question: "TDZ가 뭔가요?",
     answer:
-      "TDZ(Temporal Dead Zone, 일시적 사각지대)는 let이나 const로 선언한 변수가 스코프 시작 지점부터 초기화 시작 지점까지 참조할 수 없는 구간을 말합니다.\n\n이 구간에서 변수에 접근하면 ReferenceError가 발생합니다.\n\nTDZ는 변수가 선언되기 전에 사용되는 것을 방지하여 코드의 예측 가능성과 안정성을 높여줍니다.",
+      "TDZ(Temporal Dead Zone, 일시적 사각지대)는 let이나 const로 선언한 변수가 스코프 시작 지점부터 초기화가 실행되기 전까지 참조할 수 없는 구간을 말합니다. 이 구간에서 접근하면 ReferenceError가 발생합니다.\n\nTDZ가 있는 이유는 초기화 전 접근을 에러로 드러내기 위해서입니다. var는 등록과 동시에 undefined로 초기화되니 선언 전에 참조해도 조용히 undefined가 나와 버그를 놓치게 됩니다.\n\n```js\n{\n  console.log(x); // ReferenceError\n  let x = 1;\n  console.log(x); // 1\n}\n```",
   },
   {
     id: 12,
