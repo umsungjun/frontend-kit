@@ -76,7 +76,7 @@ export const javascript: Flashcard[] = [
     category: "JavaScript",
     question: "const 키워드는 어떤 특징이 있나요?",
     answer:
-      "const는 상수, 즉 재할당이 불가능한 변수를 선언하는 키워드로, 반드시 선언과 동시에 초기화해야 합니다.\n\nlet과 마찬가지로 블록 레벨 스코프를 가지며 중복 선언이 불가능합니다.\n다만 재할당이 막히는 건 참조값이지 내용물이 아니라서, const로 선언한 객체의 프로퍼티나 배열의 요소는 변경할 수 있습니다.\n\n상수에는 const를 우선 사용하면 코드의 의도가 명확해집니다.",
+      "const는 한 번 할당한 값을 다시 할당할 수 없는 키워드입니다. 선언할 때 반드시 값을 넣어야 합니다.\n\n블록 레벨 스코프와 중복 선언 금지는 let과 같습니다.\n\n막는 것은 재할당뿐입니다. 객체를 담으면 내부 프로퍼티는 바꿀 수 있습니다.\n\n```js\nconst a; // SyntaxError\n\nconst obj = { a: 1 };\nobj.a = 2; // 정상\nobj = { a: 2 }; // TypeError\n```",
   },
   {
     id: 13,
