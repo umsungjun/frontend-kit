@@ -90,7 +90,7 @@ export const javascript: Flashcard[] = [
     category: "JavaScript",
     question: "데이터 타입의 종류는 어떤 것들이 있나요?",
     answer:
-      "자바스크립트의 데이터 타입은 크게 원시 타입과 객체 타입으로 나뉩니다.\n\n원시 타입에는 number, string, boolean, undefined, null, symbol, bigint 7가지가 있습니다.\n객체 타입에는 객체, 배열, 함수 등이 포함되며, 원시 타입을 제외한 모든 값은 객체 타입입니다.\n\n두 타입의 핵심 차이는 값 전달 방식입니다. 원시 타입은 값 자체가 복사되고, 객체 타입은 참조가 전달됩니다.",
+      "자바스크립트의 데이터 타입은 크게 원시 타입과 객체 타입으로 나뉩니다.\n\n원시 타입에는 number, string, boolean, undefined, null, symbol, bigint 7가지가 있습니다.\n객체 타입에는 객체, 배열, 함수 등이 포함되며, 원시 타입을 제외한 모든 값은 객체 타입입니다.\n\n두 타입은 값 전달 방식이 다릅니다. 원시 타입은 값 자체가 복사되고, 객체 타입은 참조가 전달됩니다.",
   },
   {
     id: 15,
