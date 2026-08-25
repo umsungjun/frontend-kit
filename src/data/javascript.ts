@@ -137,9 +137,9 @@ export const javascript: Flashcard[] = [
   {
     id: 22,
     category: "JavaScript",
-    question: "forEach 메서드와 map 메서드의 차이점에 대해 알고 있나요?",
+    question: "forEach와 map은 어떤 차이가 있나요?",
     answer:
-      "forEach와 map은 모두 배열의 각 요소를 순회하지만, 반환값과 활용 목적이 다릅니다.\n\nforEach는 배열의 각 요소에 대해 콜백 함수를 실행하지만 반환값이 undefined입니다. 단순히 반복하며 부수 효과를 수행할 때 사용합니다.\n\nmap은 콜백 함수의 반환값으로 구성된 새로운 배열을 반환합니다. 원본 배열을 변환하여 새 배열을 만들 때 사용합니다.\n\n두 메서드 모두 원본 배열을 변경하지 않으며, 변환된 결과가 필요한지 여부에 따라 선택하면 됩니다.",
+      "둘 다 배열을 순회하지만 반환값이 다릅니다. forEach는 undefined를 반환하고, map은 콜백이 반환한 값으로 만든 새 배열을 반환합니다.\n\n메서드 자체는 원본을 건드리지 않습니다. 변환 결과가 필요하면 map, 순회만 하면 forEach를 씁니다.\n\n```js\nconst nums = [1, 2, 3];\nnums.forEach((n) => n * 2); // undefined\nnums.map((n) => n * 2); // [2, 4, 6]\n```",
   },
   {
     id: 23,
