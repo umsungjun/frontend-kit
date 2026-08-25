@@ -111,7 +111,7 @@ export const javascript: Flashcard[] = [
     category: "JavaScript",
     question: "truthy / falsy 한 값이 뭔가요?",
     answer:
-      "truthy와 falsy는 불리언이 아닌 값이 조건문에서 각각 true, false로 평가되는 것을 말합니다.\n\nfalsy 값은 false, 0, -0, 0n, '', null, undefined, NaN 여덟 가지뿐이고, 나머지는 모두 truthy입니다.\n그래서 빈 배열 [], 빈 객체 {}, 문자열 '0'도 truthy로 평가됩니다.\n\n조건문이나 논리 연산에서 암묵적 타입 변환이 일어날 때 이 개념이 중요합니다.",
+      "truthy와 falsy는 불리언이 아닌 값이 조건문에서 각각 true, false로 평가되는 것을 말합니다.\n\nfalsy 값은 여덟 가지뿐이고 나머지는 전부 truthy입니다. 빈 배열이나 빈 객체, 문자열 '0'도 truthy라 조건문에서 참으로 걸립니다.\n\n```js\n// falsy 값 전부\nfalse, 0, -0, 0n, '', null, undefined, NaN\n\nif ([]) console.log('실행됨');\nif ({}) console.log('실행됨');\nif ('0') console.log('실행됨');\n```",
   },
   {
     id: 19,
