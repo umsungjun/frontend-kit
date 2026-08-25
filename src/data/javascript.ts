@@ -151,9 +151,9 @@ export const javascript: Flashcard[] = [
   {
     id: 24,
     category: "JavaScript",
-    question: "함수와 메서드의 차이점에 대해 알고 계신가요?",
+    question: "함수와 메서드는 어떤 차이가 있나요?",
     answer:
-      "함수와 메서드의 차이는 객체와의 관계, 그리고 this 바인딩입니다.\n\n함수는 독립적으로 정의해 호출하는 코드 블록이고, 일반 함수의 this는 전역 객체(strict 모드에서는 undefined)를 가리킵니다.\n메서드는 객체의 프로퍼티로 할당된 함수라, 자신이 속한 객체를 this로 참조합니다.\n\nES6 메서드 축약 표현으로 정의하면 내부 슬롯 [[HomeObject]]를 가져 super도 쓸 수 있습니다.",
+      "메서드는 객체의 프로퍼티로 할당된 함수이고, 함수는 독립적으로 정의해 호출하는 코드 블록입니다.\n\n차이는 this에서 드러납니다. 메서드로 호출하면 앞에 붙은 객체가 this가 되고, 일반 함수로 호출하면 전역 객체(strict 모드에서는 undefined)가 됩니다. 속한 위치가 아니라 호출 방식이 this를 정합니다.\n\n```js\nconst obj = {\n  value: 1,\n  getValue() {\n    return this.value;\n  },\n};\n\nobj.getValue(); // 1\n\nconst fn = obj.getValue;\nfn(); // undefined, this가 obj가 아님\n```",
   },
   {
     id: 25,
