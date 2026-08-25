@@ -125,7 +125,7 @@ export const javascript: Flashcard[] = [
     category: "JavaScript",
     question: "배열의 메서드는 어떤 종류가 있나요?",
     answer:
-      "배열 메서드는 원본을 바꾸는 뮤테이터 메서드와 원본을 그대로 두고 값을 반환하는 접근자 메서드로 나뉩니다.\n\n뮤테이터 메서드에는 push, pop, shift, unshift, splice, sort, reverse 등이 있습니다.\n접근자 메서드에는 slice, concat, join, indexOf, includes 등이 있으며, 반환값은 새 배열일 수도 문자열이나 인덱스일 수도 있습니다.\nmap, filter, reduce, forEach, find, some, every 같은 고차 함수 메서드는 콜백을 받아 배열을 함수형으로 처리하게 해줍니다.\n\n메서드가 원본을 바꾸는지 의식하며 선택하는 것이 중요합니다.",
+      "배열 메서드는 원본을 바꾸는 뮤테이터 메서드와 원본을 그대로 두고 값을 반환하는 접근자 메서드로 나뉩니다.\n\n뮤테이터 메서드에는 push, pop, shift, unshift, splice, sort, reverse 등이 있습니다.\n접근자 메서드에는 slice, concat, join, indexOf, includes 등이 있으며, 반환값은 새 배열일 수도 문자열이나 인덱스일 수도 있습니다.\nmap, filter, reduce, forEach, find, some, every 같은 고차 함수 메서드는 콜백을 받아 배열을 함수형으로 처리하게 해줍니다.\n\nES2023에는 원본을 두고 새 배열을 반환하는 toSorted, toReversed, toSpliced, with가 추가됐습니다. 기존에 [...arr].sort()로 쓰던 패턴을 대신합니다.",
   },
   {
     id: 21,
