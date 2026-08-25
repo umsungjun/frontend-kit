@@ -13,7 +13,7 @@ export const htmlCss: Flashcard[] = [
     category: "HTML/CSS",
     question: "meta 태그에 대해서 알고 있나요?",
     answer:
-      "meta 태그는 HTML 문서의 <head> 내부에 위치하며, 문서에 대한 메타데이터(정보에 대한 정보)를 정의하는 태그입니다.\n\n문자 인코딩, 뷰포트 설정, 페이지 설명, 키워드 등 브라우저와 검색 엔진에 필요한 정보를 제공합니다. 화면에 직접 표시되지는 않지만 문서를 해석하는 데 필요한 부가 정보를 담당합니다.\n\nSEO와 올바른 페이지 렌더링에 중요한 역할을 하므로 페이지 성격에 맞게 적절히 작성하는 것이 좋습니다.",
+      "meta 태그는 HTML 문서의 `<head>` 내부에 위치하며, 문서에 대한 메타데이터(정보에 대한 정보)를 정의하는 태그입니다.\n\n화면에 직접 표시되지는 않지만, 브라우저가 문서를 어떻게 해석하고 렌더링할지, 검색 엔진과 SNS가 이 페이지를 어떻게 읽을지를 결정합니다.\n\n그래서 SEO와 올바른 렌더링에 직접 영향을 주며, 페이지 성격에 맞게 작성하는 것이 중요합니다.",
   },
   {
     id: 3,
@@ -100,25 +100,11 @@ export const htmlCss: Flashcard[] = [
       '이미지 렌더링 속도를 개선하는 방법은 크게 포맷 최적화, 크기 조정, 지연 로딩, CDN 활용으로 나눌 수 있습니다.\n\n포맷은 기존 JPEG/PNG 대신 WebP나 AVIF로 변환하면 품질을 유지하면서 파일 크기를 크게 줄일 수 있습니다. 다만 구형 브라우저 지원이 필요하다면 picture 태그를 써서 AVIF → WebP → JPEG 순서로 폴백을 제공하면 됩니다.\n\n크기 조정은 실제 표시 크기에 맞는 이미지를 제공하는 것입니다. srcset과 sizes 속성을 활용하면 브라우저가 현재 화면 크기에 최적화된 이미지를 골라서 로드합니다.\n\nloading="lazy"를 사용하면 뷰포트에 보이지 않는 이미지는 나중에 불러오기 때문에 초기 로드 속도가 빨라집니다. CDN을 함께 쓰면 지리적으로 가까운 서버에서 이미지를 받아 전송 지연도 줄어듭니다.',
   },
   {
-    id: 15,
-    category: "HTML/CSS",
-    question: "UI란 뭔가요?",
-    answer:
-      "UI(User Interface)는 사용자와 시스템 간의 상호작용을 위한 접점으로, 사용자가 제품이나 서비스를 이용할 때 접하는 화면, 버튼, 입력창 등 모든 시각적 요소를 의미합니다.\n\n좋은 UI는 직관적이고 일관성 있으며 사용하기 쉬워야 합니다.\n\nUI와 함께 자주 언급되는 UX(User Experience)는 사용자가 제품을 통해 느끼는 전반적인 경험을 뜻하며, UI는 UX를 구성하는 시각적·기능적 요소입니다.",
-  },
-  {
     id: 16,
     category: "HTML/CSS",
     question: "SVG의 장점과 단점은 뭔가요?",
     answer:
       "SVG(Scalable Vector Graphics)는 벡터 기반 이미지 포맷으로, 텍스트 형태의 XML로 정의됩니다.\n\n장점은 벡터 기반이라 확대/축소해도 화질이 저하되지 않고, 파일 크기가 작으며, CSS와 JavaScript로 스타일링 및 애니메이션이 가능하다는 것입니다. 또한 텍스트 기반이라 검색 엔진이 내용을 읽을 수 있습니다.\n\n단점으로는 복잡한 이미지(사진 등)를 표현하기 어렵고, 도형이 복잡해지면 코드가 길어져 성능이 저하될 수 있습니다.",
-  },
-  {
-    id: 17,
-    category: "HTML/CSS",
-    question: "SVG 내부 도형에 대해 아는게 있나요?",
-    answer:
-      "SVG는 기본 도형 요소와 path를 조합해 다양한 그래픽을 그립니다.\n\n기본 도형 요소로는 rect(사각형), circle(원), ellipse(타원), line(직선), polyline(연결된 직선들), polygon(다각형)이 있습니다.\npath 요소는 M(이동), L(직선), C(곡선) 등의 명령어를 사용하여 복잡한 형태를 자유롭게 그릴 수 있는 가장 강력한 도형 요소입니다.\n각 도형은 fill, stroke, opacity 등의 속성으로 스타일을 지정할 수 있습니다.",
   },
   {
     id: 18,
@@ -253,7 +239,7 @@ export const htmlCss: Flashcard[] = [
     category: "HTML/CSS",
     question: "HTML data- 속성이 뭔가요?",
     answer:
-      'data- 속성은 HTML 요소에 커스텀 데이터를 직접 저장할 수 있는 방법입니다. data- 접두사 뒤에 원하는 이름을 붙여서 쓰는데, 예를 들어 <div data-user-id="12345" data-role="admin"> 처럼 사용합니다.\n\nJavaScript에서는 element.dataset 객체로 접근합니다. HTML의 케밥 케이스(kebab-case) 이름이 camelCase로 자동 변환되어 data-user-id는 dataset.userId로 읽힙니다.\n\nCSS에서도 활용이 가능합니다. attr() 함수로 속성 값을 content에 삽입하거나, article[data-columns="3"] { width: 400px; } 처럼 속성 선택자로 조건부 스타일을 적용할 수 있습니다.\n\n버튼 클릭 이벤트에 데이터를 끼워넣거나, JavaScript와 HTML 사이 데이터를 간결하게 전달하는 용도로 유용합니다. 별도의 데이터 구조 없이 DOM 요소 자체에 필요한 정보를 붙일 수 있어 코드가 단순해집니다.',
+      'data- 속성은 HTML 요소에 커스텀 데이터를 직접 저장할 수 있는 방법입니다. data- 접두사 뒤에 원하는 이름을 붙여서 쓰는데, 예를 들어 `<div data-user-id="12345" data-role="admin">` 처럼 사용합니다.\n\nJavaScript에서는 element.dataset 객체로 접근합니다. HTML의 케밥 케이스(kebab-case) 이름이 camelCase로 자동 변환되어 data-user-id는 dataset.userId로 읽힙니다.\n\nCSS에서도 활용이 가능합니다. attr() 함수로 속성 값을 content에 삽입하거나, article[data-columns="3"] { width: 400px; } 처럼 속성 선택자로 조건부 스타일을 적용할 수 있습니다.\n\n버튼 클릭 이벤트에 데이터를 끼워넣거나, JavaScript와 HTML 사이 데이터를 간결하게 전달하는 용도로 유용합니다. 별도의 데이터 구조 없이 DOM 요소 자체에 필요한 정보를 붙일 수 있어 코드가 단순해집니다.',
   },
   {
     id: 37,
@@ -267,7 +253,7 @@ export const htmlCss: Flashcard[] = [
     category: "HTML/CSS",
     question: "DOM에서 Node와 Element의 차이가 뭔가요?",
     answer:
-      "Node는 DOM 트리를 구성하는 모든 객체의 최상위 인터페이스입니다. 요소(element), 텍스트, 주석, 문서 자체까지 전부 Node의 일종입니다. 반면 Element는 Node의 하위 타입으로, HTML 태그로 표현되는 요소만을 가리킵니다.\n\n예를 들어 <p>Hello</p>가 있으면 p 태그가 Element이고, 그 안의 'Hello' 텍스트는 TextNode입니다. TextNode도 Node지만 Element는 아닙니다.\n\n실무에서는 childNodes(모든 자식 Node 반환)와 children(자식 Element만 반환)의 차이가 대표적입니다. childNodes로 순회하면 텍스트 노드나 주석 노드가 섞여 나올 수 있어 예상치 못한 동작을 만날 수 있습니다. 요소만 다루고 싶다면 children이나 querySelectorAll을 쓰는 게 안전합니다.",
+      "Node는 DOM 트리를 구성하는 모든 객체의 최상위 인터페이스입니다. 요소(element), 텍스트, 주석, 문서 자체까지 전부 Node의 일종입니다. 반면 Element는 Node의 하위 타입으로, HTML 태그로 표현되는 요소만을 가리킵니다.\n\n예를 들어 `<p>Hello</p>`가 있으면 p 태그가 Element이고, 그 안의 'Hello' 텍스트는 TextNode입니다. TextNode도 Node지만 Element는 아닙니다.\n\n실무에서는 childNodes(모든 자식 Node 반환)와 children(자식 Element만 반환)의 차이가 대표적입니다. childNodes로 순회하면 텍스트 노드나 주석 노드가 섞여 나올 수 있어 예상치 못한 동작을 만날 수 있습니다. 요소만 다루고 싶다면 children이나 querySelectorAll을 쓰는 게 안전합니다.",
   },
   {
     id: 39,
@@ -338,7 +324,7 @@ export const htmlCss: Flashcard[] = [
     category: "HTML/CSS",
     question: "CSS box-sizing이 뭔가요?",
     answer:
-      "box-sizing은 요소의 width와 height를 어떻게 계산할지 결정하는 CSS 속성입니다.\n\n기본값은 content-box로, width와 height가 콘텐츠 영역에만 적용됩니다. padding과 border를 추가하면 그만큼 실제 크기가 늘어납니다. 예를 들어 width: 200px에 padding: 20px, border: 2px를 주면 실제 렌더링 크기는 244px이 됩니다. 의도한 크기와 달라지는 문제가 자주 발생하는 이유가 여기 있습니다.\n\nborder-box로 설정하면 width와 height 안에 padding과 border가 포함됩니다. 같은 조건이라면 콘텐츠 영역이 156px로 줄어들지만, 겉에서 보이는 박스 크기는 정확히 200px입니다. 레이아웃을 머릿속으로 계획한 대로 구현할 수 있어 훨씬 직관적입니다.\n\n그래서 많은 프로젝트에서 *, *::before, *::after { box-sizing: border-box; }를 전역으로 적용합니다. Tailwind CSS도 기본적으로 border-box를 사용합니다.",
+      "box-sizing은 요소의 width와 height를 어떻게 계산할지 결정하는 CSS 속성입니다.\n\n기본값은 content-box로, width와 height가 콘텐츠 영역에만 적용됩니다. padding과 border를 추가하면 그만큼 실제 크기가 늘어납니다. 예를 들어 width: 200px에 padding: 20px, border: 2px를 주면 실제 렌더링 크기는 244px이 됩니다. 의도한 크기와 달라지는 문제가 자주 발생하는 이유가 여기 있습니다.\n\nborder-box로 설정하면 width와 height 안에 padding과 border가 포함됩니다. 같은 조건이라면 콘텐츠 영역이 156px로 줄어들지만, 겉에서 보이는 박스 크기는 정확히 200px입니다. 레이아웃을 머릿속으로 계획한 대로 구현할 수 있어 훨씬 직관적입니다.\n\n그래서 많은 프로젝트에서 `*, *::before, *::after { box-sizing: border-box; }`를 전역으로 적용합니다. Tailwind CSS도 기본적으로 border-box를 사용합니다.",
   },
   {
     id: 49,
@@ -375,5 +361,12 @@ export const htmlCss: Flashcard[] = [
     question: "Core Web Vitals가 뭔가요?",
     answer:
       "Core Web Vitals는 Google이 사용자 경험을 측정하기 위해 정의한 세 가지 핵심 지표입니다. SEO 순위에도 직접 영향을 주기 때문에 프론트엔드 개발자라면 잘 알아둬야 합니다.\n\nLCP(Largest Contentful Paint)는 페이지에서 가장 큰 콘텐츠 요소가 화면에 나타나는 시간을 측정합니다. 주로 히어로 이미지나 큰 텍스트 블록이 대상이 됩니다. 2.5초 이하가 좋은 기준입니다. 이미지 최적화, preload, 서버 응답 속도 개선이 주요 대응 방법입니다.\n\nINP(Interaction to Next Paint)는 클릭, 키보드 입력 등 사용자 상호작용에 얼마나 빠르게 반응하는지를 나타냅니다. 관찰된 상호작용 중 가장 긴 응답 시간을 기준으로 하며, 200ms 이하가 목표입니다. 무거운 JavaScript 작업을 줄이고 메인 스레드를 가볍게 유지하는 게 핵심입니다.\n\nCLS(Cumulative Layout Shift)는 페이지 로딩 중 예고 없이 레이아웃이 얼마나 이동하는지를 측정합니다. 이미지에 명시적인 width/height를 지정하거나 폰트 로딩 전략을 잘 세우면 줄일 수 있습니다. 0.1 이하가 좋은 점수입니다.",
+  },
+  {
+    id: 54,
+    category: "HTML/CSS",
+    question: "FCP가 뭔가요?",
+    answer:
+      "FCP(First Contentful Paint)는 페이지 로드가 시작된 뒤 화면에 첫 콘텐츠(텍스트, 이미지, SVG 등)가 그려지기까지 걸리는 시간입니다. 1.8초 이내를 좋은 수준으로 봅니다.\n\n사용자가 '페이지가 로드되고 있다'고 처음 인식하는 시점이라, 체감 속도에 직접 영향을 줍니다.\n\nCore Web Vitals에 포함되는 지표는 아니지만, LCP를 개선하려면 그 앞단인 FCP부터 잡아야 하는 경우가 많습니다. SSR 적용, 렌더링 차단 CSS 제거, 폰트 로딩 전략 개선이 주요 대응 방법입니다.",
   },
 ];

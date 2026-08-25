@@ -46,13 +46,6 @@ export const buildTools: Flashcard[] = [
       "Webpack은 변경 시 번들 단위로 다시 빌드해야 하지만, Vite는 Native ESM 기반이라 변경된 모듈만 교체하면 되기 때문입니다.\n\nWebpack의 HMR은 파일이 변경되면 해당 모듈이 속한 번들을 다시 빌드하고, 의존성 체인을 따라가며 업데이트를 전파합니다. 프로젝트가 커질수록 이 과정이 점점 느려집니다.\n\nVite는 변경된 모듈만 교체하면 되고, 브라우저가 해당 모듈만 다시 요청하므로 프로젝트 크기와 관계없이 일관되게 빠른 HMR을 제공합니다.",
   },
   {
-    id: 7,
-    category: "빌드도구",
-    question: "Vite는 브라우저 Native ESM을 통해 번들 없이 어떻게 동작하나요?",
-    answer:
-      "Vite 개발 서버는 소스 코드의 import 문을 브라우저가 이해할 수 있는 경로로 변환해 그대로 제공하고, 모듈 로딩은 브라우저에 위임합니다.\n\n브라우저가 HTML의 모듈 스크립트를 만나면 import 문을 따라 필요한 모듈을 개별 HTTP 요청으로 가져옵니다.\n\nVite는 이 요청을 가로채 해당 파일을 실시간으로 변환(TypeScript, JSX 등)하여 응답합니다.\n\n즉, 전체를 하나로 묶지 않고 브라우저의 모듈 로딩 메커니즘에 위임하는 방식이라 빌드 단계 자체가 사라지는 효과가 있습니다.",
-  },
-  {
     id: 8,
     category: "빌드도구",
     question: "Vite도 production에서는 왜 번들링을 하나요?",
@@ -134,13 +127,6 @@ export const buildTools: Flashcard[] = [
       "Chunk는 Webpack이 번들링 과정에서 생성하는 코드 묶음 단위로, 크게 세 종류로 나뉩니다.\n\nEntry chunk는 entry point에서 시작하는 메인 번들입니다.\nAsync chunk는 동적 import()로 분리된 비동기 로딩 청크입니다.\nVendor chunk(또는 common chunk)는 SplitChunksPlugin을 통해 여러 entry에서 공유하는 공통 의존성을 분리한 청크입니다.\n\n적절한 청크 분할은 캐싱 효율과 로딩 성능을 개선하는 데 핵심적인 역할을 합니다.",
   },
   {
-    id: 19,
-    category: "빌드도구",
-    question: "Tanstack Query에서 staleTime과 gcTime의 차이가 뭔가요?",
-    answer:
-      "staleTime은 데이터를 얼마나 오래 '신선한 상태'로 볼지 결정하고, gcTime은 쿼리가 사용되지 않은 뒤 캐시를 메모리에서 얼마나 유지할지 결정합니다. 역할이 다른 두 개의 타이머입니다.\n\nstaleTime은 기본값이 0이라 데이터를 가져오는 즉시 stale 상태가 됩니다. staleTime을 늘려두면 그 시간 동안은 refetch 트리거가 발생해도 새 네트워크 요청을 보내지 않고 캐시된 데이터를 그대로 씁니다.\n\ngcTime(이전에는 cacheTime)은 기본값이 5분입니다. 컴포넌트가 언마운트되어 해당 쿼리를 구독하는 곳이 없어지면, gcTime 이후에 캐시에서 완전히 제거됩니다. staleTime이 지나 데이터가 stale 상태여도 gcTime이 남아 있으면 캐시는 유지되므로, 다시 요청이 들어올 때 로딩 없이 기존 데이터를 먼저 보여주면서 백그라운드에서 새 데이터를 가져올 수 있습니다.\n\n둘을 함께 조절하면 불필요한 네트워크 요청을 줄이면서도 오래된 캐시가 메모리를 낭비하지 않도록 균형을 맞출 수 있습니다.",
-  },
-  {
     id: 20,
     category: "빌드도구",
     question: "script 태그의 async와 defer 차이가 뭔가요?",
@@ -187,7 +173,7 @@ export const buildTools: Flashcard[] = [
     category: "빌드도구",
     question: "JSX가 뭐고, 자바스크립트에서 어떻게 변환되나요?",
     answer:
-      "JSX는 JavaScript XML의 약자로, HTML과 유사한 문법을 JavaScript 코드 안에서 쓸 수 있게 해주는 확장 문법입니다. React에서 UI를 선언적으로 표현하기 위해 도입되었지만, React 전용은 아닙니다.\n\n브라우저는 JSX를 직접 이해하지 못하기 때문에 Babel 같은 트랜스파일러가 일반 JavaScript로 변환합니다. 변환 과정에서 JSX 태그는 React.createElement() 호출로 바뀌고, 이 함수가 가상 DOM 요소 객체를 생성합니다. React 17 이후에는 jsx() 함수로 자동 변환되어 import React from 'react'를 매번 쓰지 않아도 됩니다.\n\nJSX가 단일 루트 요소를 요구하는 이유도 여기에 있습니다. JavaScript 함수는 배열로 감싸지 않은 여러 객체를 동시에 반환할 수 없고, JSX도 내부적으로는 객체로 변환되기 때문입니다. Fragment(<>...</>)를 쓰면 불필요한 DOM 노드 없이 여러 요소를 반환할 수 있습니다.",
+      "JSX는 JavaScript XML의 약자로, HTML과 유사한 문법을 JavaScript 코드 안에서 쓸 수 있게 해주는 확장 문법입니다. React에서 UI를 선언적으로 표현하기 위해 도입되었지만, React 전용은 아닙니다.\n\n브라우저는 JSX를 직접 이해하지 못하기 때문에 Babel 같은 트랜스파일러가 일반 JavaScript로 변환합니다. 변환 과정에서 JSX 태그는 React.createElement() 호출로 바뀌고, 이 함수가 가상 DOM 요소 객체를 생성합니다. React 17 이후에는 jsx() 함수로 자동 변환되어 import React from 'react'를 매번 쓰지 않아도 됩니다.\n\nJSX가 단일 루트 요소를 요구하는 이유도 여기에 있습니다. JavaScript 함수는 배열로 감싸지 않은 여러 객체를 동시에 반환할 수 없고, JSX도 내부적으로는 객체로 변환되기 때문입니다. Fragment(`<>...</>`)를 쓰면 불필요한 DOM 노드 없이 여러 요소를 반환할 수 있습니다.",
   },
   {
     id: 27,
@@ -216,5 +202,19 @@ export const buildTools: Flashcard[] = [
     question: "Yarn과 Yarn Berry의 차이가 뭔가요?",
     answer:
       "Yarn은 1.x 버전을 가리키고, Yarn Berry는 2.x 이상의 완전히 재설계된 버전입니다. 단순한 업그레이드가 아니라 의존성 관리 방식 자체가 달라졌습니다.\n\nYarn 1.x는 npm과 구조적으로 비슷하게 node_modules 폴더를 사용하고, 성능 개선과 lock 파일 도입에 초점을 맞췄습니다.\n\nYarn Berry의 가장 큰 변화는 Plug'n'Play(PnP) 도입입니다. node_modules를 생성하지 않고 .pnp.cjs 파일 하나로 모든 패키지 위치와 의존성 정보를 관리합니다. 패키지는 .yarn/cache 디렉토리에 압축 파일로 저장됩니다. 이 캐시를 Git에 커밋하면 Zero-Install이 가능해, 저장소를 클론하거나 브랜치를 전환한 뒤 별도 설치 없이 바로 실행할 수 있습니다.\n\nZero-Install은 CI/CD에서 특히 유용한데, 설치 단계를 건너뛰고 바로 빌드나 테스트를 시작할 수 있어 파이프라인 시간이 단축됩니다. 다만 PnP 방식은 일부 라이브러리와 호환 문제가 생길 수 있어 기존 프로젝트에 도입할 때 검토가 필요합니다.",
+  },
+  {
+    id: 31,
+    category: "빌드도구",
+    question: "바벨이란 뭔가요?",
+    answer:
+      "바벨(Babel)은 최신 JavaScript 문법을 구형 환경에서도 동작하도록 변환해주는 트랜스파일러입니다.\n\n화살표 함수, 클래스, 템플릿 리터럴, async/await 같은 최신 문법을 이전 버전의 JavaScript로 바꿔주어 브라우저 호환성 문제를 해결합니다.\n\nJSX 변환, TypeScript 변환 등도 플러그인 형태로 제공되어, 다양한 프레임워크와 함께 자주 사용됩니다.",
+  },
+  {
+    id: 32,
+    category: "빌드도구",
+    question: "웹팩의 주요 속성 4가지는 뭔가요?",
+    answer:
+      "웹팩 설정의 핵심은 Entry, Output, Loader, Plugin 네 가지 속성입니다.\n\nEntry: 번들링의 시작점이 되는 파일을 지정\nOutput: 번들 결과물의 파일명과 경로 설정\nLoader: JavaScript 외 파일(CSS, 이미지 등)을 모듈로 변환\nPlugin: 번들링 전체 과정에 걸쳐 다양한 기능(번들 최적화, 환경변수 주입, HTML 생성 등) 수행\n\n이 네 속성을 어떻게 조합하느냐에 따라 빌드 결과물의 구조와 최적화 수준이 결정됩니다.",
   },
 ];

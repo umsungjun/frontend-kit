@@ -1,10 +1,12 @@
 "use client";
 
-import { AnimatePresence, motion } from "motion/react";
-
 import type { FontSizeKey } from "@/lib/constants";
 import { FONT_SIZE_PRESETS } from "@/lib/constants";
 import type { Flashcard } from "@/types/flashcard";
+
+import { AnimatePresence, motion } from "motion/react";
+
+import MarkdownContent from "../ui/MarkdownContent";
 
 import { CategoryBadge } from "./CategoryBadge";
 
@@ -41,11 +43,10 @@ export function FlashcardCard({
             className="overflow-hidden"
           >
             <div className="border-t border-neutral-200 pt-4 dark:border-neutral-700">
-              <p
-                className={`whitespace-pre-line leading-relaxed text-neutral-600 dark:text-neutral-300 ${preset.answerClass}`}
-              >
-                {card.answer}
-              </p>
+              <MarkdownContent
+                content={card.answer}
+                className={`leading-relaxed text-neutral-600 dark:text-neutral-300 ${preset.answerClass}`}
+              />
             </div>
           </motion.div>
         )}
