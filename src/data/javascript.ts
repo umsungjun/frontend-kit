@@ -160,7 +160,7 @@ export const javascript: Flashcard[] = [
     category: "JavaScript",
     question: "자바스크립트에서 객체를 생성하는 방법은 어떤 것들이 있나요?",
     answer:
-      "자바스크립트에서 객체를 만드는 방법은 크게 다섯 가지입니다.\n\n가장 흔한 건 객체 리터럴({})이고, 그 밖에 Object 생성자(new Object()), 생성자 함수, Object.create(), ES6 클래스가 있습니다.\n\n객체 리터럴은 간편하지만 같은 구조의 객체를 여러 개 찍어낼 때는 비효율적이라, 이럴 땐 생성자 함수나 클래스가 적합합니다.",
+      "객체를 만드는 방법은 크게 다섯 가지입니다.\n\n```js\n// 1. 객체 리터럴. 가장 간편해서 대부분 이걸 씁니다\nconst a = {};\n\n// 2. Object 생성자. 빈 객체를 만든 뒤 프로퍼티를 붙여야 해서 번거롭습니다\nconst b = new Object();\n\n// 3. 생성자 함수. 같은 구조의 객체를 여러 개 찍어낼 때 씁니다\nfunction Person(name) {\n  this.name = name;\n}\nconst c = new Person('kim');\n\n// 4. 클래스. 생성자 함수와 같은 역할이고 문법이 더 명확합니다\nclass User {\n  constructor(name) {\n    this.name = name;\n  }\n}\nconst d = new User('kim');\n\n// 5. Object.create. 프로토타입을 직접 지정합니다\nconst e = Object.create(Person.prototype);\n```",
   },
   {
     id: 26,
