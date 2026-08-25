@@ -172,9 +172,9 @@ export const javascript: Flashcard[] = [
   {
     id: 27,
     category: "JavaScript",
-    question: "전역 객체에 대해 알고 있나요?",
+    question: "전역 객체가 뭔가요?",
     answer:
-      "전역 객체는 코드가 실행되기 이전 단계에 자바스크립트 엔진에 의해 가장 먼저 생성되는 특수한 객체입니다.\n\n브라우저 환경에서는 window, Node.js 환경에서는 global이며, ES11부터는 globalThis로 통일하여 접근할 수 있습니다.\n\n전역 객체는 표준 빌트인 객체, 호스트 객체, var로 선언한 전역 변수와 전역 함수를 프로퍼티로 가집니다.",
+      "전역 객체는 코드가 실행되기 이전 단계에 자바스크립트 엔진이 가장 먼저 생성하는 특수한 객체입니다.\n\n브라우저에서는 window, Node.js에서는 global이며 ES11부터 globalThis로 통일해 접근합니다.\n\n표준 빌트인 객체와 호스트 객체, 그리고 var로 선언한 전역 변수와 전역 함수를 프로퍼티로 가집니다. let과 const로 선언한 전역 변수는 전역 객체에 붙지 않습니다.\n\n```js\n// 브라우저 전역 스크립트 기준\nvar a = 1;\nlet b = 2;\n\nwindow.a; // 1\nwindow.b; // undefined\n```",
   },
   {
     id: 28,
