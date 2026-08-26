@@ -244,7 +244,7 @@ export const javascript: Flashcard[] = [
     category: "JavaScript",
     question: "생성자 함수가 객체(인스턴스)를 생성하는 과정은 어떻게 되나요?",
     answer:
-      "생성자 함수가 인스턴스를 만드는 과정은 세 단계로 이루어집니다.\n\nnew 연산자로 생성자 함수를 호출하면, 먼저 빈 객체가 생성되고 this에 바인딩됩니다.\n그 다음 생성자 함수 내부의 코드가 실행되어 this에 프로퍼티와 메서드를 추가합니다.\n마지막으로 생성자 함수가 명시적으로 다른 객체를 반환하지 않으면, 완성된 this(인스턴스)가 암묵적으로 반환됩니다.",
+      "new 연산자로 생성자 함수를 호출하면 세 단계를 거칩니다.\n\n```js\nfunction Person(name) {\n  // 1. 빈 객체가 만들어져 this에 바인딩되고, 그 객체의 프로토타입이 Person.prototype으로 연결됩니다\n  // 2. 함수 몸체가 실행되며 this에 프로퍼티를 추가합니다\n  this.name = name;\n  // 3. 다른 객체를 명시적으로 반환하지 않으면 this가 암묵적으로 반환됩니다\n}\n\nconst p = new Person('kim');\nObject.getPrototypeOf(p) === Person.prototype; // true\n```\n\n생성자 함수가 객체를 반환하면 그 객체가 대신 나가고, 원시 값을 반환하면 무시되고 this가 나갑니다.",
   },
   {
     id: 39,
