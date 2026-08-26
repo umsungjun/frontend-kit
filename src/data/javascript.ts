@@ -258,7 +258,7 @@ export const javascript: Flashcard[] = [
     category: "JavaScript",
     question: "함수형 프로그래밍이 뭔가요?",
     answer:
-      "함수형 프로그래밍은 순수 함수와 보조 함수의 조합으로 외부 상태를 변경하는 부수 효과를 최소화하여 불변성을 지향하는 프로그래밍 패러다임입니다.\n\n조건문이나 반복문 대신 고차 함수(map, filter, reduce 등)를 활용하여 선언적으로 코드를 작성합니다.\n\n코드의 예측 가능성을 높이고, 테스트와 디버깅을 용이하게 만드는 장점이 있습니다.",
+      "함수형 프로그래밍은 순수 함수를 조합해 프로그램을 만드는 패러다임입니다. 외부 상태를 바꾸는 부수 효과를 줄이고 데이터를 불변으로 다룹니다.\n\n반복문으로 어떻게 순회할지 적는 대신 map, filter, reduce 같은 고차 함수로 무엇을 얻을지 적습니다.\n\n```js\n// 명령형\nconst result = [];\nfor (let i = 0; i < nums.length; i++) {\n  if (nums[i] > 2) result.push(nums[i] * 2);\n}\n\n// 함수형\nconst result = nums.filter((n) => n > 2).map((n) => n * 2);\n```",
   },
   {
     id: 42,
