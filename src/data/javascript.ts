@@ -188,7 +188,7 @@ export const javascript: Flashcard[] = [
     category: "JavaScript",
     question: "함수 선언문과 함수 표현식은 어떤 차이가 있나요?",
     answer:
-      "함수 선언문과 함수 표현식은 정의 방식과 호이스팅 동작이 다릅니다.\n\n함수 선언문은 function 키워드로 정의하며 함수 이름을 생략할 수 없습니다. 함수 전체가 호이스팅되어 선언 전에도 호출할 수 있습니다.\n함수 표현식은 함수를 변수에 할당하는 방식이라 변수 호이스팅만 일어납니다. 그래서 선언 전에 호출하면 var는 undefined 호출로 TypeError, let/const는 TDZ로 ReferenceError가 발생합니다.\n\n결국 선언문은 위치에 상관없이 호출되지만, 표현식은 반드시 정의 뒤에서 호출해야 합니다.",
+      "함수 선언문은 function 키워드로 정의하고 이름을 생략할 수 없습니다. 함수 표현식은 함수를 변수에 할당하는 방식이라 이름을 생략할 수 있습니다.\n\n차이는 호이스팅에서 드러납니다. 선언문은 함수 전체가 등록되어 선언 전에도 호출됩니다. 표현식은 변수 호이스팅만 일어나서 선언 전에 호출하면 에러가 납니다.\n\n```js\nadd(2, 5); // 7, 선언문은 미리 등록됨\n\nfunction add(x, y) {\n  return x + y;\n}\n\nsub(2, 5); // TypeError: sub is not a function\n\nvar sub = function (x, y) {\n  return x - y;\n};\n```",
   },
   {
     id: 31,
