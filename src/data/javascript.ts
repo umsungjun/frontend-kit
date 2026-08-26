@@ -193,9 +193,9 @@ export const javascript: Flashcard[] = [
   {
     id: 31,
     category: "JavaScript",
-    question: "즉시 실행 함수(IIFE)에 대해 알고 있나요?",
+    question: "즉시 실행 함수(IIFE)가 뭔가요?",
     answer:
-      "즉시 실행 함수(IIFE, Immediately Invoked Function Expression)는 정의와 동시에 즉시 호출되는 함수입니다.\n\n(function() { ... })() 형태로 작성하며, 한 번만 실행되고 다시 호출할 수 없습니다.\n\n주로 전역 스코프를 오염시키지 않기 위해 독립적인 스코프를 만들 때 사용하며, 모듈 패턴 등에서 활용됩니다.",
+      "즉시 실행 함수(IIFE, Immediately Invoked Function Expression)는 정의와 동시에 한 번 호출되고 끝나는 함수입니다.\n\n함수를 괄호로 감싸 표현식으로 만든 뒤 바로 호출합니다. 익명 함수라 참조가 남지 않아 다시 호출할 수 없습니다.\n\n전역 스코프를 오염시키지 않고 독립적인 스코프를 만들려고 씁니다. 다만 let과 const가 블록 스코프를 제공하고 ES 모듈이 파일 단위 스코프를 만들면서 쓸 일이 크게 줄었습니다.\n\n```js\n(function () {\n  var a = 3;\n  var b = 5;\n  return a * b;\n})(); // 15\n```",
   },
   {
     id: 32,
