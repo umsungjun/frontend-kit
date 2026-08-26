@@ -209,7 +209,7 @@ export const javascript: Flashcard[] = [
     category: "JavaScript",
     question: "스코프에는 어떤 종류가 있나요?",
     answer:
-      "스코프의 종류는 크게 전역 스코프, 함수 스코프, 블록 스코프 세 가지입니다.\n\n전역 스코프는 코드 가장 바깥 영역으로 어디서든 참조할 수 있습니다.\n함수 스코프는 함수 몸체 안에서만 유효한 범위로, var가 여기에 해당합니다.\n블록 스코프는 if, for, while 같은 중괄호 블록 안에서만 유효한 범위로, let과 const가 여기에 해당합니다.\n\n즉 var는 함수 단위로, let과 const는 블록 단위로 유효 범위가 정해집니다.",
+      "스코프의 종류는 크게 전역 스코프, 함수 스코프, 블록 스코프 세 가지입니다.\n\n전역 스코프는 코드 가장 바깥 영역으로 어디서든 참조할 수 있습니다.\n함수 스코프는 함수 몸체 안에서만 유효한 범위로, var가 여기에 해당합니다.\n블록 스코프는 if, for, while 같은 중괄호 블록 안에서만 유효한 범위로, let과 const가 여기에 해당합니다.\n\n```js\nfunction fn() {\n  if (true) {\n    var v = 'var';\n    let l = 'let';\n  }\n  console.log(v); // 'var', 함수 스코프라 블록 밖에서도 보임\n  console.log(l); // ReferenceError, 블록 스코프라 블록 밖에서 못 봄\n}\n```",
   },
   {
     id: 34,
