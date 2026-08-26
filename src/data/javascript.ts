@@ -214,9 +214,9 @@ export const javascript: Flashcard[] = [
   {
     id: 34,
     category: "JavaScript",
-    question: "렉시컬 스코프에 대해 알고 있나요?",
+    question: "렉시컬 스코프가 뭔가요?",
     answer:
-      "렉시컬 스코프(정적 스코프)는 함수를 어디서 호출했는지가 아니라 어디서 정의했는지에 따라 상위 스코프가 결정되는 방식입니다.\n\n자바스크립트는 렉시컬 스코프를 따르므로, 함수의 상위 스코프는 함수가 정의된 위치에 의해 정적으로 결정됩니다.\n\n이 특성은 클로저의 핵심 개념이기도 합니다.",
+      "렉시컬 스코프(정적 스코프)는 함수를 어디서 호출했는지가 아니라 어디서 정의했는지에 따라 상위 스코프가 결정되는 방식입니다. 자바스크립트가 이 방식을 씁니다.\n\n정의 위치는 코드를 쓸 때 이미 고정되므로 상위 스코프도 그때 정해지고 실행 중에 바뀌지 않습니다.\n\n```js\nconst x = 1;\n\nfunction outer() {\n  const x = 10;\n  inner();\n}\n\nfunction inner() {\n  console.log(x); // 1, outer에서 호출해도 inner를 정의한 위치의 x\n}\n\nouter();\n```",
   },
   {
     id: 35,
