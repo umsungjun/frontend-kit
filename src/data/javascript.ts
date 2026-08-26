@@ -237,7 +237,7 @@ export const javascript: Flashcard[] = [
     category: "JavaScript",
     question: "객체 리터럴로 만들 때와 생성자 함수의 차이는 뭔가요?",
     answer:
-      "객체 리터럴과 생성자 함수는 모두 객체를 생성하지만, 재사용성과 메모리 효율 측면에서 차이가 있습니다.\n\n객체 리터럴은 단일 객체를 간편하게 생성할 때 유용하지만, 동일한 구조의 객체를 여러 개 만들면 매번 같은 프로퍼티를 기술해야 하므로 비효율적입니다.\n\n생성자 함수는 프로퍼티 구조가 동일한 객체를 템플릿처럼 반복 생성할 수 있어 코드 재사용성이 높습니다.\n또한 생성자 함수로 만든 인스턴스는 prototype을 통해 메서드를 공유할 수 있어 메모리 효율적입니다.\n\n객체를 한 개만 만들 때는 리터럴이, 여러 개 만들 때는 생성자 함수가 적합합니다.",
+      "객체 리터럴은 객체를 하나씩 직접 적는 방식이고, 생성자 함수는 같은 구조의 객체를 템플릿처럼 찍어내는 방식입니다.\n\n리터럴로 같은 구조를 여러 개 만들면 프로퍼티를 매번 다시 적어야 하고, 메서드도 객체마다 따로 만들어집니다. 생성자 함수는 메서드를 prototype에 두면 모든 인스턴스가 하나를 공유하므로 메모리를 덜 씁니다.\n\n```js\nconst a = { name: 'kim', greet() {} };\nconst b = { name: 'lee', greet() {} };\na.greet === b.greet; // false, 각자 다른 함수\n\nfunction Person(name) {\n  this.name = name;\n}\nPerson.prototype.greet = function () {};\n\nconst c = new Person('kim');\nconst d = new Person('lee');\nc.greet === d.greet; // true, 프로토타입의 함수 하나를 공유\n```",
   },
   {
     id: 38,
