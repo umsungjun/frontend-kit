@@ -270,9 +270,9 @@ export const javascript: Flashcard[] = [
   {
     id: 43,
     category: "JavaScript",
-    question: "Map과 Set에 대해 설명해주세요",
+    question: "Map과 Set이 뭔가요?",
     answer:
-      "Map과 Set은 ES6에서 도입된 빌트인 객체로, 컬렉션을 다루기 위한 자료구조입니다.\n\nMap은 키-값 쌍으로 이루어진 컬렉션으로, 객체와 달리 모든 타입의 값을 키로 사용할 수 있고 삽입 순서가 보장됩니다.\nSet은 중복되지 않는 유일한 값들의 컬렉션으로, 배열의 중복 요소를 제거할 때 유용합니다.\n\n두 자료구조 모두 이터러블이며 forEach, for...of 등으로 순회할 수 있고, size 프로퍼티로 요소의 개수를 확인할 수 있습니다.",
+      "Map과 Set은 ES6에서 추가된 컬렉션 자료구조입니다.\n\nMap은 키와 값의 쌍을 저장합니다. 객체는 키를 문자열로 바꿔버리지만 Map은 객체나 함수도 키로 쓰고 삽입 순서를 그대로 유지합니다.\nSet은 중복 없는 값의 모음이라 배열의 중복을 걷어낼 때 씁니다.\n\n둘 다 이터러블이라 for...of로 순회하고 size로 개수를 확인합니다.\n\n```js\nconst key = {};\nconst map = new Map();\nmap.set(key, 'value');\nmap.get(key); // 'value', 객체를 키로 그대로 사용\n\nconst obj = {};\nobj[key] = 'value';\nObject.keys(obj); // ['[object Object]'], 키가 문자열로 변환됨\n\nconst set = new Set([1, 1, 2]);\n[...set]; // [1, 2]\n```",
   },
   {
     id: 44,
