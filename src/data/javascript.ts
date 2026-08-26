@@ -230,7 +230,7 @@ export const javascript: Flashcard[] = [
     category: "JavaScript",
     question: "생성자 함수가 뭔가요?",
     answer:
-      "생성자 함수는 new 연산자와 함께 호출하여 객체(인스턴스)를 생성하는 함수입니다.\n\n일반 함수와 동일한 방식으로 정의하지만, 관례적으로 파스칼 케이스(첫 글자 대문자)로 이름을 짓습니다.\n생성자 함수 내부에서 this는 새로 생성될 인스턴스를 가리킵니다.\n\n동일한 구조의 객체를 여러 개 효율적으로 생성할 수 있다는 장점이 있습니다.",
+      "생성자 함수는 new 연산자와 함께 호출해 객체(인스턴스)를 생성하는 함수입니다.\n\n일반 함수와 같은 방식으로 정의하고 관례상 파스칼 케이스로 이름을 짓습니다. 내부의 this는 새로 생성될 인스턴스를 가리킵니다.\n\n```js\nfunction Person(name) {\n  this.name = name;\n}\n\nconst p = new Person('kim'); // Person { name: 'kim' }\n```",
   },
   {
     id: 37,
