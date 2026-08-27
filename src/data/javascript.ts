@@ -300,49 +300,42 @@ export const javascript: Flashcard[] = [
     category: "JavaScript",
     question: "프로토타입이 뭔가요?",
     answer:
-      "프로토타입은 자바스크립트에서 객체 간 상속을 구현하기 위한 메커니즘입니다.\n\n모든 객체는 [[Prototype]] 내부 슬롯을 통해 자신의 프로토타입에 대한 참조를 가지며, `__proto__` 접근자 프로퍼티로 접근할 수 있습니다.\n\n객체의 프로퍼티에 접근할 때 해당 프로퍼티가 없으면 프로토타입 체인을 따라 상위 프로토타입에서 검색하여 상속과 메서드 공유를 가능하게 합니다.",
+      "프로토타입은 다른 객체에 자기 프로퍼티와 메서드를 물려주는 객체입니다. 자바스크립트는 클래스 대신 이 방식으로 상속을 구현합니다.\n\n모든 객체는 `[[Prototype]]` 내부 슬롯에 자기 프로토타입의 참조를 갖습니다. 프로퍼티를 찾을 때 객체에 없으면 이 참조를 따라 올라가는데, 이렇게 이어진 연결이 프로토타입 체인입니다.\n\n접근은 `Object.getPrototypeOf`로 합니다. `__proto__`도 같은 값을 주지만 레거시로 분류돼 권장되지 않습니다.\n\n```js\nfunction Person(name) {\n  this.name = name;\n}\nPerson.prototype.greet = function () {\n  return 'hi ' + this.name;\n};\n\nconst p = new Person('kim');\np.greet(); // 'hi kim', p에는 없지만 프로토타입에서 찾음\nObject.hasOwn(p, 'greet'); // false\n```",
   },
   {
     id: 48,
     category: "JavaScript",
     question: "빌트인 객체가 뭔가요?",
     answer:
-      "빌트인 객체는 자바스크립트 엔진에 기본적으로 내장되어 있는 객체로, 별도의 선언 없이 전역에서 사용할 수 있습니다.\n\nObject, String, Number, Boolean, Array, Function, Date, Math, RegExp, Promise, Map, Set 등이 표준 빌트인 객체에 해당합니다.\n\n이들은 프로토타입 메서드와 정적 메서드를 제공하여 자바스크립트 프로그래밍에 필수적인 기능을 지원합니다.",
+      "빌트인 객체는 자바스크립트 엔진에 내장돼 있어 선언 없이 바로 쓰는 객체입니다.\n\nObject, String, Number, Boolean, Array, Function, Date, RegExp, Promise, Map, Set 등이 표준 빌트인 객체입니다. 대부분 생성자 함수라 new로 인스턴스를 만들고, 그 인스턴스는 해당 프로토타입의 메서드를 씁니다.\n\nMath, JSON, Reflect는 예외입니다. 생성자가 아니라 정적 메서드만 모아둔 객체라 new로 호출하면 에러가 납니다.\n\n```js\nconst d = new Date(); // 생성자 함수라 인스턴스 생성 가능\nd.getFullYear(); // Date.prototype의 메서드\n\nnew Math(); // TypeError: Math is not a constructor\nMath.max(1, 2); // 정적 메서드만 사용\n```",
   },
   {
     id: 49,
     category: "JavaScript",
-    question: "래퍼 객체에 대해서 알고 있나요?",
+    question: "래퍼 객체가 뭔가요?",
     answer:
-      "래퍼 객체는 원시 타입(string, number, boolean)의 값에 대해 마치 객체처럼 마침표 표기법으로 접근할 때, 자바스크립트 엔진이 일시적으로 생성하는 임시 객체입니다.\n\n예를 들어 'hello'.length에 접근하면 문자열을 String 래퍼 객체로 감싸서 프로퍼티에 접근한 뒤, 처리가 끝나면 래퍼 객체를 버리고 다시 원시값으로 되돌립니다.\n\n이 때문에 원시 타입도 빌트인 객체의 프로토타입 메서드를 사용할 수 있습니다.",
+      "래퍼 객체는 원시 값에 마침표로 접근할 때 엔진이 잠깐 만들었다 버리는 임시 객체입니다.\n\n원시 값에는 프로퍼티가 없는데도 'hello'.length가 동작하는 이유가 여기 있습니다. 엔진이 문자열을 String 객체로 감싸 프로퍼티를 읽고, 끝나면 객체를 버린 뒤 원시 값으로 되돌립니다.\n\nstring, number, boolean, symbol, bigint에서 생성됩니다. 감쌀 객체가 없는 null과 undefined는 프로퍼티에 접근하면 에러가 납니다.\n\n```js\nconst s = 'hello';\ns.length; // 5, String 래퍼 객체를 거쳐 읽음\ntypeof s; // 'string', 읽고 나면 원시 값 그대로\n```",
   },
   {
     id: 50,
     category: "JavaScript",
     question: "this가 뭔가요?",
     answer:
-      "this는 자신이 속한 객체나 자신이 생성할 인스턴스를 가리키는 자기 참조 변수입니다.\n\nthis로 그 객체의 프로퍼티나 메서드를 참조할 수 있습니다.\n\n자바스크립트에서 this는 함수가 호출되는 방식에 따라 동적으로 결정되는 것이 특징입니다.",
-  },
-  {
-    id: 51,
-    category: "JavaScript",
-    question: "this 바인딩이 뭔가요?",
-    answer:
-      "this 바인딩은 this가 가리킬 객체를 연결하는 것으로, 함수 호출 시점에 호출 방식에 따라 동적으로 결정됩니다.\n\n일반 함수로 호출하면 전역 객체(strict 모드에서는 undefined), 메서드로 호출하면 호출한 객체, 생성자 함수로 호출하면 새로 생성되는 인스턴스에 바인딩됩니다.\ncall, apply, bind를 쓰면 this를 명시적으로 지정할 수 있고, 화살표 함수는 자체 this가 없어 상위 스코프의 this를 그대로 사용합니다.",
+      "this는 자신이 속한 객체나 자신이 생성할 인스턴스를 가리키는 자기 참조 변수입니다.\n\n자바스크립트의 this는 선언 위치가 아니라 호출 방식에 따라 결정됩니다. 같은 함수라도 어떻게 부르느냐에 따라 다른 값이 바인딩됩니다.\n\n일반 함수로 호출하면 전역 객체, strict 모드에서는 undefined입니다.\n메서드로 호출하면 앞에 붙은 객체입니다.\n생성자 함수로 호출하면 새로 생성되는 인스턴스입니다.\ncall, apply, bind로 호출하면 지정한 객체입니다.\n화살표 함수는 자기 this가 없어 상위 스코프의 this를 그대로 씁니다.\n\n메서드를 변수에 담아 떼어내면 this 연결이 끊깁니다. call과 apply는 this를 지정해 바로 호출하고 인수를 낱개로 넘기느냐 배열로 넘기느냐만 다릅니다. bind는 호출하지 않고 this가 고정된 함수를 돌려줘서 콜백처럼 나중에 실행될 함수에 씁니다.",
   },
   {
     id: 53,
     category: "JavaScript",
-    question: "실행 컨텍스트에 대해 말해보세요",
+    question: "실행 컨텍스트가 뭔가요?",
     answer:
-      "실행 컨텍스트는 소스코드를 실행하는 데 필요한 환경 정보를 모아놓은 객체로, 코드의 실행 순서와 스코프를 관리합니다.\n\n전역 코드, 함수 코드, eval 코드, 모듈 코드 실행 시 생성되며 콜 스택에 쌓여 관리됩니다.\n\n내부에는 변수, 함수 선언 등을 관리하는 렉시컬 환경(Lexical Environment)과 this 바인딩 정보 등이 포함되어 있습니다.",
+      "실행 컨텍스트는 코드를 실행할 때 필요한 정보를 담아두는 공간입니다. 함수를 호출할 때마다 하나씩 만들어져 콜 스택에 쌓이고, 실행이 끝나면 빠집니다.\n\n안에는 식별자 목록과 상위 스코프 참조, this가 들어 있습니다.\n\n평가 단계에서 선언을 먼저 등록하고 실행 단계에서 값을 채웁니다. 호이스팅과 TDZ가 이 순서에서 나옵니다.",
   },
   {
     id: 54,
     category: "JavaScript",
-    question: "클로저에 대해 알고 있나요?",
+    question: "클로저가 뭔가요?",
     answer:
-      "클로저는 함수와 그 함수가 선언된 렉시컬 환경의 조합으로, 외부 함수의 실행이 끝나도 내부 함수가 외부 함수의 변수에 접근할 수 있는 현상입니다.\n\n내부 함수가 외부 함수의 변수를 참조하고 있으면, 외부 함수의 실행 컨텍스트가 사라져도 해당 변수가 메모리에서 해제되지 않습니다.\n\n이는 자바스크립트가 렉시컬 스코프를 따르기 때문에 가능합니다.",
+      "클로저는 함수가 자신이 선언된 위치의 변수를 계속 기억하는 현상입니다. 외부 함수의 실행이 끝나 실행 컨텍스트가 사라져도 내부 함수는 그 변수에 접근합니다.\n\n자바스크립트가 렉시컬 스코프를 따르기 때문에 가능합니다. 내부 함수의 상위 스코프는 선언 위치로 이미 정해져 있고, 그 변수를 참조하는 함수가 살아 있는 동안에는 변수도 메모리에서 해제되지 않습니다.\n\n그래서 외부 함수 안에 내부 함수를 정의하고, 내부 함수가 외부 변수를 참조한 채로 밖으로 나가면 클로저가 됩니다. 콜백이나 이벤트 핸들러로 넘긴 함수도 외부 변수를 참조하면 마찬가지입니다.\n\n```js\nfunction outer() {\n  let count = 0;\n  return function () {\n    return ++count;\n  };\n}\n\nconst counter = outer();\ncounter(); // 1\ncounter(); // 2, outer는 끝났지만 count는 살아 있음\n\nconst other = outer();\nother(); // 1, 새로 만들면 count도 따로 생김\n```",
   },
   {
     id: 55,
@@ -350,13 +343,6 @@ export const javascript: Flashcard[] = [
     question: "클로저를 사용하면 뭐가 좋나요?",
     answer:
       "클로저를 사용하면 상태를 안전하게 은닉(information hiding)하고, 특정 함수에게만 상태 변경을 허용할 수 있습니다.\n\n전역 변수 사용을 줄이고, 데이터 프라이버시를 구현하며, 함수 팩토리나 모듈 패턴을 만들 수 있습니다.\n\n또한 콜백 함수나 이벤트 핸들러에서 특정 상태를 기억하는 데 유용하게 활용됩니다.",
-  },
-  {
-    id: 56,
-    category: "JavaScript",
-    question: "클로저를 어떻게 생성하나요?",
-    answer:
-      "클로저는 외부 함수 안에 내부 함수를 정의하고, 내부 함수가 외부 함수의 변수를 참조하며, 내부 함수를 외부로 반환할 때 생성됩니다.\n\n예를 들어, function outer() { let count = 0; return function() { return ++count; }; }처럼 작성하면, 반환된 함수는 count 변수에 계속 접근할 수 있는 클로저가 됩니다.\n\n콜백 함수나 이벤트 핸들러로 전달되는 함수도 외부 변수를 참조하면 클로저를 형성합니다.",
   },
   {
     id: 57,

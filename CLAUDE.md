@@ -52,11 +52,11 @@ IDs must be unique within the file. `questions.ts` auto-includes the new data vi
 
 **질문 출처:** [prepare_frontend_interview](https://github.com/junh0328/prepare_frontend_interview), [maeil-mail-contents](https://github.com/maeil-mail/maeil-mail-contents)
 
-**현재 카드 수 (총 364장):**
+**현재 카드 수 (총 362장):**
 
 | 파일                         | 카테고리   | 카드 수 |
 | ---------------------------- | ---------- | ------- |
-| `src/data/javascript.ts`     | JavaScript | 86      |
+| `src/data/javascript.ts`     | JavaScript | 84      |
 | `src/data/cs.ts`             | CS         | 80      |
 | `src/data/react.ts`          | React      | 63      |
 | `src/data/html-css.ts`       | HTML/CSS   | 52      |
@@ -83,7 +83,7 @@ IDs must be unique within the file. `questions.ts` auto-includes the new data vi
 
 **어투 기준:** 질문·답변 모두 [gn-voice](https://github.com/gongnyang/gn-voice) 규칙을 따릅니다. 전역 스킬로 설치되어 있고(`~/.claude/skills/gn-voice`), 상세 적용 범위는 `.claude/rules/flashcard-conventions.md`에 정리했습니다. 플래시카드는 학습용 설명문이라 gn-voice §3(장르 밖) 원칙에 따라 표면 규칙만 적용하고 리듬·인격 요소는 이식하지 않습니다. 핵심 금지 항목은 줄표(`—`), AI 정리 상투구(`결론적으로`·`정리하면`·`핵심은`), 개조식 명사종결, 이모지·초성체입니다.
 
-**진행 중 작업:** 364장 전수 점검 체크리스트는 `.claude/flashcard-review.md`에 있습니다.
+**진행 중 작업:** 362장 전수 점검 체크리스트는 `.claude/flashcard-review.md`에 있습니다.
 
 ### Adding a New Category
 
