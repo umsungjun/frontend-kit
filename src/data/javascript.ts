@@ -312,9 +312,9 @@ export const javascript: Flashcard[] = [
   {
     id: 49,
     category: "JavaScript",
-    question: "래퍼 객체에 대해서 알고 있나요?",
+    question: "래퍼 객체가 뭔가요?",
     answer:
-      "래퍼 객체는 원시 타입(string, number, boolean)의 값에 대해 마치 객체처럼 마침표 표기법으로 접근할 때, 자바스크립트 엔진이 일시적으로 생성하는 임시 객체입니다.\n\n예를 들어 'hello'.length에 접근하면 문자열을 String 래퍼 객체로 감싸서 프로퍼티에 접근한 뒤, 처리가 끝나면 래퍼 객체를 버리고 다시 원시값으로 되돌립니다.\n\n이 때문에 원시 타입도 빌트인 객체의 프로토타입 메서드를 사용할 수 있습니다.",
+      "래퍼 객체는 원시 값에 마침표로 접근할 때 엔진이 잠깐 만들었다 버리는 임시 객체입니다.\n\n원시 값에는 프로퍼티가 없는데도 'hello'.length가 동작하는 이유가 여기 있습니다. 엔진이 문자열을 String 객체로 감싸 프로퍼티를 읽고, 끝나면 객체를 버린 뒤 원시 값으로 되돌립니다.\n\nstring, number, boolean, symbol, bigint에서 생성됩니다. 감쌀 객체가 없는 null과 undefined는 프로퍼티에 접근하면 에러가 납니다.\n\n```js\nconst s = 'hello';\ns.length; // 5, String 래퍼 객체를 거쳐 읽음\ntypeof s; // 'string', 읽고 나면 원시 값 그대로\n```",
   },
   {
     id: 50,
