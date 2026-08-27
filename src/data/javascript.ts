@@ -300,7 +300,7 @@ export const javascript: Flashcard[] = [
     category: "JavaScript",
     question: "프로토타입이 뭔가요?",
     answer:
-      "프로토타입은 자바스크립트에서 객체 간 상속을 구현하기 위한 메커니즘입니다.\n\n모든 객체는 [[Prototype]] 내부 슬롯을 통해 자신의 프로토타입에 대한 참조를 가지며, `__proto__` 접근자 프로퍼티로 접근할 수 있습니다.\n\n객체의 프로퍼티에 접근할 때 해당 프로퍼티가 없으면 프로토타입 체인을 따라 상위 프로토타입에서 검색하여 상속과 메서드 공유를 가능하게 합니다.",
+      "프로토타입은 다른 객체에 자기 프로퍼티와 메서드를 물려주는 객체입니다. 자바스크립트는 클래스 대신 이 방식으로 상속을 구현합니다.\n\n모든 객체는 `[[Prototype]]` 내부 슬롯에 자기 프로토타입의 참조를 갖습니다. 프로퍼티를 찾을 때 객체에 없으면 이 참조를 따라 올라가는데, 이렇게 이어진 연결이 프로토타입 체인입니다.\n\n접근은 `Object.getPrototypeOf`로 합니다. `__proto__`도 같은 값을 주지만 레거시로 분류돼 권장되지 않습니다.\n\n```js\nfunction Person(name) {\n  this.name = name;\n}\nPerson.prototype.greet = function () {\n  return 'hi ' + this.name;\n};\n\nconst p = new Person('kim');\np.greet(); // 'hi kim', p에는 없지만 프로토타입에서 찾음\nObject.hasOwn(p, 'greet'); // false\n```",
   },
   {
     id: 48,
