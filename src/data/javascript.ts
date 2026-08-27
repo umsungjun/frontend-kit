@@ -307,7 +307,7 @@ export const javascript: Flashcard[] = [
     category: "JavaScript",
     question: "빌트인 객체가 뭔가요?",
     answer:
-      "빌트인 객체는 자바스크립트 엔진에 기본적으로 내장되어 있는 객체로, 별도의 선언 없이 전역에서 사용할 수 있습니다.\n\nObject, String, Number, Boolean, Array, Function, Date, Math, RegExp, Promise, Map, Set 등이 표준 빌트인 객체에 해당합니다.\n\n이들은 프로토타입 메서드와 정적 메서드를 제공하여 자바스크립트 프로그래밍에 필수적인 기능을 지원합니다.",
+      "빌트인 객체는 자바스크립트 엔진에 내장돼 있어 선언 없이 바로 쓰는 객체입니다.\n\nObject, String, Number, Boolean, Array, Function, Date, RegExp, Promise, Map, Set 등이 표준 빌트인 객체입니다. 대부분 생성자 함수라 new로 인스턴스를 만들고, 그 인스턴스는 해당 프로토타입의 메서드를 씁니다.\n\nMath, JSON, Reflect는 예외입니다. 생성자가 아니라 정적 메서드만 모아둔 객체라 new로 호출하면 에러가 납니다.\n\n```js\nconst d = new Date(); // 생성자 함수라 인스턴스 생성 가능\nd.getFullYear(); // Date.prototype의 메서드\n\nnew Math(); // TypeError: Math is not a constructor\nMath.max(1, 2); // 정적 메서드만 사용\n```",
   },
   {
     id: 49,
