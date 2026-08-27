@@ -21,8 +21,12 @@ const MARKDOWN_COMPONENTS: Components = {
       </code>
     );
   },
+  // data-swipe-ignore: 코드 블록 가로 스크롤이 카드 스와이프로 오인되지 않도록 표시 (FlashcardDeck에서 검사)
   pre: ({ children }) => (
-    <pre className="my-2 overflow-x-auto rounded-xl bg-neutral-100 p-3 font-mono text-[0.85em] leading-relaxed text-neutral-800 dark:bg-neutral-900 dark:text-neutral-200">
+    <pre
+      data-swipe-ignore
+      className="my-2 overflow-x-auto rounded-xl bg-neutral-100 p-3 font-mono text-[0.85em] leading-relaxed text-neutral-800 dark:bg-neutral-900 dark:text-neutral-200"
+    >
       {children}
     </pre>
   ),

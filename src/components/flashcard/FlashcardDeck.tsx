@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 import { useFlashcard } from "@/context/FlashcardContext";
 import type { FontSizeKey } from "@/lib/constants";
@@ -30,12 +30,23 @@ const variants = {
   }),
 };
 
+// 가로 스크롤이 실제로 가능한 코드 블록 안에서 시작한 제스처는 카드 이동이 아니다
+const isScrollableXGesture = (target: EventTarget | null) => {
+  if (!(target instanceof Element)) return false;
+  const scrollBox = target.closest<HTMLElement>("[data-swipe-ignore]");
+  return !!scrollBox && scrollBox.scrollWidth > scrollBox.clientWidth + 1;
+};
+
 export function FlashcardDeck({ fontSize, isChatOpen }: FlashcardDeckProps) {
   const { state, currentCard, nextCard, prevCard, toggleAnswer } =
     useFlashcard();
 
-  // 텍스트 드래그 선택 중에는 스와이프 무시
+  // 제스처 시작 지점 기준으로 판정. 종료 시점 target은 스크롤로 달라질 수 있어 신뢰할 수 없다
+  const isScrollGestureRef = useRef(false);
+
+  // 텍스트 드래그 선택 중이거나 코드 블록 가로 스크롤 제스처면 스와이프 무시
   const handleSwipe = (action: () => void) => () => {
+    if (isScrollGestureRef.current) return;
     if (window.getSelection()?.toString()) return;
     action();
   };
@@ -43,6 +54,9 @@ export function FlashcardDeck({ fontSize, isChatOpen }: FlashcardDeckProps) {
   const handlers = useSwipeable({
     onSwipedLeft: handleSwipe(nextCard),
     onSwipedRight: handleSwipe(prevCard),
+    onTouchStartOrOnMouseDown: ({ event }) => {
+      isScrollGestureRef.current = isScrollableXGesture(event.target);
+    },
     trackMouse: true,
     delta: 50,
     preventScrollOnSwipe: true,
