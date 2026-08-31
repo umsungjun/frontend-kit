@@ -362,9 +362,9 @@ export const javascript: Flashcard[] = [
   {
     id: 59,
     category: "JavaScript",
-    question: "클래스의 상속에 대해 설명해주세요",
+    question: "클래스의 상속은 어떻게 동작하나요?",
     answer:
-      "클래스 상속은 extends 키워드를 사용하여 부모 클래스의 속성과 메서드를 자식 클래스가 물려받는 것입니다.\n\n자식 클래스에서 super()를 호출하여 부모 클래스의 constructor를 실행하고, super.method()로 부모의 메서드를 호출할 수 있습니다.\n\n자식 클래스에서 같은 이름의 메서드를 재정의(오버라이딩)하면 부모 메서드 대신 자식 메서드가 호출되어 다형성을 구현할 수 있습니다.",
+      "extends로 부모 클래스를 지정하면 자식이 부모의 프로퍼티와 메서드를 물려받습니다.\n\n자식의 constructor에서는 super()로 부모의 constructor를 먼저 실행합니다. 부모가 this를 만들어주기 때문에 super()를 부르기 전에는 this를 쓸 수 없습니다.\n\n같은 이름의 메서드를 자식에서 다시 정의하면 자식 것이 호출됩니다. 이걸 오버라이딩이라고 하고, 부모 것을 함께 쓰려면 super.method()로 부릅니다.\n\n```js\nclass Animal {\n  constructor(name) {\n    this.name = name;\n  }\n  speak() {\n    return this.name + ' makes a sound';\n  }\n}\n\nclass Dog extends Animal {\n  constructor(name) {\n    super(name); // 이 호출 전에 this를 쓰면 ReferenceError\n  }\n  speak() {\n    return super.speak() + ' (bark)'; // 부모 메서드를 가져다 씀\n  }\n}\n\nnew Dog('choco').speak(); // 'choco makes a sound (bark)'\n```",
   },
   {
     id: 60,
