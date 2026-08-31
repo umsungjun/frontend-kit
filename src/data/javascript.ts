@@ -369,9 +369,9 @@ export const javascript: Flashcard[] = [
   {
     id: 60,
     category: "JavaScript",
-    question: "브라우저의 렌더링 과정에 대해 설명해보세요",
+    question: "브라우저의 렌더링 과정은 어떻게 되나요?",
     answer:
-      "브라우저는 HTML과 CSS를 파싱한 뒤 화면에 픽셀을 그리기까지 여러 단계를 거칩니다.\n\n먼저 HTML을 파싱하여 DOM 트리를, CSS를 파싱하여 CSSOM 트리를 생성합니다.\nDOM과 CSSOM을 결합하여 렌더 트리를 만들고, 레이아웃(Layout) 단계에서 각 요소의 위치와 크기를 계산합니다.\n마지막으로 페인트(Paint) 단계에서 화면에 실제 픽셀을 그리고, 필요시 합성(Composite) 과정을 거쳐 레이어를 합칩니다.\n\n각 단계의 비용을 이해하면 리플로우와 리페인트를 줄이는 최적화 전략을 세울 수 있습니다.",
+      "브라우저의 렌더링 과정은 크게 HTML을 파싱하고, CSS를 적용하고, 화면에 그리는 순서로 진행됩니다.\n\nDOM: HTML을 파싱해 DOM 트리를 만듭니다.\nCSSOM: CSS를 파싱해 CSSOM 트리를 만듭니다.\nRender Tree: DOM과 CSSOM을 합쳐 화면에 표시할 요소만 남깁니다. display가 none인 요소는 빠집니다.\nLayout: 각 요소가 화면의 어디에 얼마나 크게 배치될지 계산합니다.\nPaint: 색상, 텍스트, 테두리, 그림자를 픽셀로 그립니다.\nComposite: 레이어가 여러 개면 합성해 최종 화면을 만듭니다.\n\nHTML → DOM → CSSOM → Render Tree → Layout → Paint → Composite 순서입니다.\n\n화면이 바뀌어 Layout을 다시 도는 것을 Reflow, Paint만 다시 도는 것을 Repaint라고 합니다. transform과 opacity는 둘 다 건너뛰고 Composite만 다시 해서 가장 가볍습니다.",
   },
   {
     id: 61,
