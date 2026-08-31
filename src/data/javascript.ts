@@ -342,7 +342,7 @@ export const javascript: Flashcard[] = [
     category: "JavaScript",
     question: "클로저를 사용하면 뭐가 좋나요?",
     answer:
-      "클로저를 사용하면 상태를 안전하게 은닉(information hiding)하고, 특정 함수에게만 상태 변경을 허용할 수 있습니다.\n\n전역 변수 사용을 줄이고, 데이터 프라이버시를 구현하며, 함수 팩토리나 모듈 패턴을 만들 수 있습니다.\n\n또한 콜백 함수나 이벤트 핸들러에서 특정 상태를 기억하는 데 유용하게 활용됩니다.",
+      "외부에서 건드릴 수 없는 상태를 만들고, 그 상태를 바꾸는 통로를 정해둔 함수로만 열어둡니다.\n\n변수를 전역에 두지 않고도 값을 유지합니다.\n밖에서 직접 접근할 수 없어 의도한 함수로만 값이 바뀝니다.\n호출할 때마다 독립된 상태를 가진 함수를 찍어내는 함수 팩토리를 만듭니다.\n\n```js\nfunction createCounter() {\n  let count = 0;\n  return {\n    increase: () => ++count,\n    get: () => count,\n  };\n}\n\nconst counter = createCounter();\ncounter.increase();\ncounter.get(); // 1\ncounter.count; // undefined, 밖에서는 접근 불가\n```\n\n대신 참조하는 함수가 살아 있는 동안 변수도 메모리에 남습니다. 다 쓴 클로저를 붙들고 있으면 해제되지 않아 누수가 됩니다. 스코프 체인을 거슬러 올라가는 만큼 변수 접근도 지역 변수보다 느립니다.",
   },
   {
     id: 57,
@@ -350,21 +350,21 @@ export const javascript: Flashcard[] = [
     question:
       "자바스크립트에서 클래스가 생기기 전에는 어떤 방식으로 객체지향 패턴을 구현했나요?",
     answer:
-      "ES6 이전에는 생성자 함수와 프로토타입을 조합하여 객체지향 패턴을 구현했습니다.\n\n생성자 함수로 인스턴스를 생성하고, prototype 객체에 메서드를 정의하여 상속을 구현했습니다.\n\n상속은 Object.create()나 프로토타입 체인을 수동으로 연결하는 방식으로 처리했으며, 모듈 패턴과 즉시 실행 함수를 활용하여 캡슐화를 구현했습니다.",
+      "ES6 이전에는 생성자 함수와 프로토타입을 조합해 객체지향 패턴을 만들었습니다.\n\n생성자 함수로 인스턴스를 찍어내고, 공유할 메서드는 prototype에 붙였습니다.\n상속은 자식의 prototype을 부모의 인스턴스나 Object.create로 만든 객체로 바꿔 체인을 직접 연결했습니다.\n캡슐화는 즉시 실행 함수로 스코프를 만들어 감추는 모듈 패턴으로 처리했습니다.\n\n지금은 class와 extends, super가 이 작업을 대신하고 private 필드(#)로 캡슐화도 언어 차원에서 지원합니다.",
   },
   {
     id: 58,
     category: "JavaScript",
     question: "생성자 함수와 클래스는 어떤 차이가 있나요?",
     answer:
-      "생성자 함수와 클래스는 모두 객체를 생성하지만, 호출 방식과 제공 기능에서 차이가 있습니다.\n\n생성자 함수는 new 없이도 일반 함수로 호출이 가능하고, 호이스팅이 일반 함수처럼 동작합니다.\n\n클래스는 new 연산자 없이 호출하면 에러가 발생합니다.\n상속을 지원하는 extends와 super 키워드를 제공하며, 클래스 내부 코드는 암묵적으로 strict mode가 적용됩니다.\n또한 호이스팅이 발생하지 않는 것처럼 동작하며, 클래스의 모든 메서드는 열거 불가능(non-enumerable)합니다.\n\n클래스는 객체지향 패턴을 더 명확하고 안전하게 표현하기 위한 진화된 문법입니다.",
+      "둘 다 객체를 만들지만 클래스가 더 엄격하고 기능이 많습니다.\n\n생성자 함수는 new 없이 호출해도 그냥 실행되지만, 클래스는 TypeError가 납니다.\n생성자 함수는 함수 선언문처럼 호이스팅돼 선언 전에 호출되지만, 클래스는 TDZ에 걸려 ReferenceError가 납니다.\n클래스는 extends와 super로 상속을 지원하고, 생성자 함수는 프로토타입을 직접 연결해야 합니다.\n클래스 안의 코드는 항상 strict 모드로 동작합니다.\n클래스의 프로토타입 메서드는 열거되지 않아 for...in이나 Object.keys에 잡히지 않습니다.\n\n```js\n// 생성자 함수\nfunction Person(name) {\n  this.name = name;\n}\nPerson.prototype.greet = function () {\n  return 'hi ' + this.name;\n};\n\n// 클래스, 같은 구조를 한 덩어리로 씀\nclass User {\n  constructor(name) {\n    this.name = name;\n  }\n  greet() {\n    return 'hi ' + this.name;\n  }\n}\n\nPerson('kim'); // undefined, new 없이도 그냥 실행됨\nUser('kim'); // TypeError: Class constructor User cannot be invoked without 'new'\n\nObject.keys(Person.prototype); // ['greet']\nObject.keys(User.prototype); // [], 열거되지 않음\n```",
   },
   {
     id: 59,
     category: "JavaScript",
-    question: "클래스의 상속에 대해 설명해주세요",
+    question: "클래스의 상속은 어떻게 동작하나요?",
     answer:
-      "클래스 상속은 extends 키워드를 사용하여 부모 클래스의 속성과 메서드를 자식 클래스가 물려받는 것입니다.\n\n자식 클래스에서 super()를 호출하여 부모 클래스의 constructor를 실행하고, super.method()로 부모의 메서드를 호출할 수 있습니다.\n\n자식 클래스에서 같은 이름의 메서드를 재정의(오버라이딩)하면 부모 메서드 대신 자식 메서드가 호출되어 다형성을 구현할 수 있습니다.",
+      "extends로 부모 클래스를 지정하면 자식이 부모의 프로퍼티와 메서드를 물려받습니다.\n\n자식의 constructor에서는 super()로 부모의 constructor를 먼저 실행합니다. 부모가 this를 만들어주기 때문에 super()를 부르기 전에는 this를 쓸 수 없습니다.\n\n같은 이름의 메서드를 자식에서 다시 정의하면 자식 것이 호출됩니다. 이걸 오버라이딩이라고 하고, 부모 것을 함께 쓰려면 super.method()로 부릅니다.\n\n```js\nclass Animal {\n  constructor(name) {\n    this.name = name;\n  }\n  speak() {\n    return this.name + ' makes a sound';\n  }\n}\n\nclass Dog extends Animal {\n  constructor(name) {\n    super(name); // 이 호출 전에 this를 쓰면 ReferenceError\n  }\n  speak() {\n    return super.speak() + ' (bark)'; // 부모 메서드를 가져다 씀\n  }\n}\n\nnew Dog('choco').speak(); // 'choco makes a sound (bark)'\n```",
   },
   {
     id: 60,
