@@ -357,7 +357,7 @@ export const javascript: Flashcard[] = [
     category: "JavaScript",
     question: "생성자 함수와 클래스는 어떤 차이가 있나요?",
     answer:
-      "생성자 함수와 클래스는 모두 객체를 생성하지만, 호출 방식과 제공 기능에서 차이가 있습니다.\n\n생성자 함수는 new 없이도 일반 함수로 호출이 가능하고, 호이스팅이 일반 함수처럼 동작합니다.\n\n클래스는 new 연산자 없이 호출하면 에러가 발생합니다.\n상속을 지원하는 extends와 super 키워드를 제공하며, 클래스 내부 코드는 암묵적으로 strict mode가 적용됩니다.\n또한 호이스팅이 발생하지 않는 것처럼 동작하며, 클래스의 모든 메서드는 열거 불가능(non-enumerable)합니다.\n\n클래스는 객체지향 패턴을 더 명확하고 안전하게 표현하기 위한 진화된 문법입니다.",
+      "둘 다 객체를 만들지만 클래스가 더 엄격하고 기능이 많습니다.\n\n생성자 함수는 new 없이 호출해도 그냥 실행되지만, 클래스는 TypeError가 납니다.\n생성자 함수는 함수 선언문처럼 호이스팅돼 선언 전에 호출되지만, 클래스는 TDZ에 걸려 ReferenceError가 납니다.\n클래스는 extends와 super로 상속을 지원하고, 생성자 함수는 프로토타입을 직접 연결해야 합니다.\n클래스 안의 코드는 항상 strict 모드로 동작합니다.\n클래스의 프로토타입 메서드는 열거되지 않아 for...in이나 Object.keys에 잡히지 않습니다.\n\n```js\n// 생성자 함수\nfunction Person(name) {\n  this.name = name;\n}\nPerson.prototype.greet = function () {\n  return 'hi ' + this.name;\n};\n\n// 클래스, 같은 구조를 한 덩어리로 씀\nclass User {\n  constructor(name) {\n    this.name = name;\n  }\n  greet() {\n    return 'hi ' + this.name;\n  }\n}\n\nPerson('kim'); // undefined, new 없이도 그냥 실행됨\nUser('kim'); // TypeError: Class constructor User cannot be invoked without 'new'\n\nObject.keys(Person.prototype); // ['greet']\nObject.keys(User.prototype); // [], 열거되지 않음\n```",
   },
   {
     id: 59,
