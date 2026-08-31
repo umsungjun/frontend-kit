@@ -342,7 +342,7 @@ export const javascript: Flashcard[] = [
     category: "JavaScript",
     question: "클로저를 사용하면 뭐가 좋나요?",
     answer:
-      "클로저를 사용하면 상태를 안전하게 은닉(information hiding)하고, 특정 함수에게만 상태 변경을 허용할 수 있습니다.\n\n전역 변수 사용을 줄이고, 데이터 프라이버시를 구현하며, 함수 팩토리나 모듈 패턴을 만들 수 있습니다.\n\n또한 콜백 함수나 이벤트 핸들러에서 특정 상태를 기억하는 데 유용하게 활용됩니다.",
+      "외부에서 건드릴 수 없는 상태를 만들고, 그 상태를 바꾸는 통로를 정해둔 함수로만 열어둡니다.\n\n변수를 전역에 두지 않고도 값을 유지합니다.\n밖에서 직접 접근할 수 없어 의도한 함수로만 값이 바뀝니다.\n호출할 때마다 독립된 상태를 가진 함수를 찍어내는 함수 팩토리를 만듭니다.\n\n```js\nfunction createCounter() {\n  let count = 0;\n  return {\n    increase: () => ++count,\n    get: () => count,\n  };\n}\n\nconst counter = createCounter();\ncounter.increase();\ncounter.get(); // 1\ncounter.count; // undefined, 밖에서는 접근 불가\n```\n\n대신 참조하는 함수가 살아 있는 동안 변수도 메모리에 남습니다. 다 쓴 클로저를 붙들고 있으면 해제되지 않아 누수가 됩니다. 스코프 체인을 거슬러 올라가는 만큼 변수 접근도 지역 변수보다 느립니다.",
   },
   {
     id: 57,
