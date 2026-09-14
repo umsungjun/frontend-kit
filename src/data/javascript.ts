@@ -383,9 +383,9 @@ export const javascript: Flashcard[] = [
   {
     id: 62,
     category: "JavaScript",
-    question: "script 태그를 body 태그 밑에 둬야 하는 이유가 있을까요?",
+    question: "script 태그는 어디에 두는 게 좋나요?",
     answer:
-      "script 태그를 body 하단에 두면 HTML 파싱이 완료된 후 스크립트가 실행되므로, DOM이 완성되기 전에 DOM을 조작하려는 에러를 방지할 수 있습니다.\n\n또한 HTML 파싱이 스크립트에 의해 블로킹되지 않아 페이지가 사용자에게 더 빠르게 표시됩니다.\n\n대안으로 script 태그에 defer 속성을 사용하면 head에 두어도 HTML 파싱 완료 후 실행되게 할 수 있습니다.",
+      'head에 두고 defer를 붙이는 쪽이 낫습니다. 파싱과 다운로드가 동시에 진행되고, 실행은 파싱이 끝난 뒤로 미뤄집니다.\n\nbody 끝에 두는 방법은 defer를 믿고 쓸 수 없던 시절의 대안입니다. IE9까지는 defer가 부분 지원이라 실행 순서가 보장되지 않았고, IE10부터 완전 지원되면서 그 이유가 사라졌습니다. 파서가 body 끝까지 와야 다운로드를 시작하니 defer보다 늦습니다.\n\n`type="module"`은 defer가 기본이라 따로 붙이지 않아도 파싱을 막지 않습니다. 번들러가 내보내는 스크립트가 대부분 이 형태입니다.',
   },
   {
     id: 63,
