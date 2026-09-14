@@ -369,30 +369,30 @@ export const javascript: Flashcard[] = [
   {
     id: 60,
     category: "JavaScript",
-    question: "브라우저의 렌더링 과정에 대해 설명해보세요",
+    question: "브라우저의 렌더링 과정은 어떻게 되나요?",
     answer:
-      "브라우저는 HTML과 CSS를 파싱한 뒤 화면에 픽셀을 그리기까지 여러 단계를 거칩니다.\n\n먼저 HTML을 파싱하여 DOM 트리를, CSS를 파싱하여 CSSOM 트리를 생성합니다.\nDOM과 CSSOM을 결합하여 렌더 트리를 만들고, 레이아웃(Layout) 단계에서 각 요소의 위치와 크기를 계산합니다.\n마지막으로 페인트(Paint) 단계에서 화면에 실제 픽셀을 그리고, 필요시 합성(Composite) 과정을 거쳐 레이어를 합칩니다.\n\n각 단계의 비용을 이해하면 리플로우와 리페인트를 줄이는 최적화 전략을 세울 수 있습니다.",
+      "브라우저의 렌더링 과정은 크게 HTML을 파싱하고, CSS를 적용하고, 화면에 그리는 순서로 진행됩니다.\n\nDOM: HTML을 파싱해 DOM 트리를 만듭니다.\nCSSOM: CSS를 파싱해 CSSOM 트리를 만듭니다.\nRender Tree: DOM과 CSSOM을 합쳐 화면에 표시할 요소만 남깁니다. display가 none인 요소는 빠집니다.\nLayout: 각 요소가 화면의 어디에 얼마나 크게 배치될지 계산합니다.\nPaint: 색상, 텍스트, 테두리, 그림자를 픽셀로 그립니다.\nComposite: 레이어가 여러 개면 합성해 최종 화면을 만듭니다.\n\nHTML → DOM → CSSOM → Render Tree → Layout → Paint → Composite 순서입니다.\n\n화면이 바뀌어 Layout을 다시 도는 것을 Reflow, Paint만 다시 도는 것을 Repaint라고 합니다. transform과 opacity는 둘 다 건너뛰고 Composite만 다시 해서 가장 가볍습니다.",
   },
   {
     id: 61,
     category: "JavaScript",
     question: "브라우저의 렌더링 과정에 자바스크립트는 어떻게 동작하나요?",
     answer:
-      "HTML 파싱 중 script 태그를 만나면 파싱을 중단하고 자바스크립트 엔진에 제어권을 넘깁니다.\n\n자바스크립트 엔진은 코드를 파싱하여 AST(추상 구문 트리)를 생성하고, 바이트코드로 변환하여 실행합니다.\n\n자바스크립트 실행이 완료되면 다시 HTML 파싱이 재개되므로, 스크립트의 위치와 async/defer 속성이 렌더링 성능에 영향을 줍니다.",
+      "HTML을 파싱하던 렌더링 엔진이 script 태그를 만나면 파싱을 멈추고 자바스크립트 엔진에 제어권을 넘깁니다.\n\n자바스크립트 엔진은 코드를 파싱해 문법 구조를 트리로 표현한 AST를 만듭니다. 이 트리를 엔진이 실행할 수 있는 바이트코드로 바꿔 실행합니다. 실행이 끝나면 렌더링 엔진이 제어권을 돌려받아 멈췄던 지점부터 파싱을 재개합니다.\n\n파싱이 멈춘 동안에는 DOM이 더 만들어지지 않아 화면도 그려지지 않습니다. script를 body 끝에 두거나 async, defer를 붙이는 이유가 여기 있습니다.",
   },
   {
     id: 62,
     category: "JavaScript",
-    question: "script 태그를 body 태그 밑에 둬야 하는 이유가 있을까요?",
+    question: "script 태그는 어디에 두는 게 좋나요?",
     answer:
-      "script 태그를 body 하단에 두면 HTML 파싱이 완료된 후 스크립트가 실행되므로, DOM이 완성되기 전에 DOM을 조작하려는 에러를 방지할 수 있습니다.\n\n또한 HTML 파싱이 스크립트에 의해 블로킹되지 않아 페이지가 사용자에게 더 빠르게 표시됩니다.\n\n대안으로 script 태그에 defer 속성을 사용하면 head에 두어도 HTML 파싱 완료 후 실행되게 할 수 있습니다.",
+      'head에 두고 defer를 붙이는 쪽이 낫습니다. 파싱과 다운로드가 동시에 진행되고, 실행은 파싱이 끝난 뒤로 미뤄집니다.\n\nbody 끝에 두는 방법은 defer를 믿고 쓸 수 없던 시절의 대안입니다. IE9까지는 defer가 부분 지원이라 실행 순서가 보장되지 않았고, IE10부터 완전 지원되면서 그 이유가 사라졌습니다. 파서가 body 끝까지 와야 다운로드를 시작하니 defer보다 늦습니다.\n\n`type="module"`은 defer가 기본이라 따로 붙이지 않아도 파싱을 막지 않습니다. 번들러가 내보내는 스크립트가 대부분 이 형태입니다.',
   },
   {
     id: 63,
     category: "JavaScript",
     question: "DOM이 뭔가요?",
     answer:
-      "DOM(Document Object Model)은 HTML 문서의 구조화된 표현으로, 브라우저가 HTML을 파싱하여 생성하는 트리 구조의 객체 모델입니다.\n\n자바스크립트를 통해 DOM에 접근하여 문서의 구조, 스타일, 내용을 동적으로 변경할 수 있습니다.\n\nDOM은 W3C 표준으로 프로그래밍 언어가 문서에 접근할 수 있는 API를 제공합니다.",
+      "DOM(Document Object Model)은 브라우저가 HTML을 파싱해 만든 트리 구조의 객체 모델입니다. 태그 하나하나가 객체가 되어 부모 자식 관계로 이어집니다.\n\n자바스크립트를 통해 DOM에 접근하여 문서의 구조, 스타일, 내용을 동적으로 변경할 수 있습니다.",
   },
   {
     id: 64,
