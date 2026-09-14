@@ -392,7 +392,7 @@ export const javascript: Flashcard[] = [
     category: "JavaScript",
     question: "DOM이 뭔가요?",
     answer:
-      "DOM(Document Object Model)은 HTML 문서의 구조화된 표현으로, 브라우저가 HTML을 파싱하여 생성하는 트리 구조의 객체 모델입니다.\n\n자바스크립트를 통해 DOM에 접근하여 문서의 구조, 스타일, 내용을 동적으로 변경할 수 있습니다.\n\nDOM은 W3C 표준으로 프로그래밍 언어가 문서에 접근할 수 있는 API를 제공합니다.",
+      "DOM(Document Object Model)은 브라우저가 HTML을 파싱해 만든 트리 구조의 객체 모델입니다. 태그 하나하나가 객체가 되어 부모 자식 관계로 이어집니다.\n\n자바스크립트를 통해 DOM에 접근하여 문서의 구조, 스타일, 내용을 동적으로 변경할 수 있습니다.",
   },
   {
     id: 64,
