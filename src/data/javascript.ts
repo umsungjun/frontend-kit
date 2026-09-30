@@ -404,9 +404,9 @@ export const javascript: Flashcard[] = [
   {
     id: 65,
     category: "JavaScript",
-    question: "이벤트 전파(propagation)에 대해서 알고 있나요?",
+    question: "이벤트 전파가 뭔가요?",
     answer:
-      "이벤트 전파는 DOM 요소에서 이벤트가 발생했을 때 이벤트가 전달되는 흐름입니다.\n\n캡처링 단계에서 이벤트가 window에서 타겟 요소까지 하위로 전파됩니다.\n타겟 단계에서 이벤트가 타겟에 도달합니다.\n버블링 단계에서 타겟에서 window까지 상위로 전파됩니다.\n\n대부분의 이벤트는 버블링되며, event.stopPropagation()으로 전파를 중단할 수 있습니다.",
+      "이벤트 전파는 DOM에서 이벤트가 발생했을 때 이벤트 객체가 전달되는 흐름입니다.\n\n캡처링 단계에서 window부터 타겟까지 내려갑니다.\n타겟 단계에서 이벤트가 타겟에 도달합니다.\n버블링 단계에서 타겟부터 window까지 올라갑니다.\n\ndiv 안의 button을 클릭하면 window → html → body → div로 내려가 button에 닿고, 다시 div → body → html → window로 올라갑니다.\n\naddEventListener는 기본적으로 버블링 단계에서 핸들러를 실행합니다. 캡처링 단계에서 잡으려면 세 번째 인자로 `{ capture: true }`를 넘깁니다. 전파를 멈추려면 event.stopPropagation()을 호출합니다.\n\nfocus와 blur는 버블링하지 않습니다. 상위 요소에서 잡아야 한다면 버블링하는 focusin, focusout을 씁니다.",
   },
   {
     id: 66,
