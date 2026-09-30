@@ -411,9 +411,9 @@ export const javascript: Flashcard[] = [
   {
     id: 66,
     category: "JavaScript",
-    question: "이벤트 위임(delegation)에 대해 알고 있나요?",
+    question: "이벤트 위임이 뭔가요?",
     answer:
-      "이벤트 위임은 여러 하위 요소에 개별적으로 이벤트 핸들러를 등록하는 대신, 상위 요소 하나에 이벤트 핸들러를 등록하여 하위 요소의 이벤트를 처리하는 패턴입니다.\n\n이벤트 버블링을 활용하며, event.target을 통해 실제 이벤트가 발생한 요소를 식별합니다.\n\n동적으로 추가되는 요소에도 자동으로 이벤트 처리가 적용되고, 메모리 사용을 줄이며 성능을 향상시킵니다.",
+      "이벤트 위임은 하위 요소마다 핸들러를 붙이는 대신 상위 요소 하나에만 붙여 처리하는 패턴입니다. 이벤트가 상위로 버블링되는 성질을 이용합니다.\n\n핸들러 안에서 event.target으로 실제 클릭된 요소를 찾습니다. event.currentTarget은 핸들러를 붙인 상위 요소라 둘이 가리키는 대상이 다릅니다.\n\n핸들러가 하나뿐이라 메모리를 덜 쓰고, 나중에 추가된 하위 요소도 따로 등록하지 않아도 동작합니다.\n\n```js\nlist.addEventListener('click', (e) => {\n  const li = e.target.closest('li'); // 안쪽 요소를 눌러도 li를 찾아줌\n  if (!li) return;\n\n  li.textContent; // 클릭된 항목\n  e.currentTarget === list; // true, 핸들러를 붙인 요소\n});\n```",
   },
   {
     id: 67,
