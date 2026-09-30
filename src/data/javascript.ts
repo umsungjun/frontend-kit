@@ -404,16 +404,16 @@ export const javascript: Flashcard[] = [
   {
     id: 65,
     category: "JavaScript",
-    question: "이벤트 전파(propagation)에 대해서 알고 있나요?",
+    question: "이벤트 전파가 뭔가요?",
     answer:
-      "이벤트 전파는 DOM 요소에서 이벤트가 발생했을 때 이벤트가 전달되는 흐름입니다.\n\n캡처링 단계에서 이벤트가 window에서 타겟 요소까지 하위로 전파됩니다.\n타겟 단계에서 이벤트가 타겟에 도달합니다.\n버블링 단계에서 타겟에서 window까지 상위로 전파됩니다.\n\n대부분의 이벤트는 버블링되며, event.stopPropagation()으로 전파를 중단할 수 있습니다.",
+      "이벤트 전파는 DOM에서 이벤트가 발생했을 때 이벤트 객체가 전달되는 흐름입니다.\n\n캡처링 단계에서 window부터 타겟까지 내려갑니다.\n타겟 단계에서 이벤트가 타겟에 도달합니다.\n버블링 단계에서 타겟부터 window까지 올라갑니다.\n\ndiv 안의 button을 클릭하면 window → html → body → div로 내려가 button에 닿고, 다시 div → body → html → window로 올라갑니다.\n\naddEventListener는 기본적으로 버블링 단계에서 핸들러를 실행합니다. 캡처링 단계에서 잡으려면 세 번째 인자로 `{ capture: true }`를 넘깁니다. 전파를 멈추려면 event.stopPropagation()을 호출합니다.\n\nfocus와 blur는 버블링하지 않습니다. 상위 요소에서 잡아야 한다면 버블링하는 focusin, focusout을 씁니다.",
   },
   {
     id: 66,
     category: "JavaScript",
-    question: "이벤트 위임(delegation)에 대해 알고 있나요?",
+    question: "이벤트 위임이 뭔가요?",
     answer:
-      "이벤트 위임은 여러 하위 요소에 개별적으로 이벤트 핸들러를 등록하는 대신, 상위 요소 하나에 이벤트 핸들러를 등록하여 하위 요소의 이벤트를 처리하는 패턴입니다.\n\n이벤트 버블링을 활용하며, event.target을 통해 실제 이벤트가 발생한 요소를 식별합니다.\n\n동적으로 추가되는 요소에도 자동으로 이벤트 처리가 적용되고, 메모리 사용을 줄이며 성능을 향상시킵니다.",
+      "이벤트 위임은 하위 요소마다 핸들러를 붙이는 대신 상위 요소 하나에만 붙여 처리하는 패턴입니다. 이벤트가 상위로 버블링되는 성질을 이용합니다.\n\n핸들러 안에서 event.target으로 실제 클릭된 요소를 찾습니다. event.currentTarget은 핸들러를 붙인 상위 요소라 둘이 가리키는 대상이 다릅니다.\n\n핸들러가 하나뿐이라 메모리를 덜 쓰고, 나중에 추가된 하위 요소도 따로 등록하지 않아도 동작합니다.\n\n```js\nlist.addEventListener('click', (e) => {\n  const li = e.target.closest('li'); // 안쪽 요소를 눌러도 li를 찾아줌\n  if (!li) return;\n\n  li.textContent; // 클릭된 항목\n  e.currentTarget === list; // true, 핸들러를 붙인 요소\n});\n```",
   },
   {
     id: 67,
