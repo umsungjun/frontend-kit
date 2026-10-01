@@ -418,16 +418,9 @@ export const javascript: Flashcard[] = [
   {
     id: 67,
     category: "JavaScript",
-    question: "디바운스에 대해서 알고 있나요?",
+    question: "디바운스와 쓰로틀은 어떤 차이가 있나요?",
     answer:
-      "디바운스는 연속적으로 발생하는 이벤트에서 마지막 이벤트가 발생한 후 일정 시간이 지나면 한 번만 실행하는 기법입니다.\n\n짧은 시간 간격으로 이벤트가 연속 발생하면 이전 타이머를 취소하고 새 타이머를 설정합니다.\n\n주로 검색 입력 자동완성, 창 크기 조절(resize) 이벤트 등에서 불필요한 함수 호출을 줄이기 위해 사용됩니다.",
-  },
-  {
-    id: 68,
-    category: "JavaScript",
-    question: "쓰로틀에 대해서 알고 있나요?",
-    answer:
-      "쓰로틀은 일정 시간 간격 동안 이벤트가 아무리 많이 발생해도 최대 한 번만 함수를 실행하도록 제한하는 기법입니다.\n\n디바운스와 달리 일정 주기로 반드시 한 번은 실행이 보장됩니다.\n\n주로 스크롤 이벤트, 무한 스크롤 구현, 드래그 이벤트 등 빈번하게 발생하는 이벤트의 성능을 최적화할 때 사용합니다.",
+      "디바운스와 쓰로틀은 짧은 시간에 반복 발생하는 이벤트의 실행 횟수를 제한하는 성능 최적화 기법입니다.\n스크롤이나 입력처럼 초당 수십 번 발생하는 이벤트를 그대로 처리하면 불필요한 연산과 네트워크 요청이 쌓입니다.\n\n디바운스는 이벤트가 멈추고 일정 시간이 지나야 한 번 실행합니다.\n그 사이에 이벤트가 또 오면 타이머를 버리고 다시 셉니다.\n\n```js\n// 디바운스, 검색창\nconst debounce = (fn, delay) => {\n  let timer;\n  return (...args) => {\n    clearTimeout(timer); // 이전 타이머를 버리고 다시 시작\n    timer = setTimeout(() => fn(...args), delay);\n  };\n};\n\ninput.addEventListener('input', debounce(search, 300)); // 타이핑이 멈추고 300ms 뒤 한 번\n```\n\n쓰로틀은 일정 시간에 최대 한 번만 실행합니다.\n이벤트가 계속 오더라도 주기마다 실행이 보장됩니다.\n\n```js\n// 쓰로틀, 스크롤\nconst throttle = (fn, delay) => {\n  let timer;\n  return (...args) => {\n    if (timer) return; // 이미 예약돼 있으면 무시\n    timer = setTimeout(() => {\n      fn(...args);\n      timer = null;\n    }, delay);\n  };\n};\n\nwindow.addEventListener('scroll', throttle(update, 200)); // 스크롤 중 200ms마다\n```",
   },
   {
     id: 69,
